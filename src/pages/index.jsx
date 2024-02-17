@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import ElevatingIdea from "../components/ElevatingIdea/index";
+import WhatWeDo from "../components/WhatWeDo/index";
 import LetsTalk from "../components/LetsTalk/index";
 import { Roboto, Space_Grotesk } from "next/font/google";
 import TextContext from "../TextContext";
@@ -28,6 +29,7 @@ export default function Home() {
       <main className={space_Grotesk.className}>
         <Navbar fonts={fontClasses} />
         <ElevatingIdea />
+        <WhatWeDo />
         <LetsTalk />
         <div className="text-red-500">index</div>
       </main>
