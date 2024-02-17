@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.stroke-text {
+    -webkit-text-stroke: 1px #fada82;
+  }
