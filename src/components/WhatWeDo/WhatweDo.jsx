@@ -12,7 +12,7 @@ const textBlocks = [
 const WhatweDo = () => {
   return (
     <div className="relative w-full sm:flex justify-start items-center">
-      <div className="h-[90vh] sm:h-screen m-6 sm:w-[45%]">
+      <div className="h-[90vh] sm:h-[90vh] m-6 sm:w-[45%]">
         <div className="">
           <div className="text-yellow font-space-grotesk text-7xl sm:text-8xl font-medium leading-93 my-12 mx-4 sm:m-0">
             What we do
