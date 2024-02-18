@@ -4,7 +4,7 @@ import Link from "next/link";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
-const BurgerMenu = ({ isOpen, onClose }) => {
+const MobileBurgerMenu = ({ isOpen, onClose }) => {
   return (
     <div
       className={`fixed inset-0 z-50 ${
@@ -50,6 +50,75 @@ const BurgerMenu = ({ isOpen, onClose }) => {
   );
 };
 
+const WebBurgerMenu = ({ isOpen, onClose }) => {
+  return (
+    <div
+      className={`fixed inset-0 z-50 ${
+        isOpen ? "bg-yellow" : "hidden bg-transparent"
+      } transition-all duration-300`}
+    >
+      <div className="flex justify-between">
+        <div className="w-1/2 flex flex-col h-screen">
+          {/* First div at the top */}
+          <div className="flex items-center justify-start relative space-x-4 m-10">
+            <div className="pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
+              <div
+                className="shadow-custom bg-yellow rounded-full p-1 border-darkYellow border-solid"
+                onClick={onClose}
+              >
+                <MenuIcon />
+              </div>
+            </div>
+            <div className="hidden sm:block">The Product Architects</div>
+          </div>
+
+          {/* Second div in the middle */}
+          <div className="flex-1 flex items-center justify-start m-10">
+            <div className="flex items-center justify-center space-x-8">
+              <div className="cursor-pointer" onClick={onClose}>
+                <CloseIcon />
+              </div>
+              <div className="my-1 cursor-pointer">Projects</div>
+              <div className="my-1 cursor-pointer">Services</div>
+              <div className="my-1 cursor-pointer">Articles</div>
+              <div className="my-1 cursor-pointer">Free Tools</div>
+              <div className="my-1 cursor-pointer">Let's Talk</div>
+            </div>
+          </div>
+
+          {/* Third div at the bottom */}
+          <div className="flex justify-between m-10">
+            <div className="flex space-x-4 placeholder:text-center">
+              <div className="">Mail Us:</div>
+              <div className="underline">
+                <Link href="mailto:hello@productarchitects.eu">hello@productarchitects.eu</Link>
+              </div>
+            </div>
+            <div className="flex items-center justify-center space-x-4">
+              <div className="">
+                {" "}
+                <Image src="/images/Vector.png" alt="Logo" width={20} height={20} />
+              </div>
+              <div className="">
+                {" "}
+                <Image src="/images/LikedIn.png" alt="Logo" width={20} height={20} />
+              </div>
+              <div className="">
+                {" "}
+                <Image src="/images/yellowInsta.png" alt="Logo" width={20} height={20} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="w-1/2">
+          {/* Second div content (assuming it's an image) */}
+          <Image src="/images/resource.png" alt="Logo" width={800} height={800} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Navbar = ({ fonts }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
@@ -79,7 +148,10 @@ const Navbar = ({ fonts }) => {
               </div>
             </div>
             <div className="sm:hidden">
-              <BurgerMenu isOpen={isMenuOpen} onClose={handleMenuToggle} />
+              <MobileBurgerMenu isOpen={isMenuOpen} onClose={handleMenuToggle} />
+            </div>
+            <div className="hidden sm:block">
+              <WebBurgerMenu isOpen={isMenuOpen} onClose={handleMenuToggle} />
             </div>
           </div>
         </div>
