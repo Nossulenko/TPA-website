@@ -18,7 +18,11 @@ const WhatweDo = () => {
             What we do
           </div>
           <div className="sm:hidden  bottom-0 right-0 mr-4">
-            <img src="/images/r3.png" alt="r3" width={800} height={800} layout="fixed" />
+            <img src="/images/r3.png" alt="r3" width={800} height={800} 
+
+            // layout="fixed" 
+
+            />
           </div>
           <div className="mx-4 sm:m-0 w-10/12 sm:w-10/12">
             <div className=" font-space-grotesk text-4xl font-normal leading-127.5 my-6">
@@ -45,7 +49,7 @@ const WhatweDo = () => {
             alt="r3"
             width={800}
             height={800}
-            layout="fixed"
+            // layout="fixed"
           />
           <div className="absolute z-0 top-1/2 left-1/2 transform -translate-x-1/4 -translate-y-1/2 w-40 h-40 shadow-custom2 bg-yellow rounded-full p-1 border-darkYellow border-solid"></div>
         </div>

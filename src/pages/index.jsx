@@ -3,8 +3,12 @@ import Navbar from "../components/Navbar";
 import ElevatingIdea from "../components/ElevatingIdea/index";
 import WhatWeDo from "../components/WhatWeDo/index";
 import HowWeOperate from "../components/HowWeOperate/index";
+import HowToOperate from "../components/HowToOperate/index";
+import Services from "../components/Services/index";
 import Articles from "../components/Articles/index";
 import LetsTalk from "../components/LetsTalk/index";
+import Team from "../components/Team/index";
+import About from "../components/AboutPTA/index";
 import { Roboto, Space_Grotesk } from "next/font/google";
 import TextContext from "../TextContext";
 
@@ -33,9 +37,12 @@ export default function Home() {
         <ElevatingIdea />
         <WhatWeDo />
         <HowWeOperate />
+        <HowToOperate />
+        <Services />
         <Articles />
+        <About />
+        <Team />
         <LetsTalk />
-        <div className="text-red-500">index</div>
       </main>
     </TextContext.Provider>
   );

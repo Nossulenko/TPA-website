@@ -9,7 +9,7 @@ const Navbar = ({ fonts }) => {
         <div className="flex items-center justify-between m-6">
           <div className="flex items-center justify-start">
             <div className="">
-              <Image src="/images/logo.png" alt="Logo" width={40} height={40} layout="fixed" />
+              <Image src="/images/logo.png" alt="Logo" width={40} height={40} />
             </div>
             <div className="">The Product Architects</div>
             <div className="text-transparent text-stroke text-black text-2xl">Hollow Text</div>

@@ -22,11 +22,11 @@ const textBlocks = [
 
 const HowWeOperate = () => {
   return (
-    <div className="relative w-full my-10">
-      <div className="text-yellow font-space-grotesk text-7xl sm:text-8xl font-medium  my-12 mx-4 sm:m-0">
+    <div className="hidden sm:block relative w-full my-10">
+      <div className="text-yellow font-space-grotesk text-8xl sm:text-9xl font-medium  my-12 mx-4 sm:m-0">
         How we operate
       </div>
-      <div className="h-[90vh] sm:h-[90vh] hidden sm:flex flex-col space-y-8 sm:space-y-0 mx-4 sm:mx-0 sm:flex-row sm:space-x-10 m-6">
+      <div className="h-[90vh] sm:h-[90vh] flex flex-col space-y-8 sm:space-y-0 mx-4 sm:mx-0 sm:flex-row sm:space-x-10 m-6">
         {textBlocks.map((block, index) => (
           <div key={index} className="mb-8 w-full sm:w-1/3">
             <div className="rounded-2xl">

@@ -12,3 +12,45 @@
 .shadow-custom2 {
   box-shadow: 0px 0px 50px 100px rgba(255, 207, 79, 0.8);
 }
+
+
+::-webkit-scrollbar {
+  width: 12px; /* Customize the scrollbar width */
+  scrollbar-color: #FECF4F #ffffff; /* Thumb and track colors */
+  scrollbar-width: thick; /* Set the scrollbar width */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ffffff; /* Customize the scrollbar track color */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #FECF4F; /* Customize the scrollbar thumb color */
+  border-radius: 6px; /* Add rounded corners to the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #cbcbcb;
+}
+
+.ScrollContainer {
+  /* height and width as required */
+  /* overflow-y: auto;
+  
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #FFFFFF;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #FECF4F;
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #cbcbcb;
+  } */
+}
