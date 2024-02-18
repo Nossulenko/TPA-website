@@ -7,7 +7,7 @@ const Index = () => {
   const bgText = useContext(TextContext);
   const [activeDot, setActiveDot] = useState(0);
   const [randomArray, setRandomArray] = useState([]);
-  const ElevatingIdeaComponents = [ElevatingIdea, ElevatingIdea2];
+  const ElevatingIdeaComponents = [ElevatingIdea, ElevatingIdea, ElevatingIdea, ElevatingIdea];
 
   useEffect(() => {
     const getRandomArray = () => {

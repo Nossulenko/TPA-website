@@ -9,7 +9,7 @@ const Index = () => {
   const bgText = useContext(TextContext);
   const [activeDot, setActiveDot] = useState(0);
   const [randomArray, setRandomArray] = useState([]);
-  const WhatweDoComponents = [WhatweDo, WhatweDo2];
+  const WhatweDoComponents = [WhatweDo, WhatweDo, WhatweDo, WhatweDo];
 
   useEffect(() => {
     const getRandomArray = () => {

@@ -7,7 +7,7 @@ const Index = () => {
   const bgText = useContext(TextContext);
   const [activeDot, setActiveDot] = useState(0);
   const [randomArray, setRandomArray] = useState([]);
-  const AboutPTAComponents = [AboutPTA, AboutPTA2];
+  const AboutPTAComponents = [AboutPTA, AboutPTA, AboutPTA, AboutPTA];
 
   useEffect(() => {
     const getRandomArray = () => {
