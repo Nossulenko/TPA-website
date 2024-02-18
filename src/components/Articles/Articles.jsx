@@ -27,7 +27,7 @@ const Articles = () => {
         <div className="text-yellow font-space-grotesk text-7xl sm:text-8xl font-medium  my-12 mx-4 sm:m-0">
           Articles
         </div>
-        <div className="mr-32 flex justify-start items-center space-x-6 -bottom-1">
+        <div className="hidden sm:flex mr-32 justify-start items-center space-x-6 -bottom-1">
           <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
             <div className="shadow-custom bg-yellow rounded-full p-1 border-darkYellow border-solid">
               <EastIcon />
@@ -38,19 +38,19 @@ const Articles = () => {
           </div>
         </div>
       </div>
-      <div className="h-[90vh] sm:h-[90vh] hidden sm:flex flex-col space-y-8 sm:space-y-0 mx-4 sm:mx-0 sm:flex-row sm:space-x-10 m-6">
+      <div className="h-fit sm:h-[90vh] sm:flex flex-col space-y-8 sm:space-y-0 mx-4 sm:mx-0 sm:flex-row sm:space-x-10 m-6">
         {textBlocks.map((block, index) => (
-          <div key={index} className="mb-8 w-full sm:w-1/3">
-            <div className="rounded-2xl">
+          <div key={index} className="mb-8 w-full sm:w-1/3 mx-10 sm:mx-0">
+            <div className="rounded-2xl flex items-center justify-start">
               <Image
                 className="rounded-2xl"
                 src={block.image}
                 alt={`Image ${index}`}
-                width={300}
-                height={300}
+                width={365}
+                height={352}
               />
             </div>
-            <div className="flex justify-start items-center space-x-6 my-4 w-[62%]">
+            <div className="flex justify-center sm:justify-start items-center space-x-6 my-4 w-[62%]">
               <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
                 <div className="shadow-custom bg-yellow rounded-full p-1 border-darkYellow border-solid">
                   <EastIcon />

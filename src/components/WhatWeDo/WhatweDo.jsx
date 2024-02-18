@@ -5,7 +5,7 @@ import EastIcon from "@mui/icons-material/East";
 const textBlocks = [
   "Transcending Boundaries with Tailored Sustainable Innovation",
   "Our approach blends in-depth research with creative insight, ensuring every idea is grounded yet groundbreaking. We co-create with a blend of cross-sector expertise, strategy and intuition, focusing on meaningful impact.",
-  "Whether you're a nimble start-up or a sprawling multinational, our team is equipped to guide you towards success at every scale.",
+  "Whether you&apos;re a nimble start-up or a sprawling multinational, our team is equipped to guide you towards success at every scale.",
   "Proud partner of the Duval Union family, we leverage a network of expertise to amplify our added value.",
 ];
 
@@ -18,11 +18,7 @@ const WhatweDo = () => {
             What we do
           </div>
           <div className="sm:hidden  bottom-0 right-0 mr-4">
-            <img src="/images/r3.png" alt="r3" width={800} height={800} 
-
-            // layout="fixed" 
-
-            />
+            <img src="/images/r3.png" alt="r3" width={800} height={800} />
           </div>
           <div className="mx-4 sm:m-0 w-10/12 sm:w-10/12">
             <div className=" font-space-grotesk text-4xl font-normal leading-127.5 my-6">
@@ -32,7 +28,7 @@ const WhatweDo = () => {
             {textBlocks.slice(1).map((text, index) => (
               <div
                 key={index}
-                className=" font-space-grotesk text-xl font-normal leading-127.5 my-6"
+                className=" font-space-grotesk text-xl font-normal leading-127.5 my-6 min-h-fit"
               >
                 {text}
               </div>
@@ -55,7 +51,7 @@ const WhatweDo = () => {
         </div>
       </div>
 
-      <div className="ml-10 flex justify-start items-center space-x-6 absolute -bottom-1">
+      <div className="my:20 sm:my-0 ml-10 flex justify-start items-center space-x-6 absolute -bottom-1">
         <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
           <div className="shadow-custom bg-yellow rounded-full p-1 border-darkYellow border-solid">
             <EastIcon />

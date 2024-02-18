@@ -19,26 +19,37 @@ const textBlocks = [
 
 const AboutPTA = () => {
   return (
-    <div className="relative w-full sm:flex justify-start items-start">
-      <div className="w-2/3 m-6">
-        <div className=" font-space-grotesk text-7xl font-medium leading-93 text-yellow">About TPA</div>
-        <div className="hidden sm:block font-space-grotesk text-3xl font-bold leading-127.5 my-6">
-          {textBlocks[0].heading}
+    <div className="relative w-full flex flex-col sm:flex-row my-10 sm:my-0">
+      <div className="min-h-screen sm:h-screen sm:w-2/3 m-6">
+        <div className="font-space-grotesk text-8xl sm:text-9xl font-medium leading-93 text-yellow">
+          About TPA
         </div>
-        <div className="flex justify-start items-start space-x-4 my-4">
-          <div className="w-1/2 text-black text-lg font-normal ">{textBlocks[0].desc1}</div>
-          <div className="w-1/2 text-black text-lg font-normal ">{textBlocks[0].desc2}</div>
+        <div className="sm:hidden -mt-24 ml-16">
+          <Image src="/images/tpa.png" alt="r3" width={400} height={400} />
         </div>
-        <div className="flex justify-start items-center space-x-4">
-          <div className="w-1/2 text-black text-lg font-normal ">{textBlocks[0].desc3}</div>
-          <div className="w-1/2 text-black text-lg font-normal ">{textBlocks[0].desc4}</div>
+        <div className="text-5xl font-medium leading-127.5 my-6">{textBlocks[0].heading}</div>
+        <div className="pl-8 sm:pl-0 ScrollContainer overflow-y-auto h-[50vh] sm:h-full scrollbar scrollbar-thumb-yellow scrollbar-thumb-rounded">
+          <div className="sm:flex justify-start items-start sm:space-x-4 my-4">
+            <div className="w-full sm:w-1/2 text-black text-xl font-normal ">
+              {textBlocks[0].desc1}
+            </div>
+            <div className="w-full sm:w-1/2 text-black text-xl font-normal ">
+              {textBlocks[0].desc2}
+            </div>
+          </div>
+          <div className=" sm:flex justify-start items-center space-x-4">
+            <div className="w-full sm:w-1/2 text-black text-xl font-normal ">
+              {textBlocks[0].desc3}
+            </div>
+            <div className="w-full sm:w-1/2 text-black text-xl font-normal ">
+              {textBlocks[0].desc4}
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="hidden sm:block absolute -bottom-10 right-0  mr-8">
-        <Image src="/images/tpa.png" alt="r3" width={400} height={400} 
-        layout="responsive"
-         />
+      <div className="hidden sm:block w-1/3 m-6">
+        <Image src="/images/tpa.png" alt="r3" width={400} height={400} />
       </div>
     </div>
   );
