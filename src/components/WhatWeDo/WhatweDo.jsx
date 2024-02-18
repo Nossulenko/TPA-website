@@ -12,7 +12,7 @@ const textBlocks = [
 const WhatweDo = () => {
   return (
     <div className="relative w-full sm:flex justify-start items-center">
-      <div className="h-[90vh] sm:h-[90vh] m-6 sm:w-[45%]">
+      <div className=" sm:h-[90vh] m-6 sm:w-[45%]">
         <div className="">
           <div className="text-yellow font-space-grotesk text-7xl sm:text-8xl font-medium leading-93 my-12 mx-4 sm:m-0">
             What we do
@@ -35,6 +35,16 @@ const WhatweDo = () => {
             ))}
           </div>
         </div>
+        <div className="my:20 sm:my-0 ml-10 sm:ml-0 flex justify-start items-center space-x-6 -bottom-1">
+          <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
+            <div className="shadow-custom bg-yellow rounded-full p-1 border-darkYellow border-solid">
+              <EastIcon />
+            </div>
+          </div>
+          <div className="text-black text-center font-space-grotesk text-22 font-medium underline">
+            Explore Our Projects
+          </div>
+        </div>
       </div>
 
       <div className="z-10 absolute hidden sm:block bottom-0 right-0 -mb-12 mr-8">
@@ -48,17 +58,6 @@ const WhatweDo = () => {
             // layout="fixed"
           />
           <div className="absolute z-0 top-1/2 left-1/2 transform -translate-x-1/4 -translate-y-1/2 w-40 h-40 shadow-custom2 bg-yellow rounded-full p-1 border-darkYellow border-solid"></div>
-        </div>
-      </div>
-
-      <div className="my:20 sm:my-0 ml-10 flex justify-start items-center space-x-6 absolute -bottom-1">
-        <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
-          <div className="shadow-custom bg-yellow rounded-full p-1 border-darkYellow border-solid">
-            <EastIcon />
-          </div>
-        </div>
-        <div className="text-black text-center font-space-grotesk text-22 font-medium underline">
-          Discover Our Projects
         </div>
       </div>
     </div>

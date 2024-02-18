@@ -52,7 +52,7 @@ const Team = () => {
     <>
       <div className="sm:h-screen relative w-full overflow-y-auto">
         <div className="h-[60vh] sm:h-[60vh] m-6">
-          <div className="font-space-grotesk text-7xl sm:text-9xl font-medium leading-9 sm:leading-93 break-words text-yellow">
+          <div className="font-space-grotesk text-6xl sm:text-9xl font-medium leading-9 sm:leading-93 break-words text-yellow">
             Core team
           </div>
           <div className="sm:flex flex-col justify-start sm:flex-row mx-12 sm:mx-24 lg:mx-24 py-20 sm:py-0">

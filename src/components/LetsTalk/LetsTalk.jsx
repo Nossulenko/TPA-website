@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import TextContext from "../../TextContext";
+import Link from "next/link";
 
 import Image from "next/image";
 import EastIcon from "@mui/icons-material/East";
@@ -22,7 +23,7 @@ const LetsTalk = () => {
   return (
     <>
       <div className="relative w-full flex flex-wrap">
-        <div className="w-full h-[60vh] sm:h-[60vh] sm:m-6 mx-6">
+        <div className="w-full sm:h-[60vh] sm:m-6 mx-6">
           <div className="text-8xl sm:text-8xl text-yellow">Let's talk</div>
           <div className="sm:w-1/2 text-4xl my-6">Inspired to build your sustainable future</div>
           <div className="sm:w-1/2 text-xl">Lets Innovate Together</div>
@@ -67,7 +68,7 @@ const LetsTalk = () => {
             </div>
           </div>
 
-          <div className="my:10 sm:my-0 flex justify-start items-center space-x-6 absolute cursor-pointer">
+          <div className="my:10 sm:my-0 flex justify-start items-center space-x-6  cursor-pointer">
             {" "}
             <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl">
               <div className="shadow-custom bg-yellow rounded-full p-1 border-darkYellow border-solid">
@@ -125,9 +126,11 @@ const LetsTalk = () => {
       </div>
 
       <div className="sm:mt-20 ml-8 h-44 sm:flex items-center justify-start sm:space-x-16">
-        <div className="sm:flex items-center">
+        <div className="sm:flex items-center mt-24 sm:mt-0">
           <div className=" ">Mail Us :</div>
-          <div className=" underline">hello@productarchitects.eu</div>
+          <div className=" underline">
+            <Link href="mailto:hello@productarchitects.eu">hello@productarchitects.eu</Link>
+          </div>
         </div>
 
         <div className="sm:ml-24 flex my-10 sm:my-0">
@@ -139,18 +142,44 @@ const LetsTalk = () => {
           </div>
         </div>
 
-        <div className="hidden">
-          <div className="right-0 mr-30">
-            <Image
-              src="/images/map1.png"
-              alt="map1"
-              width={250}
-              height={250}
-              className="absolute z-0 ml-4"
-            />
-            <div className="relative z-10 my-12">
-              <div className="w-96 text-black text-4xl font-bold break-words">UK Office</div>
-              <div className="w-66 text-black text-lg break-words ml-12">
+        <div className="sm:hidden">
+          <div className="relative my-12">
+            <div className="flex justify-center items-start">
+              {" "}
+              <Image
+                src="/images/map2.png"
+                alt="map1"
+                width={250}
+                height={250}
+                className="z-0 ml-4"
+              />
+            </div>
+            <div className="absolute top-12 left-0 bottom-0 flex flex-col justify-center items-center z-10">
+              <div className="text-4xl font-bold break-words">BE Office</div>
+              <div className="text-lg break-words">
+                Thonetlaan 74,
+                <br />
+                2050 Antwerp
+                <br />
+                Belgium
+              </div>
+            </div>
+          </div>
+
+          <div className="relative my-12">
+            <div className="flex justify-center items-start">
+              {" "}
+              <Image
+                src="/images/map1.png"
+                alt="map1"
+                width={250}
+                height={250}
+                className="z-0 ml-4"
+              />
+            </div>
+            <div className="absolute top-12 left-0 bottom-0 flex flex-col justify-center items-center z-10">
+              <div className="text-4xl font-bold break-words">UK Office</div>
+              <div className="text-lg break-words">
                 Guardian House,
                 <br />
                 7 N Bar St
@@ -161,24 +190,9 @@ const LetsTalk = () => {
               </div>
             </div>
           </div>
-
-          <div className="right-0 -mb-12 mr-25">
-            <div className="relative z-10">
-              <div className="w-96 text-black text-4xl font-bold break-words ">BE Office</div>
-              <div className="w-66 text-black text-lg break-words ml-12">
-                Thonetlaan 74,
-                <br />
-                2050 Antwerp
-                <br />
-                Belgium
-              </div>
-            </div>
-
-            <Image className="ml-8" src="/images/map2.png" alt="map2" width={200} height={200} />
-          </div>
         </div>
 
-        <div className="sm:flex items-center">
+        <div className="sm:flex items-center py-12">
           <div className="text-black text-lg font-normal underline sm:mx-4">
             Terms and conditions
           </div>

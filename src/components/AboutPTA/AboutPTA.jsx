@@ -19,8 +19,8 @@ const textBlocks = [
 
 const AboutPTA = () => {
   return (
-    <div className="relative w-full flex flex-col sm:flex-row my-10 sm:my-0">
-      <div className="min-h-screen sm:h-screen sm:w-2/3 m-6">
+    <div className=" sm:h-screen relative w-full flex flex-col sm:flex-row my-10 sm:my-0">
+      <div className=" sm:w-2/3 m-6">
         <div className="font-space-grotesk text-8xl sm:text-9xl font-medium leading-93 text-yellow">
           About TPA
         </div>
@@ -28,7 +28,7 @@ const AboutPTA = () => {
           <Image src="/images/tpa.png" alt="r3" width={400} height={400} />
         </div>
         <div className="text-5xl font-medium leading-127.5 my-6">{textBlocks[0].heading}</div>
-        <div className="pl-8 sm:pl-0 ScrollContainer overflow-y-auto h-[50vh] sm:h-full scrollbar scrollbar-thumb-yellow scrollbar-thumb-rounded">
+        <div className="pl-8 sm:pl-0 ScrollContainer overflow-y-auto h-[80vh] sm:h-full custom-scrollbar">
           <div className="sm:flex justify-start items-start sm:space-x-4 my-4">
             <div className="w-full sm:w-1/2 text-black text-xl font-normal ">
               {textBlocks[0].desc1}
@@ -37,7 +37,7 @@ const AboutPTA = () => {
               {textBlocks[0].desc2}
             </div>
           </div>
-          <div className=" sm:flex justify-start items-center space-x-4">
+          <div className=" sm:flex justify-start items-center sm:space-x-4">
             <div className="w-full sm:w-1/2 text-black text-xl font-normal ">
               {textBlocks[0].desc3}
             </div>

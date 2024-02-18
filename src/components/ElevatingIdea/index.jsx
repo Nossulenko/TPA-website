@@ -22,7 +22,7 @@ const Index = () => {
 
   const ActiveElevatingIdeaComponent = ElevatingIdeaComponents[activeDot];
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative h-screen sm:overflow-hidden">
       <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden w-screen whitespace-nowrap text-transparent text-12xl leading-none bg-clip-text bg-transparent stroke-text border-yellow">
         {bgText.substring(0, 7)}
       </div>

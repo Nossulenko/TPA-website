@@ -6,7 +6,7 @@ const ElevatingIdea = () => {
   return (
     <div className="relative w-full">
       <div className="h-[80vh] sm:h-[80vh] m-6">
-        <div className=" font-space-grotesk text-8xl font-medium leading-93 uppercase">
+        <div className=" font-space-grotesk text-5xl sm:text-8xl font-medium leading-93 uppercase">
           Elevating Ideas,
           <br />
           Enriching Lives
@@ -23,8 +23,7 @@ const ElevatingIdea = () => {
           <div className="w-2/3 mx-16 text-4xl font-medium">
             Transcending Boundaries with Tailored Sustainable Innovation
           </div>
-          <div className="m-16 flex justify-start items-center space-x-6 absolute -bottom-40">
-            {" "}
+          <div className="my-16 mx-8 sm:m-16 flex justify-start items-center space-x-6 absolute -bottom-40">
             <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
               <div className="shadow-custom bg-yellow rounded-full p-1 border-darkYellow border-solid">
                 <EastIcon />

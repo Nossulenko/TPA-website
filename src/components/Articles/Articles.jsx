@@ -40,7 +40,7 @@ const Articles = () => {
       </div>
       <div className="h-fit sm:h-[90vh] sm:flex flex-col space-y-8 sm:space-y-0 mx-4 sm:mx-0 sm:flex-row sm:space-x-10 m-6">
         {textBlocks.map((block, index) => (
-          <div key={index} className="mb-8 w-full sm:w-1/3 mx-10 sm:mx-0">
+          <div key={index} className="mb-8 w-full sm:w-1/3 sm:mx-0">
             <div className="rounded-2xl flex items-center justify-start">
               <Image
                 className="rounded-2xl"

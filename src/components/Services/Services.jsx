@@ -31,7 +31,7 @@ const Services = () => {
           <div className="text-yellow font-space-grotesk text-8xl sm:text-8xl font-medium my-12 mx-4 sm:m-0">
             Services
           </div>
-          <div className="sm:pt-20 pt-0 w-full flex items-center justify-center sm:justify-start">
+          <div className="sm:pt-20 pt-0 w-full flex items-center justify-center sm:justify-start pr-12 sm:pr-0">
             <Image className="" src="/images/plmbr.png" alt={`plmbr`} width={400} height={400} />
           </div>
         </div>
