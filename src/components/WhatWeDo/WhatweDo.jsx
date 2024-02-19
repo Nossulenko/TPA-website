@@ -47,7 +47,7 @@ const WhatweDo = () => {
         </div>
       </div>
 
-      <div className="z-10 absolute hidden sm:block bottom-0 right-0 -mb-12 mr-8">
+      <div className="sm:h-[90vh] z-10 absolute hidden sm:block bottom-0 right-0 -mb-12 sm:mb-0 m-6">
         <div className="relative">
           <img
             className="relative z-10"

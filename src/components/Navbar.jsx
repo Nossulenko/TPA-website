@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
+import { Link } from "react-scroll";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -19,11 +20,34 @@ const MobileBurgerMenu = ({ isOpen, onClose }) => {
           <CloseIcon />
         </div>
         <div className="text-2xl">
-          <div className="my-1">Projects</div>
-          <div className="my-1">Services</div>
-          <div className="my-1">Articles</div>
-          <div className="my-1">Free Tools</div>
-          <div className="my-1">Let's Talk</div>
+          <div className="my-1 cursor-pointer">
+            <Link to="whatWeDo" smooth duration={500} onClick={onClose}>
+              Projects
+            </Link>{" "}
+          </div>
+          <div className="my-1 cursor-pointer">
+            {" "}
+            <Link to="services" smooth duration={500} onClick={onClose}>
+              Services
+            </Link>
+          </div>
+          <div className="my-1 cursor-pointer">
+            {" "}
+            <Link to="articles" smooth duration={500} onClick={onClose}>
+              Articles
+            </Link>
+          </div>
+          <div className="my-1 cursor-pointer">
+            <Link to="articles" smooth duration={500} onClick={onClose}>
+              Free Tools
+            </Link>
+          </div>
+          <div className="my-1 cursor-pointer">
+            {" "}
+            <Link to="letsTalk" smooth duration={500} onClick={onClose}>
+              Let's Talk
+            </Link>
+          </div>
         </div>
         <div className="flex items-center justify-center my-10 space-x-4">
           <div className="">
@@ -78,11 +102,34 @@ const WebBurgerMenu = ({ isOpen, onClose }) => {
               <div className="cursor-pointer" onClick={onClose}>
                 <CloseIcon />
               </div>
-              <div className="my-1 cursor-pointer">Projects</div>
-              <div className="my-1 cursor-pointer">Services</div>
-              <div className="my-1 cursor-pointer">Articles</div>
-              <div className="my-1 cursor-pointer">Free Tools</div>
-              <div className="my-1 cursor-pointer">Let's Talk</div>
+              <div className="my-1 cursor-pointer">
+                <Link to="whatWeDo" smooth duration={500} onClick={onClose}>
+                  Projects
+                </Link>{" "}
+              </div>
+              <div className="my-1 cursor-pointer">
+                {" "}
+                <Link to="services" smooth duration={500} onClick={onClose}>
+                  Services
+                </Link>
+              </div>
+              <div className="my-1 cursor-pointer">
+                {" "}
+                <Link to="articles" smooth duration={500} onClick={onClose}>
+                  Articles
+                </Link>
+              </div>
+              <div className="my-1 cursor-pointer">
+                <Link to="articles" smooth duration={500} onClick={onClose}>
+                  Free Tools
+                </Link>
+              </div>
+              <div className="my-1 cursor-pointer">
+                {" "}
+                <Link to="letsTalk" smooth duration={500} onClick={onClose}>
+                  Let's Talk
+                </Link>
+              </div>
             </div>
           </div>
 

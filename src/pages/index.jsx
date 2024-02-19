@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import ElevatingIdea from "../components/ElevatingIdea/index";
 import WhatWeDo from "../components/WhatWeDo/index";
@@ -9,8 +9,11 @@ import Articles from "../components/Articles/index";
 import LetsTalk from "../components/LetsTalk/index";
 import Team from "../components/Team/index";
 import About from "../components/AboutPTA/index";
+import HomePage from "../components/HomePage";
 import { Roboto, Space_Grotesk } from "next/font/google";
 import TextContext from "../TextContext";
+import { Link, animateScroll as scroll } from "react-scroll";
+import VerticalDotNavigation from "../components/VerticalDotNavigation";
 
 const roboto = Roboto({
   weight: ["400", "700"],
@@ -29,20 +32,14 @@ const space_Grotesk = Space_Grotesk({
 export default function Home() {
   const fontClasses = [space_Grotesk.className, roboto.className];
   const myText = "The Product Architects";
+  const [sectionNo, setSectionNo] = useState(1);
 
   return (
-    <TextContext.Provider value={myText}>
+    <TextContext.Provider value={{ myText, sectionNo, setSectionNo }}>
       <main className={space_Grotesk.className}>
         <Navbar fonts={fontClasses} />
-        <ElevatingIdea />
-        <WhatWeDo />
-        <HowWeOperate />
-        <HowToOperate />
-        <Services />
-        <Articles />
-        <About />
-        <Team />
-        <LetsTalk />
+        {/* <VerticalDotNavigation /> Add this line */}
+        <HomePage />
       </main>
     </TextContext.Provider>
   );

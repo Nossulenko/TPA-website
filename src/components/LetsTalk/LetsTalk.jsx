@@ -126,7 +126,7 @@ const LetsTalk = () => {
       </div>
 
       <div className="sm:mt-20 ml-8 h-44 sm:flex items-center justify-start sm:space-x-16">
-        <div className="sm:flex items-center mt-24 sm:mt-0">
+        <div className="sm:w-1/3 sm:flex items-center mt-24 sm:mt-0">
           <div className=" ">Mail Us :</div>
           <div className=" underline">
             <Link href="mailto:hello@productarchitects.eu">hello@productarchitects.eu</Link>
@@ -135,7 +135,7 @@ const LetsTalk = () => {
 
         <div className="sm:ml-24 flex my-10 sm:my-0">
           <div className="sm:mx-4">Socials</div>
-          <div className="flex space-x-2">
+          <div className="flex space-x-2 sm:space-x-6">
             <Image src="/images/xicon.png" alt="map2" width={31} height={31} />
             <Image src="/images/linkdin.png" alt="map2" width={31} height={31} />
             <Image src="/images/insta.png" alt="map2" width={31} height={31} />
