@@ -19,7 +19,7 @@ const Index = () => {
     };
 
     getRandomArray();
-    setSectionNo(6);
+    // setSectionNo(6);
   }, []);
 
   const ActiveAboutPTAComponents = AboutPTAComponents[activeDot];
