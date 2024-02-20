@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import ElevatingIdea from "../components/ElevatingIdea/index";
 import WhatWeDo from "../components/WhatWeDo/index";
@@ -14,6 +14,7 @@ import { Roboto, Space_Grotesk } from "next/font/google";
 import TextContext from "../TextContext";
 import { Link, animateScroll as scroll } from "react-scroll";
 import VerticalDotNavigation from "../components/VerticalDotNavigation";
+import client from "../lib/sanity";
 
 const roboto = Roboto({
   weight: ["400", "700"],
@@ -33,7 +34,17 @@ export default function Home() {
   const fontClasses = [space_Grotesk.className, roboto.className];
   const myText = "The Product Architects";
   const [sectionNo, setSectionNo] = useState(1);
+  const [posts, setPosts] = useState([]);
 
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const query = '*[_type == "movie"]';
+      const result = await client.fetch(query);
+      setPosts(result);
+    };
+    fetchPosts();
+  }, []);
+  console.log("posts", posts);
   return (
     <TextContext.Provider value={{ myText, sectionNo, setSectionNo }}>
       <main className={space_Grotesk.className}>
