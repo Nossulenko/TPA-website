@@ -1,3 +1,5 @@
+// tpa-website/src/lib/sanity.js
+
 const { createClient } = require("@sanity/client");
 
 const sanityClient = createClient({

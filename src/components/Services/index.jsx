@@ -7,7 +7,7 @@ import TextContext from "../../TextContext";
 import VerticalDotNavigation from "../VerticalDotNavigation";
 
 const Index = () => {
-  const { myText, sectionNo, setSectionNo } = useContext(TextContext);
+  const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
   const [activeDot, setActiveDot] = useState(0);
   const [randomArray, setRandomArray] = useState([]);
   const ServicesComponents = [Services, Services, Services, Services];
@@ -25,8 +25,15 @@ const Index = () => {
 
   const ActiveServicesComponent = ServicesComponents[activeDot];
   return (
-    <div id="services" className="relative overflow-hidden bg-grey1">
-      <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden w-screen whitespace-nowrap text-transparent text-12xl leading-none bg-clip-text bg-transparent stroke-text border-yellow">
+    <div
+      id="services"
+      className={`relative overflow-hidden`}
+      style={{ backgroundColor: theme ? theme.background : "#ECEBE9" }}
+    >
+      <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden w-screen whitespace-nowrap text-transparent text-12xl leading-none bg-clip-text bg-transparent stroke-text border-yellow" style={{
+          borderColor: theme ? theme.textColor : "#FECF4F",
+          WebkitTextStroke: "1px " + (theme ? theme.lightBackground : "#fada82"),
+        }}>
         {myText.substring(1, 8)}
       </div>
       <div className="sm:flex-1">

@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import TextContext from "../../TextContext";
 import Image from "next/image";
 import EastIcon from "@mui/icons-material/East";
 
@@ -18,10 +19,14 @@ const textBlocks = [
 ];
 
 const AboutPTA = () => {
+  const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
   return (
     <div className=" sm:h-screen relative w-full flex flex-col sm:flex-row my-10 sm:my-0">
       <div className=" sm:w-2/3 m-6">
-        <div className="font-space-grotesk text-8xl sm:text-9xl font-medium leading-93 text-yellow">
+        <div
+          className="font-space-grotesk text-8xl sm:text-9xl font-medium leading-93 text-yellow"
+          style={{ color: theme ? theme.textColor : "#FECF4F" }}
+        >
           About TPA
         </div>
         <div className="sm:hidden -mt-24 ml-16">

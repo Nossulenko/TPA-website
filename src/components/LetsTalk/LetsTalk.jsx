@@ -1,14 +1,29 @@
-import React, { useState, useContext } from "react";
+"use client";
+import React, { useState, useContext, useEffect } from "react";
 import TextContext from "../../TextContext";
 import Link from "next/link";
+import imageUrlBuilder from "@sanity/image-url";
+import sanityClient from "../../lib/sanity";
+
+const builder = imageUrlBuilder(sanityClient);
+
+function urlFor(source) {
+  return builder.image(source);
+}
 
 import Image from "next/image";
 import EastIcon from "@mui/icons-material/East";
-const LetsTalk = () => {
+const LetsTalk = ({ letsTalkData }) => {
+  const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [message, setMessage] = useState("");
+  const [image1, setImgage1] = useState("");
+  const [image2, setImgage2] = useState("");
+  const ImageData = letsTalkData?.officeLocations;
+
+  const { office1Image } = letsTalkData;
 
   const handleSubmit = () => {
     const data = {
@@ -20,13 +35,34 @@ const LetsTalk = () => {
 
     console.log(data);
   };
+  // useEffect(() => {
+  //   if (
+  //     letsTalkData &&
+  //     letsTalkData.officeLocations &&
+  //     letsTalkData.officeLocations.length > 0 &&
+  //     letsTalkData.officeLocations[0].officeImage &&
+  //     letsTalkData.officeLocations[0].officeImage.asset &&
+  //     letsTalkData.officeLocations[0].officeImage.asset._ref
+  //   ) {
+  //     setImgage1(letsTalkData.officeLocations[0].officeImage.asset._ref);
+  //     setImgage2(letsTalkData.officeLocations[1].officeImage.asset._ref);
+  //   } else {
+  //     console.error("officeLocations array is undefined or empty.");
+  //   }
+  // }, [letsTalkData]);
+  console.log("letsTalkData", letsTalkData);
   return (
     <>
       <div className="relative w-full flex flex-wrap">
         <div className="w-full sm:h-[60vh] sm:m-6 mx-6">
-          <div className="text-8xl sm:text-8xl text-yellow">Let's talk</div>
-          <div className="sm:w-1/2 text-4xl my-6">Inspired to build your sustainable future</div>
-          <div className="sm:w-1/2 text-xl">Lets Innovate Together</div>
+          <div
+            className="text-8xl sm:text-8xl text-yellow"
+            style={{ color: theme ? theme.textColor : "#FECF4F" }}
+          >
+            Let's talk
+          </div>
+          <div className="sm:w-1/2 text-4xl my-6">{letsTalkData.heading}</div>
+          <div className="sm:w-1/2 text-xl">{letsTalkData.subHeading}</div>
           <div className="sm:w-1/2 sm:flex flex-wrap justify-center">
             <div className="sm:w-1/2 py-1">
               <input
@@ -71,7 +107,16 @@ const LetsTalk = () => {
           <div className="my:10 sm:my-0 flex justify-start items-center space-x-6  cursor-pointer">
             {" "}
             <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl">
-              <div className="shadow-custom bg-yellow rounded-full p-1 border-darkYellow border-solid">
+              <div
+                className="shadow-custom rounded-full p-1 border-solid"
+                style={{
+                  backgroundColor: theme ? theme.textColor : "#FECF4F",
+                  borderColor: theme ? theme.textColor : "#FECF4F",
+                  boxShadow: `0px 0px 4px 4px ${
+                    theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
+                  }`,
+                }}
+              >
                 <EastIcon />
               </div>
             </div>
@@ -88,35 +133,30 @@ const LetsTalk = () => {
           <div className="hidden sm:block absolute bottom-20 right-0 -mb-24 mr-30">
             <Image
               src="/images/map1.png"
+              // src={office1Image && office1Image.asset && urlFor(office1Image.asset._ref)}
               alt="map1"
               width={250}
               height={250}
-              // layout="fixed"
               className="absolute z-0 ml-4"
             />
             <div className="relative z-10 my-12">
-              <div className="w-96 text-black text-4xl font-bold break-words">UK Office</div>
-              <div className="w-66 text-black text-lg break-words ml-12">
-                Guardian House,
-                <br />
-                7 N Bar St
-                <br />
-                Banbury OX16 0TB
-                <br />
-                United Kingdom
+              <div className="w-96 text-black text-4xl font-bold break-words">
+                {" "}
+                {letsTalkData.office2Name}
+              </div>
+              <div className="w-66 sm:w-40 text-black text-lg break-words ml-12">
+                {letsTalkData.office2Address}
               </div>
             </div>
           </div>
 
           <div className="hidden sm:block absolute bottom-80 right-0 -mb-12 mr-25">
             <div style={{ marginBottom: "-10rem" }} className="relative z-10">
-              <div className="w-96 text-black text-4xl font-bold break-words ">BE Office</div>
-              <div className="w-66 text-black text-lg break-words ml-12">
-                Thonetlaan 74,
-                <br />
-                2050 Antwerp
-                <br />
-                Belgium
+              <div className="w-96  text-black text-4xl font-bold break-words ">
+                {letsTalkData.office1Name}
+              </div>
+              <div className="w-66 sm:w-40 text-black text-lg break-words ml-12">
+                {letsTalkData.office1Address}
               </div>
             </div>
 
@@ -154,15 +194,9 @@ const LetsTalk = () => {
                 className="z-0 ml-4"
               />
             </div>
-            <div className="absolute top-12 left-0 bottom-0 flex flex-col justify-center items-center z-10">
-              <div className="text-4xl font-bold break-words">BE Office</div>
-              <div className="text-lg break-words">
-                Thonetlaan 74,
-                <br />
-                2050 Antwerp
-                <br />
-                Belgium
-              </div>
+            <div className="w-[44%] absolute top-12 left-0 bottom-0 flex flex-col justify-center items-center z-10">
+              <div className="text-4xl font-bold break-words">{letsTalkData.office1Name}</div>
+              <div className="text-lg break-words">{letsTalkData.office1Address}</div>
             </div>
           </div>
 
@@ -177,17 +211,9 @@ const LetsTalk = () => {
                 className="z-0 ml-4"
               />
             </div>
-            <div className="absolute top-12 left-0 bottom-0 flex flex-col justify-center items-center z-10">
-              <div className="text-4xl font-bold break-words">UK Office</div>
-              <div className="text-lg break-words">
-                Guardian House,
-                <br />
-                7 N Bar St
-                <br />
-                Banbury OX16 0TB
-                <br />
-                United Kingdom
-              </div>
+            <div className="w-[45%] absolute top-12 left-0 bottom-0 flex flex-col justify-center items-center z-10">
+              <div className="text-4xl font-bold break-words"> {letsTalkData.office2Name}</div>
+              <div className="text-lg break-words">{letsTalkData.office2Address}</div>
             </div>
           </div>
         </div>

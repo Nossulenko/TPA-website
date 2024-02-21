@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import TextContext from "../../TextContext";
 import Image from "next/image";
 import EastIcon from "@mui/icons-material/East";
 
@@ -24,11 +25,15 @@ const textBlocks = [
 ];
 
 const Services = () => {
+  const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
   return (
     <div className="relative w-full mb-10 m-6 ">
       <div className="h-screen sm:h-screen sm:flex items-start justify-center sm:space-x-8">
         <div className="sm:w-1/2">
-          <div className="text-yellow font-space-grotesk text-8xl sm:text-8xl font-medium my-12 mx-4 sm:m-0">
+          <div
+            className="text-yellow font-space-grotesk text-8xl sm:text-8xl font-medium my-12 mx-4 sm:m-0"
+            style={{ color: theme ? theme.textColor : "#FECF4F" }}
+          >
             Services
           </div>
           <div className="sm:pt-20 pt-0 w-full flex items-center justify-center sm:justify-start pr-12 sm:pr-0">

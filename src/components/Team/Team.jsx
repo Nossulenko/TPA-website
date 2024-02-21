@@ -30,8 +30,9 @@ const textBlocks = [
   },
 ];
 
-const Team = () => {
+const Team = ({ teamData }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
   const [windowWidth, setWindowWidth] = useState(process.browser ? window.innerWidth : null);
 
   useEffect(() => {
@@ -48,11 +49,15 @@ const Team = () => {
   const handlePrev = () =>
     setCurrentIndex((currentIndex - visibleItems + textBlocks.length) % textBlocks.length);
   const handleNext = () => setCurrentIndex((currentIndex + visibleItems) % textBlocks.length);
+  console.log("teamData rec in team", teamData);
   return (
     <>
       <div className="sm:h-screen relative w-full overflow-y-auto">
         <div className="h-[60vh] sm:h-[60vh] m-6">
-          <div className="font-space-grotesk text-6xl sm:text-9xl font-medium leading-9 sm:leading-93 break-words text-yellow">
+          <div
+            className="font-space-grotesk text-6xl sm:text-9xl font-medium leading-9 sm:leading-93 break-words text-yellow"
+            style={{ color: theme ? theme.textColor : "#FECF4F" }}
+          >
             Core team
           </div>
           <div className="sm:flex flex-col justify-start sm:flex-row mx-12 sm:mx-24 lg:mx-24 py-20 sm:py-0">
@@ -63,14 +68,19 @@ const Team = () => {
                   alt={item.name}
                   width={200}
                   height={200}
-                  className="bg-grey2 rounded-full sm:mx-auto sm:ml-4 my-4 p-1"
+                  className={`rounded-full sm:mx-auto sm:ml-4 my-4 p-1`}
+                  style={{ backgroundColor: theme ? theme.background : "#ECEBE9" }}
                 />
                 <div className="text-left my-16 sm:my-0">
                   <div className=" sm:w-96 text-black text-4xl sm:text-3xl break-words">
                     {item.name}
                   </div>
-                  <div className="my-1 sm:my-0 sm:w-66 text-black text-xl break-words">{item.designation}</div>
-                  <div className="sm:hidden my-6 sm:my-0 sm:w-66 text-black text-xl break-words">{item.about}</div>
+                  <div className="my-1 sm:my-0 sm:w-66 text-black text-xl break-words">
+                    {item.designation}
+                  </div>
+                  <div className="sm:hidden my-6 sm:my-0 sm:w-66 text-black text-xl break-words">
+                    {item.about}
+                  </div>
                 </div>
               </div>
             ))}

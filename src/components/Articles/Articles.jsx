@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import TextContext from "../../TextContext";
 import Image from "next/image";
 import EastIcon from "@mui/icons-material/East";
 
@@ -21,15 +22,28 @@ const textBlocks = [
 ];
 
 const Articles = () => {
+  const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
   return (
     <div className="relative w-full my-10">
       <div className="flex items-end justify-between">
-        <div className="text-yellow font-space-grotesk text-7xl sm:text-8xl font-medium  my-12 mx-4 sm:m-0">
+        <div
+          className="text-yellow font-space-grotesk text-7xl sm:text-8xl font-medium  my-12 mx-4 sm:m-0"
+          style={{ color: theme ? theme.textColor : "#FECF4F" }}
+        >
           Articles
         </div>
         <div className="hidden sm:flex mr-32 justify-start items-center space-x-6 -bottom-1">
           <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
-            <div className="shadow-custom bg-yellow rounded-full p-1 border-darkYellow border-solid">
+            <div
+              className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
+              style={{
+                backgroundColor: theme ? theme.textColor : "#FECF4F",
+                borderColor: theme ? theme.textColor : "#FECF4F",
+                boxShadow: `0px 0px 4px 4px ${
+                  theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
+                }`,
+              }}
+            >
               <EastIcon />
             </div>
           </div>
@@ -52,7 +66,16 @@ const Articles = () => {
             </div>
             <div className="flex justify-center sm:justify-start items-center space-x-6 my-4 w-[62%]">
               <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
-                <div className="shadow-custom bg-yellow rounded-full p-1 border-darkYellow border-solid">
+                <div
+                  className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
+                  style={{
+                    backgroundColor: theme ? theme.textColor : "#FECF4F",
+                    borderColor: theme ? theme.textColor : "#FECF4F",
+                    boxShadow: `0px 0px 4px 4px ${
+                      theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
+                    }`,
+                  }}
+                >
                   <EastIcon />
                 </div>
               </div>

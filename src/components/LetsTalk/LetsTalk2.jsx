@@ -59,7 +59,7 @@ const LetsTalk2 = () => {
   //         <div className="hidden sm:flex justify-start items-center space-x-6 absolute bottom-10 -mb-24">
   //           {" "}
   //           <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
-  //             <div className="shadow-custom bg-yellow rounded-full p-1 border-darkYellow border-solid">
+  //             <div className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid">
   //               <EastIcon />
   //             </div>
   //           </div>

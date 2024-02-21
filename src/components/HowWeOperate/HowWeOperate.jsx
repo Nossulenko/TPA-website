@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import TextContext from "../../TextContext";
 import Image from "next/image";
 import EastIcon from "@mui/icons-material/East";
+import imageUrlBuilder from "@sanity/image-url";
+import sanityClient from "../../lib/sanity";
+import getImageUrl from "../../lib/sanity";
 
 const textBlocks = [
   {
@@ -20,10 +24,22 @@ const textBlocks = [
   },
 ];
 
+const builder = imageUrlBuilder(sanityClient);
+
+function urlFor(source) {
+  return builder.image(source);
+}
+
 const HowWeOperate = () => {
+  const { myText, sectionNo, setSectionNo, theme, howWeOperate } = useContext(TextContext);
+
+  // console.log("howWeOperate", howWeOperate);
   return (
     <div className="hidden sm:block relative w-full my-10">
-      <div className="text-yellow font-space-grotesk text-8xl sm:text-9xl font-medium  my-12 mx-4 sm:m-0">
+      <div
+        className="text-yellow font-space-grotesk text-8xl sm:text-9xl font-medium  my-12 mx-4 sm:m-0"
+        style={{ color: theme ? theme.textColor : "#FECF4F" }}
+      >
         How we operate
       </div>
       <div className="h-[90vh] sm:h-[90vh] flex flex-col space-y-8 sm:space-y-0 mx-4 sm:mx-0 sm:flex-row sm:space-x-10 m-6">
@@ -40,7 +56,16 @@ const HowWeOperate = () => {
             </div>
             <div className="flex justify-start items-center space-x-6 my-4 w-[62%]">
               <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
-                <div className="shadow-custom bg-yellow rounded-full p-1 border-darkYellow border-solid">
+                <div
+                  className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
+                  style={{
+                    backgroundColor: theme ? theme.textColor : "#FECF4F",
+                    borderColor: theme ? theme.textColor : "#FECF4F",
+                    boxShadow: `0px 0px 4px 4px ${
+                      theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
+                    }`,
+                  }}
+                >
                   <EastIcon />
                 </div>
               </div>

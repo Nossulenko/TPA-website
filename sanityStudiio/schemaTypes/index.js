@@ -6,9 +6,21 @@ import person from './person'
 import screening from './screening'
 import plotSummary from './plotSummary'
 import plotSummaries from './plotSummaries'
+import theme from './theme'
+import elevating from './elevating'
+import whatWeDo from './whatWeDo'
+import howWeOperate from './howWeOperate'
+import letsTalk from './letsTalk'
+import team from './team'
 
 export const schemaTypes = [
   // Document types
+  theme,
+  elevating,
+  whatWeDo,
+  howWeOperate,
+  team,
+  letsTalk,
   movie,
   person,
   screening,

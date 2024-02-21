@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import TextContext from "../TextContext";
 import Image from "next/image";
 // import Link from "next/link";
 import { Link } from "react-scroll";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
-const MobileBurgerMenu = ({ isOpen, onClose }) => {
+const MobileBurgerMenu = ({ isOpen, onClose, theme }) => {
   return (
     <div
       className={`fixed inset-0 z-50 ${
@@ -74,12 +75,15 @@ const MobileBurgerMenu = ({ isOpen, onClose }) => {
   );
 };
 
-const WebBurgerMenu = ({ isOpen, onClose }) => {
+const WebBurgerMenu = ({ isOpen, onClose, theme }) => {
   return (
     <div
       className={`fixed inset-0 z-50 ${
-        isOpen ? "bg-yellow" : "hidden bg-transparent"
+        isOpen ? theme.textColor : "hidden bg-transparent"
       } transition-all duration-300`}
+      style={{
+        backgroundColor: theme ? theme.textColor : "#FECF4F",
+      }}
     >
       <div className="flex justify-between">
         <div className="w-1/2 flex flex-col h-screen">
@@ -87,8 +91,15 @@ const WebBurgerMenu = ({ isOpen, onClose }) => {
           <div className="flex items-center justify-start relative space-x-4 m-10">
             <div className="pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
               <div
-                className="shadow-custom bg-yellow rounded-full p-1 border-darkYellow border-solid"
+                className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
                 onClick={onClose}
+                style={{
+                  backgroundColor: theme ? theme.textColor : "#FECF4F",
+                  borderColor: theme ? theme.textColor : "#FECF4F",
+                  boxShadow: `0px 0px 4px 4px ${
+                    theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
+                  }`,
+                }}
               >
                 <MenuIcon />
               </div>
@@ -168,6 +179,7 @@ const WebBurgerMenu = ({ isOpen, onClose }) => {
 
 const Navbar = ({ fonts }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
 
   const handleMenuToggle = () => {
     setMenuOpen(!isMenuOpen);
@@ -190,15 +202,24 @@ const Navbar = ({ fonts }) => {
               className="pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer"
               onClick={handleMenuToggle}
             >
-              <div className="shadow-custom bg-yellow rounded-full p-1 border-darkYellow border-solid">
+              <div
+                className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
+                style={{
+                  backgroundColor: theme ? theme.textColor : "#FECF4F",
+                  borderColor: theme ? theme.textColor : "#FECF4F",
+                  boxShadow: `0px 0px 4px 4px ${
+                    theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
+                  }`,
+                }}
+              >
                 <MenuIcon />
               </div>
             </div>
             <div className="sm:hidden">
-              <MobileBurgerMenu isOpen={isMenuOpen} onClose={handleMenuToggle} />
+              <MobileBurgerMenu isOpen={isMenuOpen} onClose={handleMenuToggle} theme={theme} />
             </div>
             <div className="hidden sm:block">
-              <WebBurgerMenu isOpen={isMenuOpen} onClose={handleMenuToggle} />
+              <WebBurgerMenu isOpen={isMenuOpen} onClose={handleMenuToggle} theme={theme} />
             </div>
           </div>
         </div>
