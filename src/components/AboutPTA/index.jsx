@@ -26,7 +26,13 @@ const Index = ({ aboutPTAData }) => {
   // console.log("about pta color", theme.background);
   return (
     <div id="about" className={`relative sm:overflow-hidden bg-${theme.background}`}>
-      <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden w-screen whitespace-nowrap text-transparent text-12xl leading-none bg-clip-text bg-transparent stroke-text border-yellow">
+      <div
+        className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden w-screen whitespace-nowrap text-transparent text-12xl leading-none bg-clip-text bg-transparent stroke-text border-yellow"
+        style={{
+          borderColor: theme ? theme.textColor : "#FECF4F",
+          WebkitTextStroke: "1px " + (theme ? theme.lightBackground : "#fada82"),
+        }}
+      >
         {myText.substring(0, 7)}
       </div>
       <div className="flex-1">
