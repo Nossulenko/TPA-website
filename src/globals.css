@@ -45,24 +45,3 @@ body {
   background-color: #ecebe9; /* Customize the scrollbar track color */
 }
 
-.ScrollContainer {
-  /* height and width as required */
-  /* overflow-y: auto;
-  
-  ::-webkit-scrollbar {
-    width: 12px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: #FFFFFF;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #FECF4F;
-    border-radius: 6px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #cbcbcb;
-  } */
-}

@@ -23,6 +23,7 @@ const HomePage = () => {
   const [servicesData, setServicesData] = useState([]);
   const [articlesData, setArticlesData] = useState([]);
   const [aboutPTAData, setAboutPTAData] = useState([]);
+  const [navigationData, setNavigationData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,6 +39,7 @@ const HomePage = () => {
           services,
           articles,
           aboutPTA,
+          navigation,
         ] = await Promise.all([
           client.fetch('*[_type == "theme"]'),
           client.fetch('*[_type == "elevating"]'),
@@ -49,6 +51,7 @@ const HomePage = () => {
           client.fetch('*[_type == "services"]'),
           client.fetch('*[_type == "articles"]'),
           client.fetch('*[_type == "aboutPTA"]'),
+          client.fetch('*[_type == "navigation"]'),
         ]);
 
         setTheme(themeResult[0]);
@@ -61,6 +64,7 @@ const HomePage = () => {
         setServicesData(services[0]);
         setArticlesData(articles[0]);
         setAboutPTAData(aboutPTA[0]);
+        setNavigationData(navigation[0]);
       } catch (error) {
         console.error("Error fetching data:", error);
       }

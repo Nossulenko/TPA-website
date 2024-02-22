@@ -17,15 +17,18 @@ export default function Home() {
   const myText = "The Product Architects";
   const [sectionNo, setSectionNo] = useState(1);
   const [theme, setTheme] = useState({});
+  const [navigationData, setNavigationData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [postsResult, themeResult] = await Promise.all([
+        const [postsResult, themeResult, navigation] = await Promise.all([
           client.fetch('*[_type == "movie"]'),
           client.fetch('*[_type == "theme"]'),
+          client.fetch('*[_type == "navigation"]'),
         ]);
         setTheme(themeResult[0]);
+        setNavigationData(navigation[0]);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -33,6 +36,7 @@ export default function Home() {
 
     fetchData();
   }, []);
+  console.log("theme", theme);
   return (
     <TextContext.Provider
       value={{
@@ -42,8 +46,8 @@ export default function Home() {
         theme,
       }}
     >
-      <main >
-        <Navbar />
+      <main>
+        <Navbar navigationData={navigationData} />
         <HomePage />
       </main>
     </TextContext.Provider>

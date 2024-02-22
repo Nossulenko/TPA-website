@@ -20,6 +20,13 @@ const HowToOperate = ({ howToOperateData }) => {
   const fallbackImageUrl = "";
   const textBlocks = howToOperateData.operations;
   const imageUrl = image && image.asset ? urlFor(image.asset).url() : fallbackImageUrl;
+  let themeColor = theme ? theme.textColor : "#FECF4F";
+
+  // use JavaScript to directly set the style properties for scrollbars
+  if (typeof window !== "undefined") {
+    // if we're in the browser environment
+    window.document.body.style.scrollbarColor = `${themeColor} #ffffff`;
+  }
   return (
     <div className="relative w-full mb-10 sm:mb-0 m-6">
       <div className="h-screen sm:h-screen sm:flex items-start justify-start">

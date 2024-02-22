@@ -5,12 +5,15 @@ import Image from "next/image";
 import { Link } from "react-scroll";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import imageUrlBuilder from "@sanity/image-url";
+import sanityClient from "../lib/sanity";
+import getImageUrl from "../lib/sanity";
 
 const navData = [
   { id: 1, name: "Projects", link: "whatWeDo" },
   { id: 2, name: "Services", link: "services" },
   { id: 3, name: "Articles", link: "articles" },
-  { id: 4, name: "Free Tools", link: "articles" }, // You might want to change the 'link'
+  { id: 4, name: "Free Tools", link: "articles" },
   { id: 5, name: "Let's Talk", link: "letsTalk" },
 ];
 
@@ -20,17 +23,13 @@ const socialData = [
   { id: 3, imageSrc: "/images/yellowInsta.png", alt: "Logo" },
 ];
 
-const contactData = [
-  {
-    id: 1,
-    type: "Mail Us:",
-    link: "mailto:hello@productarchitects.eu",
-    text: "hello@productarchitects.eu",
-  },
-  // Add other contact options here as needed
-];
+const builder = imageUrlBuilder(sanityClient);
 
-const MobileBurgerMenu = ({ isOpen, onClose, theme }) => {
+function urlFor(source) {
+  return builder.image(source);
+}
+
+const MobileBurgerMenu = ({ isOpen, onClose, theme, email, navData, socialData }) => {
   return (
     <div
       className={`fixed inset-0 z-50 ${
@@ -45,53 +44,32 @@ const MobileBurgerMenu = ({ isOpen, onClose, theme }) => {
           <CloseIcon />
         </div>
         <div className="text-2xl">
-          <div className="my-1 cursor-pointer">
-            <Link to="whatWeDo" smooth duration={500} onClick={onClose}>
-              Projects
-            </Link>{" "}
-          </div>
-          <div className="my-1 cursor-pointer">
-            {" "}
-            <Link to="services" smooth duration={500} onClick={onClose}>
-              Services
-            </Link>
-          </div>
-          <div className="my-1 cursor-pointer">
-            {" "}
-            <Link to="articles" smooth duration={500} onClick={onClose}>
-              Articles
-            </Link>
-          </div>
-          <div className="my-1 cursor-pointer">
-            <Link to="articles" smooth duration={500} onClick={onClose}>
-              Free Tools
-            </Link>
-          </div>
-          <div className="my-1 cursor-pointer">
-            {" "}
-            <Link to="letsTalk" smooth duration={500} onClick={onClose}>
-              Let's Talk
-            </Link>
-          </div>
+          {navData &&
+            navData.map((item) => (
+              <div key={item.id} className="my-1 cursor-pointer">
+                <Link to={item.link} smooth duration={500} onClick={onClose}>
+                  {item.name}
+                </Link>{" "}
+              </div>
+            ))}
         </div>
         <div className="flex items-center justify-center my-10 space-x-4">
-          <div className="">
-            {" "}
-            <Image src="/images/Vector.png" alt="Logo" width={50} height={50} />
-          </div>
-          <div className="">
-            {" "}
-            <Image src="/images/LikedIn.png" alt="Logo" width={50} height={50} />
-          </div>
-          <div className="">
-            {" "}
-            <Image src="/images/yellowInsta.png" alt="Logo" width={50} height={50} />
-          </div>
+          {socialData &&
+            socialData.map((item) => (
+              <div key={item.id} className="">
+                <Image
+                  src={urlFor(item.imageSrc.asset).url()}
+                  alt={item.alt}
+                  width={50}
+                  height={50}
+                />
+              </div>
+            ))}
         </div>
         <div className="text-center text-2xl">
           <div className="">Mail Us:</div>
           <div className="underline">
-            <Link href="mailto:hello@productarchitects.eu">hello@productarchitects.eu</Link>
+            <Link href={`mailto:${email}`}>{email}</Link>
           </div>
         </div>
       </div>
@@ -99,7 +77,7 @@ const MobileBurgerMenu = ({ isOpen, onClose, theme }) => {
   );
 };
 
-const WebBurgerMenu = ({ isOpen, onClose, theme }) => {
+const WebBurgerMenu = ({ isOpen, onClose, theme, name, email, navData, socialData, bgImage }) => {
   return (
     <div
       className={`fixed inset-0 z-50 ${
@@ -128,7 +106,7 @@ const WebBurgerMenu = ({ isOpen, onClose, theme }) => {
                 <MenuIcon />
               </div>
             </div>
-            <div className="hidden sm:block">The Product Architects</div>
+            <div className="hidden sm:block">{name}</div>
           </div>
 
           {/* Second div in the middle */}
@@ -137,67 +115,83 @@ const WebBurgerMenu = ({ isOpen, onClose, theme }) => {
               <div className="cursor-pointer" onClick={onClose}>
                 <CloseIcon />
               </div>
-              {navData.map((item) => (
-                <div key={item.id} className="my-1 cursor-pointer">
-                  <Link to={item.link} smooth duration={500} onClick={onClose}>
-                    {item.name}
-                  </Link>
-                </div>
-              ))}
+              {navData &&
+                navData.map((item) => (
+                  <div key={item.id} className="my-1 cursor-pointer">
+                    <Link to={item.link} smooth duration={500} onClick={onClose}>
+                      {item.name}
+                    </Link>
+                  </div>
+                ))}
             </div>
           </div>
 
           {/* Third div at the bottom */}
           <div className="flex justify-between m-10">
             <div className="flex space-x-4 placeholder:text-center">
-              {contactData.map((item) => (
-                <div key={item.id} className="flex space-x-4 placeholder:text-center">
-                  <div className="">{item.type}</div>
-                  <div className="underline">
-                    <Link href={item.link}>{item.text}</Link>
-                  </div>
+              <div className="flex space-x-4 placeholder:text-center">
+                <div className="">Mail Us:</div>
+                <div className="underline">
+                  <Link href={`mailto:${email}`}>{email}</Link>
                 </div>
-              ))}
+              </div>
             </div>
             <div className="flex items-center justify-center space-x-4">
-              {socialData.map((item) => (
-                <div key={item.id}>
-                  <Image src={item.imageSrc} alt={item.alt} width={20} height={20} />
-                </div>
-              ))}
+              {socialData &&
+                socialData.map((item) => (
+                  <div key={item.id}>
+                    <Image
+                      src={urlFor(item.imageSrc.asset).url()}
+                      alt={item.alt}
+                      width={20}
+                      height={20}
+                    />
+                  </div>
+                ))}
             </div>
           </div>
         </div>
         <div className="w-1/2">
           {/* Second div content (assuming it's an image) */}
-          <Image src="/images/resource.png" alt="Logo" width={800} height={800} />
+          <Image
+            src={bgImage && bgImage.asset && urlFor(bgImage.asset).url()}
+            alt="Logo"
+            width={800}
+            height={800}
+          />
         </div>
       </div>
     </div>
   );
 };
 
-const Navbar = () => {
+const Navbar = ({ navigationData }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
+  const { name, icon, email, navBarOptions, navData, socialData, bgImage } = navigationData;
 
   const handleMenuToggle = () => {
     setMenuOpen(!isMenuOpen);
   };
-
+  console.log("navigationData", navigationData);
   return (
     <div className="">
       <div className="">
         <div className="flex items-center justify-between m-6">
           <div className="flex items-center justify-start">
             <div className="">
-              <Image src="/images/logo.png" alt="Logo" width={40} height={40} />
+              <Image
+                src={icon && icon.asset && urlFor(icon.asset).url()}
+                alt="Logo"
+                width={40}
+                height={40}
+              />
             </div>
-            <div className="">The Product Architects</div>
+            <div className="">{name}</div>
             <div className="text-transparent text-stroke text-black text-2xl">Hollow Text</div>
           </div>
           <div className="flex items-center justify-end relative space-x-4">
-            <div className="hidden sm:block">Sustainable Service Design</div>
+            <div className="hidden sm:block">{navBarOptions && navBarOptions[0].optionName}</div>
             <div
               className="pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer"
               onClick={handleMenuToggle}
@@ -216,10 +210,26 @@ const Navbar = () => {
               </div>
             </div>
             <div className="sm:hidden">
-              <MobileBurgerMenu isOpen={isMenuOpen} onClose={handleMenuToggle} theme={theme} />
+              <MobileBurgerMenu
+                isOpen={isMenuOpen}
+                onClose={handleMenuToggle}
+                theme={theme}
+                email={email}
+                navData={navData}
+                socialData={socialData}
+              />
             </div>
             <div className="hidden sm:block">
-              <WebBurgerMenu isOpen={isMenuOpen} onClose={handleMenuToggle} theme={theme} />
+              <WebBurgerMenu
+                isOpen={isMenuOpen}
+                onClose={handleMenuToggle}
+                theme={theme}
+                name={name}
+                email={email}
+                navData={navData}
+                socialData={socialData}
+                bgImage={bgImage}
+              />
             </div>
           </div>
         </div>

@@ -28,7 +28,7 @@ const ElevatingIdea = ({ elevatingIdeaData }) => {
         <div className="sm:hidden absolute bottom-0 right-0 -mb-12">
           <img
             src={image && image.asset && urlFor(image.asset._ref)}
-            alt="r3small"
+            alt="elevating_r3small"
             width={800}
             height={800}
             layout="responsive"
@@ -90,7 +90,7 @@ const ElevatingIdea = ({ elevatingIdeaData }) => {
       <div className="sm:h-[80vh] hidden sm:block absolute bottom-0 right-0 -mb-12 m-6">
         <img
           src={image && image.asset && urlFor(image.asset._ref)}
-          alt="r3"
+          alt="elevating_r3"
           width={800}
           height={800}
           layout="responsive"

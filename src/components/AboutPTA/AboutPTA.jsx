@@ -33,7 +33,6 @@ const AboutPTA = ({ aboutPTAData }) => {
   const fallbackImageUrl = "";
   const textBlocks = aboutPTAData.about;
   const imageUrl = image && image.asset ? urlFor(image.asset).url() : fallbackImageUrl;
-  console.log("aboutPTAData rec", aboutPTAData);
   return (
     <div className=" sm:h-screen relative w-full flex flex-col sm:flex-row my-10 sm:my-0">
       <div className=" sm:w-2/3 m-6">

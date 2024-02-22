@@ -7,11 +7,13 @@ import team from './team'
 import howToOperate from './howToOperate'
 import services from './services'
 import articles from './articles'
-import AboutPTA from './aboutPta'
+import AboutPTA from './aboutPTA'
+import navigation from './navigation'
 
 export const schemaTypes = [
   // Document types
   theme,
+  navigation,
   elevating,
   whatWeDo,
   howWeOperate,
