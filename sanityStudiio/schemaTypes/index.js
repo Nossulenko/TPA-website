@@ -1,17 +1,13 @@
-import blockContent from './blockContent'
-import crewMember from './crewMember'
-import castMember from './castMember'
-import movie from './movie'
-import person from './person'
-import screening from './screening'
-import plotSummary from './plotSummary'
-import plotSummaries from './plotSummaries'
 import theme from './theme'
 import elevating from './elevating'
 import whatWeDo from './whatWeDo'
 import howWeOperate from './howWeOperate'
 import letsTalk from './letsTalk'
 import team from './team'
+import howToOperate from './howToOperate'
+import services from './services'
+import articles from './articles'
+import AboutPTA from './aboutPta'
 
 export const schemaTypes = [
   // Document types
@@ -19,16 +15,10 @@ export const schemaTypes = [
   elevating,
   whatWeDo,
   howWeOperate,
+  howToOperate,
+  services,
+  articles,
+  AboutPTA,
   team,
   letsTalk,
-  movie,
-  person,
-  screening,
-
-  // Other types
-  blockContent,
-  plotSummary,
-  plotSummaries,
-  castMember,
-  crewMember,
 ]

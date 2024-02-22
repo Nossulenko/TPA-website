@@ -8,84 +8,80 @@ export default defineType({
   icon,
   fields: [
     defineField({
-      name: 'firstTeamMemberName',
-      title: 'First Team Member Name',
-      type: 'string',
-    }),
-    defineField({
-      name: 'firstTeamMemberDesignation',
-      title: 'First Team Member Designation',
-      type: 'string',
-    }),
-    defineField({
-      name: 'firstTeamMemberDescription',
-      title: 'First Team Member Description',
-      type: 'string',
-    }),
-    defineField({
-      name: 'firstTeamMemberImage',
-      title: 'First Team Member Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-    }),
-    defineField({
-      name: 'secondTeamMemberName',
-      title: 'Second Team Member Name',
-      type: 'string',
-    }),
-    defineField({
-      name: 'secondTeamMemberDesignation',
-      title: 'Second Team Member Designation',
-      type: 'string',
-    }),
-    defineField({
-      name: 'secondTeamMemberDescription',
-      title: 'Second Team Member Description',
-      type: 'string',
-    }),
-    defineField({
-      name: 'secondTeamMemberImage',
-      title: 'Second Team Member Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-    }),
-    defineField({
-      name: 'thirdTeamMemberName',
-      title: 'Third Team Member Name',
-      type: 'string',
-    }),
-    defineField({
-      name: 'thirdTeamMemberDesignation',
-      title: 'Third Team Member Designation',
-      type: 'string',
-    }),
-    defineField({
-      name: 'thirdTeamMemberDescription',
-      title: 'Third Team Member Description',
-      type: 'string',
-    }),
-    defineField({
-      name: 'thirdTeamMemberImage',
-      title: 'Third Team Member Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
+      name: 'members',
+      title: 'Members',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'id',
+              title: 'ID',
+              type: 'string',
+            },
+            {
+              name: 'image',
+              title: 'Image',
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+            },
+            {
+              name: 'name',
+              title: 'Name',
+              type: 'string',
+            },
+            {
+              name: 'designation',
+              title: 'Designation',
+              type: 'string',
+            },
+            {
+              name: 'about',
+              title: 'About',
+              type: 'text',
+            },
+          ],
+        },
+      ],
+      initialValue: [
+        {
+          id: '01',
+          name: 'Alain De Keyser1',
+          designation: 'Managing Partner & Strategy Designer',
+          about:
+            "With extensive expertise in Product Management, Startups, and Design Thinking, has played a vital role in creating innovative solutions for the banking industry and beyond. He's a dance enthusiast, often found enjoying Salsa, Bachata, Merengue and Kizomba.",
+        },
+        {
+          id: '02',
+          name: 'Alain De Keyser2',
+          designation: 'Managing Partner & Strategy Designer',
+          about:
+            "With extensive expertise in Product Management, Startups, and Design Thinking, has played a vital role in creating innovative solutions for the banking industry and beyond. He's a dance enthusiast, often found enjoying Salsa, Bachata, Merengue and Kizomba.",
+        },
+        {
+          id: '03',
+          name: 'Alain De Keyser3',
+          designation: 'Managing Partner & Strategy Designer',
+          about:
+            "With extensive expertise in Product Management, Startups, and Design Thinking, has played a vital role in creating innovative solutions for the banking industry and beyond. He's a dance enthusiast, often found enjoying Salsa, Bachata, Merengue and Kizomba.",
+        },
+      ],
+      validation: (Rule) =>
+        Rule.required().min(3).max(3).error('You must input exactly 3 team members.'),
     }),
   ],
   preview: {
     select: {
-      title: 'firstTeamMemberName',
-      media: 'firstTeamMemberImage',
+      title: 'name',
+      media: 'members[0].image',
     },
     prepare(selection) {
-      const {title, media} = selection
+      const {teamName, media} = selection
       return {
-        title,
+        title: teamName,
         media,
       }
     },

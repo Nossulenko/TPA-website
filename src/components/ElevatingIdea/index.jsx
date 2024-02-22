@@ -5,7 +5,7 @@ import TextContext from "../../TextContext";
 import { Link } from "react-scroll";
 import VerticalDotNavigation from "../VerticalDotNavigation";
 
-const Index = () => {
+const Index = ({ elevatingIdeaData }) => {
   const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
   const [activeDot, setActiveDot] = useState(0);
   const [randomArray, setRandomArray] = useState([]);
@@ -56,7 +56,7 @@ const Index = () => {
             ))} */}
           </div>
           <div className="flex-1">
-            <ActiveElevatingIdeaComponent />
+            <ActiveElevatingIdeaComponent elevatingIdeaData={elevatingIdeaData}/>
           </div>
         </div>
       </div>

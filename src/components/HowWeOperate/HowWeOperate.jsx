@@ -5,6 +5,7 @@ import EastIcon from "@mui/icons-material/East";
 import imageUrlBuilder from "@sanity/image-url";
 import sanityClient from "../../lib/sanity";
 import getImageUrl from "../../lib/sanity";
+import Link from "next/link";
 
 const textBlocks = [
   {
@@ -30,10 +31,20 @@ function urlFor(source) {
   return builder.image(source);
 }
 
-const HowWeOperate = () => {
-  const { myText, sectionNo, setSectionNo, theme, howWeOperate } = useContext(TextContext);
+const HowWeOperate = ({ howWeOperate }) => {
+  const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
 
-  // console.log("howWeOperate", howWeOperate);
+  const textBlocks1 = howWeOperate && howWeOperate.operations ? howWeOperate.operations : [];
+
+  const textBlocks = textBlocks1.map((block) => {
+    const imageUrl = urlFor(block.image.asset).url();
+    return {
+      image: imageUrl,
+      heading: block.heading,
+      desc: block.desc,
+      link: block.link,
+    };
+  });
   return (
     <div className="hidden sm:block relative w-full my-10">
       <div
@@ -69,9 +80,12 @@ const HowWeOperate = () => {
                   <EastIcon />
                 </div>
               </div>
-              <div className="text-black font-space-grotesk text-22 font-medium underline">
-                {block.heading}
-              </div>
+              <Link href={block.link}>
+                {" "}
+                <div className="text-black font-space-grotesk text-22 font-medium underline">
+                  {block.heading}
+                </div>
+              </Link>
             </div>
             <div className="w-5/6">{block.desc}</div>
           </div>

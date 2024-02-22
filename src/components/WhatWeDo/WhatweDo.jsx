@@ -13,8 +13,8 @@ function urlFor(source) {
   return builder.image(source);
 }
 
-const WhatweDo = () => {
-  const { myText, sectionNo, setSectionNo, theme, whatWeDoData } = useContext(TextContext);
+const WhatweDo = ({ whatWeDoData }) => {
+  const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
   const { heading, paragraph1, paragraph2, paragraph3, linkText, link, image } = whatWeDoData;
   const paragraphs = [paragraph1, paragraph2, paragraph3];
   // console.log("image", image.asset._ref);
@@ -61,11 +61,13 @@ const WhatweDo = () => {
               <EastIcon />
             </div>
           </div>
-          <Link href="#">
-            <div className="text-black text-center font-space-grotesk text-22 font-medium underline">
-              {linkText}
-            </div>
-          </Link>
+          {link && (
+            <Link href={link}>
+              <div className="text-black text-center font-space-grotesk text-22 font-medium underline">
+                {linkText}
+              </div>
+            </Link>
+          )}
         </div>
       </div>
 

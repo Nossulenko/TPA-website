@@ -6,6 +6,30 @@ import { Link } from "react-scroll";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
+const navData = [
+  { id: 1, name: "Projects", link: "whatWeDo" },
+  { id: 2, name: "Services", link: "services" },
+  { id: 3, name: "Articles", link: "articles" },
+  { id: 4, name: "Free Tools", link: "articles" }, // You might want to change the 'link'
+  { id: 5, name: "Let's Talk", link: "letsTalk" },
+];
+
+const socialData = [
+  { id: 1, imageSrc: "/images/Vector.png", alt: "Logo" },
+  { id: 2, imageSrc: "/images/LikedIn.png", alt: "Logo" },
+  { id: 3, imageSrc: "/images/yellowInsta.png", alt: "Logo" },
+];
+
+const contactData = [
+  {
+    id: 1,
+    type: "Mail Us:",
+    link: "mailto:hello@productarchitects.eu",
+    text: "hello@productarchitects.eu",
+  },
+  // Add other contact options here as needed
+];
+
 const MobileBurgerMenu = ({ isOpen, onClose, theme }) => {
   return (
     <div
@@ -113,58 +137,34 @@ const WebBurgerMenu = ({ isOpen, onClose, theme }) => {
               <div className="cursor-pointer" onClick={onClose}>
                 <CloseIcon />
               </div>
-              <div className="my-1 cursor-pointer">
-                <Link to="whatWeDo" smooth duration={500} onClick={onClose}>
-                  Projects
-                </Link>{" "}
-              </div>
-              <div className="my-1 cursor-pointer">
-                {" "}
-                <Link to="services" smooth duration={500} onClick={onClose}>
-                  Services
-                </Link>
-              </div>
-              <div className="my-1 cursor-pointer">
-                {" "}
-                <Link to="articles" smooth duration={500} onClick={onClose}>
-                  Articles
-                </Link>
-              </div>
-              <div className="my-1 cursor-pointer">
-                <Link to="articles" smooth duration={500} onClick={onClose}>
-                  Free Tools
-                </Link>
-              </div>
-              <div className="my-1 cursor-pointer">
-                {" "}
-                <Link to="letsTalk" smooth duration={500} onClick={onClose}>
-                  Let's Talk
-                </Link>
-              </div>
+              {navData.map((item) => (
+                <div key={item.id} className="my-1 cursor-pointer">
+                  <Link to={item.link} smooth duration={500} onClick={onClose}>
+                    {item.name}
+                  </Link>
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Third div at the bottom */}
           <div className="flex justify-between m-10">
             <div className="flex space-x-4 placeholder:text-center">
-              <div className="">Mail Us:</div>
-              <div className="underline">
-                <Link href="mailto:hello@productarchitects.eu">hello@productarchitects.eu</Link>
-              </div>
+              {contactData.map((item) => (
+                <div key={item.id} className="flex space-x-4 placeholder:text-center">
+                  <div className="">{item.type}</div>
+                  <div className="underline">
+                    <Link href={item.link}>{item.text}</Link>
+                  </div>
+                </div>
+              ))}
             </div>
             <div className="flex items-center justify-center space-x-4">
-              <div className="">
-                {" "}
-                <Image src="/images/Vector.png" alt="Logo" width={20} height={20} />
-              </div>
-              <div className="">
-                {" "}
-                <Image src="/images/LikedIn.png" alt="Logo" width={20} height={20} />
-              </div>
-              <div className="">
-                {" "}
-                <Image src="/images/yellowInsta.png" alt="Logo" width={20} height={20} />
-              </div>
+              {socialData.map((item) => (
+                <div key={item.id}>
+                  <Image src={item.imageSrc} alt={item.alt} width={20} height={20} />
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -177,7 +177,7 @@ const WebBurgerMenu = ({ isOpen, onClose, theme }) => {
   );
 };
 
-const Navbar = ({ fonts }) => {
+const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
 
@@ -187,7 +187,7 @@ const Navbar = ({ fonts }) => {
 
   return (
     <div className="">
-      <div className={fonts[0]}>
+      <div className="">
         <div className="flex items-center justify-between m-6">
           <div className="flex items-center justify-start">
             <div className="">

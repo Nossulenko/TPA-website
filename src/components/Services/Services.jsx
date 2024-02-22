@@ -2,6 +2,18 @@ import React, { useState, useContext } from "react";
 import TextContext from "../../TextContext";
 import Image from "next/image";
 import EastIcon from "@mui/icons-material/East";
+import imageUrlBuilder from "@sanity/image-url";
+import sanityClient from "../../lib/sanity";
+
+const builder = imageUrlBuilder(sanityClient);
+
+function urlFor(source) {
+  if (!source) {
+    console.error("Invalid source provided to urlFor function");
+    return fallbackimageUrl; // replace with whatever appropriate
+  }
+  return builder.image(source);
+}
 
 const textBlocks = [
   {
@@ -24,8 +36,13 @@ const textBlocks = [
   },
 ];
 
-const Services = () => {
+const Services = ({ servicesData }) => {
   const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
+  const { image } = servicesData;
+  const fallbackImageUrl = "";
+  const textBlocks = servicesData.services;
+  const imageUrl = image && image.asset ? urlFor(image.asset).url() : fallbackImageUrl;
+
   return (
     <div className="relative w-full mb-10 m-6 ">
       <div className="h-screen sm:h-screen sm:flex items-start justify-center sm:space-x-8">
@@ -37,14 +54,14 @@ const Services = () => {
             Services
           </div>
           <div className="sm:pt-20 pt-0 w-full flex items-center justify-center sm:justify-start pr-12 sm:pr-0">
-            <Image className="" src="/images/plmbr.png" alt={`plmbr`} width={400} height={400} />
+            <Image className="" src={imageUrl} alt={`plmbr`} width={400} height={400} />
           </div>
         </div>
         <div
           className="sm:w-2/3 ScrollContainer overflow-y-auto h-screen scrollbar scrollbar-thumb-yellow scrollbar-thumb-rounded"
           style={{ scrollbarWidth: "thin", scrollbarColor: "#FECF4F #ffffff" }}
         >
-          {textBlocks.map((block) => (
+          {textBlocks && textBlocks.map((block) => (
             <div className="m-4 sm:m-0 my-10" key={block.id}>
               <div className="sm:w-10/12 flex justify-start items-center space-x-4 sm:mt-20">
                 <div className="text-3xl sm:text-4xl font-bold">{block.heading}</div>

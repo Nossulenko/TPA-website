@@ -4,7 +4,7 @@ import AboutPTA2 from "./AboutPTA2";
 import TextContext from "../../TextContext";
 import VerticalDotNavigation from "../VerticalDotNavigation";
 
-const Index = () => {
+const Index = ({ aboutPTAData }) => {
   const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
   const [activeDot, setActiveDot] = useState(0);
   const [randomArray, setRandomArray] = useState([]);
@@ -50,7 +50,7 @@ const Index = () => {
             ))} */}
           </div>
           <div className="flex-1">
-            <ActiveAboutPTAComponents />
+            <ActiveAboutPTAComponents aboutPTAData={aboutPTAData} />
           </div>
         </div>
       </div>

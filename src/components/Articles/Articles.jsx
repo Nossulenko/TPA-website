@@ -2,6 +2,10 @@ import React, { useState, useContext } from "react";
 import TextContext from "../../TextContext";
 import Image from "next/image";
 import EastIcon from "@mui/icons-material/East";
+import imageUrlBuilder from "@sanity/image-url";
+import sanityClient from "../../lib/sanity";
+import getImageUrl from "../../lib/sanity";
+import Link from "next/link";
 
 const textBlocks = [
   {
@@ -21,8 +25,28 @@ const textBlocks = [
   },
 ];
 
-const Articles = () => {
+const builder = imageUrlBuilder(sanityClient);
+
+function urlFor(source) {
+  return builder.image(source);
+}
+
+const Articles = ({ articlesData }) => {
   const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
+
+  const textBlocks1 = articlesData && articlesData.articles ? articlesData.articles : [];
+
+  const textBlocks = textBlocks1.map((block) => {
+    const imageUrl = urlFor(block.image.asset).url();
+    return {
+      image: imageUrl,
+      heading: block.heading,
+      desc: block.desc,
+      link: block.link,
+    };
+  });
+
+  // console.log("rec acrticel", articlesData);
   return (
     <div className="relative w-full my-10">
       <div className="flex items-end justify-between">
@@ -79,9 +103,11 @@ const Articles = () => {
                   <EastIcon />
                 </div>
               </div>
-              <div className="text-black font-space-grotesk text-22 font-medium underline">
-                {block.heading}
-              </div>
+              <Link href={block.link}>
+                <div className="text-black font-space-grotesk text-22 font-medium underline">
+                  {block.heading}
+                </div>
+              </Link>
             </div>
             <div className="w-5/6">{block.desc}</div>
           </div>

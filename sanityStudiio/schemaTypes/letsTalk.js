@@ -11,53 +11,61 @@ export default defineType({
       name: 'heading',
       title: 'Heading',
       type: 'string',
+      initialValue: 'Inspired to build your sustainable future',
     }),
     defineField({
       name: 'subHeading',
       title: 'Sub Heading',
       type: 'string',
+      initialValue: 'Lets Innovate Together',
     }),
     defineField({
-      name: 'office1Name',
-      title: 'Office 1 Name',
-      type: 'string',
-    }),
-    defineField({
-      name: 'office1Address',
-      title: 'Office 1 Address',
-      type: 'string',
-    }),
-    defineField({
-      name: 'office1Image',
-      title: 'Office 1 Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-    }),
-    defineField({
-      name: 'office2Name',
-      title: 'Office 2 Name',
-      type: 'string',
-    }),
-    defineField({
-      name: 'office2Address',
-      title: 'Office 2 Address',
-      type: 'string',
-    }),
-    defineField({
-      name: 'office2Image',
-      title: 'Office 2 Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
+      name: 'officeLocations',
+      title: 'Office Locations',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'officeName',
+              title: 'Office Name',
+              type: 'string',
+            },
+            {
+              name: 'address',
+              title: 'Office Address',
+              type: 'string',
+            },
+            {
+              name: 'image',
+              title: 'Office Map Image',
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+            },
+          ],
+        },
+      ],
+      initialValue: [
+        {
+          officeName: 'UK Office',
+          address: 'Guardian House,7 N Bar StBanbury OX16 0TB United Kingdom',
+        },
+        {
+          officeName: 'BE Office',
+          address: 'Thonetlaan 74, 2050 Antwerp Belgium',
+        },
+      ],
+      validation: (Rule) =>
+        Rule.required().min(1).max(2).error('You must input between 1 and 2 office locations.'),
     }),
   ],
   preview: {
     select: {
       title: 'heading',
-      media: 'officeLocations[0].officeImage',
+      media: 'officeLocations[0].image',
     },
     prepare(selection) {
       const {title, media} = selection

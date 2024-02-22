@@ -6,7 +6,7 @@ import ElevatingIdea2 from ".";
 import TextContext from "../../TextContext";
 import VerticalDotNavigation from "../VerticalDotNavigation";
 
-const Index = () => {
+const Index = ({ servicesData }) => {
   const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
   const [activeDot, setActiveDot] = useState(0);
   const [randomArray, setRandomArray] = useState([]);
@@ -30,10 +30,13 @@ const Index = () => {
       className={`relative overflow-hidden`}
       style={{ backgroundColor: theme ? theme.background : "#ECEBE9" }}
     >
-      <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden w-screen whitespace-nowrap text-transparent text-12xl leading-none bg-clip-text bg-transparent stroke-text border-yellow" style={{
+      <div
+        className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden w-screen whitespace-nowrap text-transparent text-12xl leading-none bg-clip-text bg-transparent stroke-text border-yellow"
+        style={{
           borderColor: theme ? theme.textColor : "#FECF4F",
           WebkitTextStroke: "1px " + (theme ? theme.lightBackground : "#fada82"),
-        }}>
+        }}
+      >
         {myText.substring(1, 8)}
       </div>
       <div className="sm:flex-1">
@@ -57,7 +60,7 @@ const Index = () => {
             ))} */}
           </div>
           <div className="sm:flex-1">
-            <ActiveServicesComponent />
+            <ActiveServicesComponent servicesData={servicesData} />
           </div>
         </div>
       </div>

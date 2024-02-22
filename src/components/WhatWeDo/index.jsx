@@ -6,7 +6,7 @@ import ElevatingIdea2 from ".";
 import TextContext from "../../TextContext";
 import VerticalDotNavigation from "../VerticalDotNavigation";
 
-const Index = () => {
+const Index = ({ whatWeDoData }) => {
   const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
   const [activeDot, setActiveDot] = useState(0);
   const [randomArray, setRandomArray] = useState([]);
@@ -56,7 +56,7 @@ const Index = () => {
             ))} */}
           </div>
           <div className="sm:flex-1">
-            <ActiveWhatweDoComponent />
+            <ActiveWhatweDoComponent whatWeDoData={whatWeDoData} />
           </div>
         </div>
       </div>

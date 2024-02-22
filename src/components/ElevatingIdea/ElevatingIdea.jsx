@@ -12,8 +12,8 @@ function urlFor(source) {
   return builder.image(source);
 }
 
-const ElevatingIdea = () => {
-  const { myText, sectionNo, setSectionNo, theme, elevatingIdeaData } = useContext(TextContext);
+const ElevatingIdea = ({ elevatingIdeaData }) => {
+  const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
   const { image } = elevatingIdeaData;
   // console.log("elevating image.asset._ref", image.asset._ref);
   return (
@@ -52,11 +52,13 @@ const ElevatingIdea = () => {
               </div>
             </div>
 
-            <Link href="#">
-              <div className="text-black text-center font-space-grotesk text-22 font-medium underline">
-                {elevatingIdeaData.linkText}
-              </div>
-            </Link>
+            {elevatingIdeaData.link && (
+              <Link href={elevatingIdeaData.link}>
+                <div className="text-black text-center font-space-grotesk text-22 font-medium underline">
+                  {elevatingIdeaData.linkText}
+                </div>
+              </Link>
+            )}
           </div>
         </div>
         <div className="hidden sm:flex justify-start items-center space-x-6 absolute bottom-0">
@@ -75,11 +77,13 @@ const ElevatingIdea = () => {
               <EastIcon />
             </div>
           </div>
-          <Link href="#">
-            <div className="text-black text-center font-space-grotesk text-22 font-medium underline">
-              {elevatingIdeaData.linkText}
-            </div>
-          </Link>
+          {elevatingIdeaData.link && (
+            <Link href={elevatingIdeaData.link}>
+              <div className="text-black text-center font-space-grotesk text-22 font-medium underline">
+                {elevatingIdeaData.linkText}
+              </div>
+            </Link>
+          )}
         </div>
       </div>
       {/* <div className="m-6 sm:m-0"> */}{" "}

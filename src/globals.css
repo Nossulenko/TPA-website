@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
 .stroke-text {
   -webkit-text-stroke: 1px #fada82;
 }

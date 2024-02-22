@@ -2,6 +2,9 @@ import React, { useContext } from "react";
 import TextContext from "../../TextContext";
 import Image from "next/image";
 import EastIcon from "@mui/icons-material/East";
+import imageUrlBuilder from "@sanity/image-url";
+import sanityClient from "../../lib/sanity";
+import getImageUrl from "../../lib/sanity";
 
 const textBlocks = [
   {
@@ -18,8 +21,19 @@ const textBlocks = [
   },
 ];
 
-const AboutPTA = () => {
+const builder = imageUrlBuilder(sanityClient);
+
+function urlFor(source) {
+  return builder.image(source);
+}
+
+const AboutPTA = ({ aboutPTAData }) => {
   const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
+  const { image } = aboutPTAData;
+  const fallbackImageUrl = "";
+  const textBlocks = aboutPTAData.about;
+  const imageUrl = image && image.asset ? urlFor(image.asset).url() : fallbackImageUrl;
+  console.log("aboutPTAData rec", aboutPTAData);
   return (
     <div className=" sm:h-screen relative w-full flex flex-col sm:flex-row my-10 sm:my-0">
       <div className=" sm:w-2/3 m-6">
@@ -32,29 +46,31 @@ const AboutPTA = () => {
         <div className="sm:hidden -mt-24 ml-16">
           <Image src="/images/tpa.png" alt="r3" width={400} height={400} />
         </div>
-        <div className="text-5xl font-medium leading-127.5 my-6">{textBlocks[0].heading}</div>
+        <div className="text-5xl font-medium leading-127.5 my-6">
+          {textBlocks && textBlocks?.heading}
+        </div>
         <div className="pl-8 sm:pl-0 ScrollContainer overflow-y-auto h-[80vh] sm:h-full custom-scrollbar">
           <div className="sm:flex justify-start items-start sm:space-x-4 my-4">
             <div className="w-full sm:w-1/2 text-black text-xl font-normal ">
-              {textBlocks[0].desc1}
+              {textBlocks && textBlocks?.desc1}
             </div>
             <div className="w-full sm:w-1/2 text-black text-xl font-normal ">
-              {textBlocks[0].desc2}
+              {textBlocks && textBlocks?.desc2}
             </div>
           </div>
           <div className=" sm:flex justify-start items-center sm:space-x-4">
             <div className="w-full sm:w-1/2 text-black text-xl font-normal ">
-              {textBlocks[0].desc3}
+              {textBlocks && textBlocks?.desc3}
             </div>
             <div className="w-full sm:w-1/2 text-black text-xl font-normal ">
-              {textBlocks[0].desc4}
+              {textBlocks && textBlocks?.desc4}
             </div>
           </div>
         </div>
       </div>
 
       <div className="hidden sm:block w-1/3 m-6">
-        <Image src="/images/tpa.png" alt="r3" width={400} height={400} />
+        <Image src={imageUrl} alt="r3" width={400} height={400} />
       </div>
     </div>
   );

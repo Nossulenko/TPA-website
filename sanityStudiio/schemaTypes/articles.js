@@ -2,14 +2,14 @@ import {defineField, defineType} from 'sanity'
 import {MdSettings as icon} from 'react-icons/md'
 
 export default defineType({
-  name: 'howWeOperate',
-  title: 'How We Operate',
+  name: 'articles',
+  title: 'Articles',
   type: 'document',
   icon,
   fields: [
     defineField({
-      name: 'operations',
-      title: 'Operations',
+      name: 'articles',
+      title: 'Articles',
       type: 'array',
       of: [
         {
@@ -43,22 +43,19 @@ export default defineType({
       ],
       initialValue: [
         {
-            desc:
-            'In our previous article, we delved into the essentials of conducting effective user testing, from ensuring a representative sample to avoiding biases. However, the quest for improving user testing never stops. Building on our comprehensive guide, we at The Product Architects BV (TPA) present four additional tips to take your user testing to the next level...',
+          desc: 'In our previous article, we delved into the essentials of conducting effective user testing, from ensuring a representative sample to avoiding biases. However, the quest for improving user testing never stops. Building on our comprehensive guide, we at The Product Architects BV (TPA) present four additional tips to take your user testing to the next level...',
 
           link: 'https://www.example.com',
           heading: 'Level Up your User Testing Skills',
         },
         {
-            desc:
-            'With current rates of resource depletion and growing stress on our social model, it is impossible to maintain this idea of economics. The Doughnut Economy is an alternative approach, one that strives to spread growth and find balance. What best practices and design questions should we adhere to so that we can drive sustainability forward?...',
+          desc: 'With current rates of resource depletion and growing stress on our social model, it is impossible to maintain this idea of economics. The Doughnut Economy is an alternative approach, one that strives to spread growth and find balance. What best practices and design questions should we adhere to so that we can drive sustainability forward?...',
 
           link: 'https://www.example.com',
           heading: 'How the Donut Economy drives sustainability',
         },
         {
-            desc:
-            'Innovation and product creation processes (where product relates to actual products, services, digital, physical or phygital experiences) are inherently difficult for a lot of companies. This usually results in products that cannot meet customer needs, long and time-consuming projects, or even budgetary graveyards...',
+          desc: 'Innovation and product creation processes (where product relates to actual products, services, digital, physical or phygital experiences) are inherently difficult for a lot of companies. This usually results in products that cannot meet customer needs, long and time-consuming projects, or even budgetary graveyards...',
 
           link: 'https://www.example.com',
           heading: 'What is Strategic Product Design',

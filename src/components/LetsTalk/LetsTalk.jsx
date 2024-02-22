@@ -1,9 +1,28 @@
-"use client";
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import TextContext from "../../TextContext";
 import Link from "next/link";
+import Image from "next/image";
+import EastIcon from "@mui/icons-material/East";
 import imageUrlBuilder from "@sanity/image-url";
 import sanityClient from "../../lib/sanity";
+import getImageUrl from "../../lib/sanity";
+
+const textBlocks1 = [
+  {
+    image: "/images/map1.png",
+    officeName: "UK Office",
+    address: "Guardian House,7 N Bar StBanbury OX16 0TB United Kingdom",
+  },
+  {
+    image: "/images/map2.png",
+    officeName: "BE Office",
+    address: "Thonetlaan 74, 2050 Antwerp Belgium",
+  },
+];
+const headings = {
+  heading: "Inspired to build your sustainable future",
+  subHeading: "Lets Innovate Together",
+};
 
 const builder = imageUrlBuilder(sanityClient);
 
@@ -11,19 +30,12 @@ function urlFor(source) {
   return builder.image(source);
 }
 
-import Image from "next/image";
-import EastIcon from "@mui/icons-material/East";
 const LetsTalk = ({ letsTalkData }) => {
   const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [message, setMessage] = useState("");
-  const [image1, setImgage1] = useState("");
-  const [image2, setImgage2] = useState("");
-  const ImageData = letsTalkData?.officeLocations;
-
-  const { office1Image } = letsTalkData;
 
   const handleSubmit = () => {
     const data = {
@@ -35,22 +47,20 @@ const LetsTalk = ({ letsTalkData }) => {
 
     console.log(data);
   };
-  // useEffect(() => {
-  //   if (
-  //     letsTalkData &&
-  //     letsTalkData.officeLocations &&
-  //     letsTalkData.officeLocations.length > 0 &&
-  //     letsTalkData.officeLocations[0].officeImage &&
-  //     letsTalkData.officeLocations[0].officeImage.asset &&
-  //     letsTalkData.officeLocations[0].officeImage.asset._ref
-  //   ) {
-  //     setImgage1(letsTalkData.officeLocations[0].officeImage.asset._ref);
-  //     setImgage2(letsTalkData.officeLocations[1].officeImage.asset._ref);
-  //   } else {
-  //     console.error("officeLocations array is undefined or empty.");
-  //   }
-  // }, [letsTalkData]);
-  console.log("letsTalkData", letsTalkData);
+
+  const textBlocksofficeLocations =
+    letsTalkData && letsTalkData.officeLocations ? letsTalkData.officeLocations : [];
+  const { heading, subHeading } = letsTalkData || headings;
+
+  const textBlocks = textBlocksofficeLocations.map((block) => {
+    const imageUrl = urlFor(block.image.asset).url();
+    return {
+      image: imageUrl,
+      officeName: block.officeName,
+      address: block.address,
+    };
+  });
+  // console.log("letsTalkData rec", letsTalkData);
   return (
     <>
       <div className="relative w-full flex flex-wrap">
@@ -61,8 +71,8 @@ const LetsTalk = ({ letsTalkData }) => {
           >
             Let's talk
           </div>
-          <div className="sm:w-1/2 text-4xl my-6">{letsTalkData.heading}</div>
-          <div className="sm:w-1/2 text-xl">{letsTalkData.subHeading}</div>
+          <div className="sm:w-1/2 text-4xl my-6">{heading}</div>
+          <div className="sm:w-1/2 text-xl">{subHeading}</div>
           <div className="sm:w-1/2 sm:flex flex-wrap justify-center">
             <div className="sm:w-1/2 py-1">
               <input
@@ -132,35 +142,41 @@ const LetsTalk = ({ letsTalkData }) => {
         <div>
           <div className="hidden sm:block absolute bottom-20 right-0 -mb-24 mr-30">
             <Image
-              src="/images/map1.png"
-              // src={office1Image && office1Image.asset && urlFor(office1Image.asset._ref)}
+              src={textBlocks[0] && textBlocks[0].image}
               alt="map1"
               width={250}
               height={250}
+              // layout="fixed"
               className="absolute z-0 ml-4"
             />
             <div className="relative z-10 my-12">
               <div className="w-96 text-black text-4xl font-bold break-words">
-                {" "}
-                {letsTalkData.office2Name}
+                {textBlocks[0] && textBlocks[0].officeName}
               </div>
               <div className="w-66 sm:w-40 text-black text-lg break-words ml-12">
-                {letsTalkData.office2Address}
+                {textBlocks[0] && textBlocks[0].address}
               </div>
             </div>
           </div>
 
           <div className="hidden sm:block absolute bottom-80 right-0 -mb-12 mr-25">
             <div style={{ marginBottom: "-10rem" }} className="relative z-10">
-              <div className="w-96  text-black text-4xl font-bold break-words ">
-                {letsTalkData.office1Name}
+              <div className="w-96 text-black text-4xl font-bold break-words ">
+                {" "}
+                {textBlocks[1] && textBlocks[1].officeName}
               </div>
               <div className="w-66 sm:w-40 text-black text-lg break-words ml-12">
-                {letsTalkData.office1Address}
+                {textBlocks[1] && textBlocks[1].address}
               </div>
             </div>
 
-            <Image className="ml-8" src="/images/map2.png" alt="map2" width={200} height={200} />
+            <Image
+              className="ml-8"
+              src={textBlocks[1] && textBlocks[1].image}
+              alt="map2"
+              width={200}
+              height={200}
+            />
           </div>
         </div>
       </div>
@@ -194,9 +210,9 @@ const LetsTalk = ({ letsTalkData }) => {
                 className="z-0 ml-4"
               />
             </div>
-            <div className="w-[44%] absolute top-12 left-0 bottom-0 flex flex-col justify-center items-center z-10">
-              <div className="text-4xl font-bold break-words">{letsTalkData.office1Name}</div>
-              <div className="text-lg break-words">{letsTalkData.office1Address}</div>
+            <div className="w-3/5 absolute top-12 left-0 bottom-0 flex flex-col justify-center items-center z-10">
+              <div className="text-5xl font-bold break-words">BE Office</div>
+              <div className="text-2xl break-words">Thonetlaan 74, 2050 Antwerp Belgium</div>
             </div>
           </div>
 
@@ -211,9 +227,11 @@ const LetsTalk = ({ letsTalkData }) => {
                 className="z-0 ml-4"
               />
             </div>
-            <div className="w-[45%] absolute top-12 left-0 bottom-0 flex flex-col justify-center items-center z-10">
-              <div className="text-4xl font-bold break-words"> {letsTalkData.office2Name}</div>
-              <div className="text-lg break-words">{letsTalkData.office2Address}</div>
+            <div className="w-3/5 absolute top-12 left-0 bottom-0 flex flex-col justify-center items-center z-10">
+              <div className="text-5xl font-bold break-words">UK Office</div>
+              <div className="text-2xl break-words">
+                Guardian House, 7 N Bar St, Banbury OX16 0TB, United Kingdom
+              </div>
             </div>
           </div>
         </div>
