@@ -70,7 +70,7 @@ const HomePageBlogs = ({ blogsData, loading }) => {
   //       };
   //     }
   //   }, [blogsData, hasMore]);
-  console.log("blogsData", blogsData);
+//   console.log("blogsData", blogsData);
   return (
     <div>
       <div className="px-10 xl:px-0 md:max-w-[1040px] md:mx-auto relative">
@@ -80,7 +80,7 @@ const HomePageBlogs = ({ blogsData, loading }) => {
           </div>
         </div>
         <div className={`mb-24 grid grid-flow-row-dense gap-7 grid-cols-12`}>
-          {blogsData.blogs &&
+          {blogsData && blogsData.blogs &&
             blogsData.blogs.map((blog, index) => {
               return (
                 <Link
