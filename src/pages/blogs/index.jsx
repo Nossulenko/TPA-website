@@ -19,6 +19,7 @@ const space_Grotesk = Space_Grotesk({
 
 export default function Home() {
   const myText = "The Product Architects";
+  const [loading, setLoading] = useState(true);
   const [sectionNo, setSectionNo] = useState(1);
   const [theme, setTheme] = useState({});
   const [navigationData, setNavigationData] = useState([]);
@@ -27,6 +28,7 @@ export default function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
         const [postsResult, themeResult, navigation, blogs, letsTalk] = await Promise.all([
           client.fetch('*[_type == "movie"]'),
@@ -37,10 +39,12 @@ export default function Home() {
         ]);
         setTheme(themeResult[0]);
         setNavigationData(navigation[0]);
-        setBlogsData(blogs);
+        setBlogsData(blogs[0]);
         setLetsTalkData(letsTalk[0]);
       } catch (error) {
         console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -58,7 +62,7 @@ export default function Home() {
     >
       <main>
         <Navbar navigationData={navigationData} />
-        <HomePageBlogs blogsData={blogsData} />
+        <HomePageBlogs blogsData={blogsData} loading={loading} />
         <Link to="letsTalk" smooth duration={500}>
           <LetsTalk letsTalkData={letsTalkData} />
         </Link>

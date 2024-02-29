@@ -13,9 +13,9 @@ function urlFor(source) {
   return builder.image(source);
 }
 
-const HomePageBlogs = ({ blogsData }) => {
+const HomePageBlogs = ({ blogsData, loading }) => {
   //   const [blogsData, setBlogsData] = useState([]);
-  const [loading, setLoading] = useState(true);
+//   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [pageNo, setPageNo] = useState(1);
   const [hasMore, setHasMore] = useState(true);
@@ -80,8 +80,8 @@ const HomePageBlogs = ({ blogsData }) => {
           </div>
         </div>
         <div className={`mb-24 grid grid-flow-row-dense gap-7 grid-cols-12`}>
-          {blogsData &&
-            blogsData.map((blog, index) => {
+          {blogsData.blogs &&
+            blogsData.blogs.map((blog, index) => {
               return (
                 <Link
                   href={`${blog.url}`}
@@ -91,26 +91,22 @@ const HomePageBlogs = ({ blogsData }) => {
                 >
                   <div className="image">
                     <Image
-                      src={urlFor(blog.blogs[0].img.asset).url()}
+                      src={urlFor(blog.img.asset).url()}
                       alt={`blog${index}`}
                       width={400}
                       height={400}
                     />
                   </div>
-                  <div className="heading text-blue1 text-2xl font-semibold my-4">
-                    {blog.blogs[0].title}
-                  </div>
-                  <div className="text h-[6rem] overflow-hidden my-6">
-                    {blog.blogs[0].content || ""}
-                  </div>
-                  <Link href={`${blog.blogs[0].url}`} className="link text-lightRed underline my-6">
+                  <div className="heading text-blue1 text-2xl font-semibold my-4">{blog.title}</div>
+                  <div className="text h-[6rem] overflow-hidden my-6">{blog.content || ""}</div>
+                  <Link href={`${blog.url}`} className="link text-lightRed underline my-6">
                     Learn More
                   </Link>
                 </Link>
               );
             })}
           <div className=" col-span-full flex items-center justify-center">
-            {/* {loading && <Loader className="my-80" />} */}
+            {loading && <Loader className="my-80" />}
           </div>
         </div>
       </div>
