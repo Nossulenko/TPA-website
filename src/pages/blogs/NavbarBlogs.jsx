@@ -48,7 +48,13 @@ const MobileBurgerMenu = ({ isOpen, onClose, theme, email, navData, socialData }
           {navBarOptions &&
             navBarOptions.map((item) => (
               <div key={item.id} className="my-1 font-medium hsvelte-p4r7f7">
-                <Link to={item.link} className="underline decoration-primary decoration-4 md:no-underline svelte-p4r7f7" smooth duration={500} onClick={onClose}>
+                <Link
+                  to={item.link}
+                  className="underline decoration-primary decoration-4 md:no-underline svelte-p4r7f7"
+                  smooth
+                  duration={500}
+                  onClick={onClose}
+                >
                   {item.name}
                 </Link>{" "}
               </div>
@@ -61,12 +67,13 @@ const MobileBurgerMenu = ({ isOpen, onClose, theme, email, navData, socialData }
 
 const Navbar = ({ navigationData }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
+  // const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
   const { name, icon, email, navData, socialData, bgImage } = navigationData;
 
   const handleMenuToggle = () => {
     setMenuOpen(!isMenuOpen);
   };
+  // console.log("theme Navbar", theme);
   return (
     <div className="bg-blue1 sm:bg-white showHeader">
       <div className="">
@@ -117,7 +124,7 @@ const Navbar = ({ navigationData }) => {
               <MobileBurgerMenu
                 isOpen={isMenuOpen}
                 onClose={handleMenuToggle}
-                theme={theme}
+                // theme={theme}
                 email={email}
                 navData={navData}
                 socialData={socialData}

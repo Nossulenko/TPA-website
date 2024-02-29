@@ -173,7 +173,7 @@ const Navbar = ({ navigationData }) => {
   const handleMenuToggle = () => {
     setMenuOpen(!isMenuOpen);
   };
-  console.log("navigationData", navigationData);
+  // console.log("navigationData", navigationData);
   return (
     <div className="">
       <div className="">

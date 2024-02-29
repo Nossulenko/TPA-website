@@ -30,8 +30,7 @@ export default function Home() {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const [postsResult, themeResult, navigation, blogs, letsTalk] = await Promise.all([
-          client.fetch('*[_type == "movie"]'),
+        const [themeResult, navigation, blogs, letsTalk] = await Promise.all([
           client.fetch('*[_type == "theme"]'),
           client.fetch('*[_type == "navigation"]'),
           client.fetch('*[_type == "blogs"]'),
