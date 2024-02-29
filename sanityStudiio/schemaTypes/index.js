@@ -9,6 +9,7 @@ import services from './services'
 import articles from './articles'
 import AboutPTA from './aboutPTA'
 import navigation from './navigation'
+import blogs from './blogs'
 
 export const schemaTypes = [
   // Document types
@@ -23,4 +24,5 @@ export const schemaTypes = [
   AboutPTA,
   team,
   letsTalk,
+  blogs,
 ]

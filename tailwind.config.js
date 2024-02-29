@@ -15,12 +15,20 @@ module.exports = {
         yellow: "#FECF4F",
         darkYellow: "#c79d2a",
         lightYellow: "#fada82",
-        grey1:"#ECEBE9",
+        grey1: "#ECEBE9",
+        blue1: "#134074",
+        lightRed: "#ff0000",
+        lightWhite:"#EEEADB"
       },
       fontSize: {
         "10xl": "10rem",
         "11xl": "14rem",
         "12xl": "44rem",
+      },
+      spacing: {
+      },
+      translate: {
+        '30': '7.25rem',
       },
     },
   },
