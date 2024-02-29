@@ -67,6 +67,9 @@ const MobileBurgerMenu = ({ isOpen, onClose, theme, email, navData, socialData }
 
 const Navbar = ({ navigationData }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  if (!navigationData) {
+    return null; 
+  }
   // const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
   const { name, icon, email, navData, socialData, bgImage } = navigationData;
 
