@@ -1,9 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx,css}", // Added css
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx,css}", // Added css
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx,css}", // Added css
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx,css}", // Added css
   ],
   theme: {
     extend: {
@@ -16,21 +17,27 @@ module.exports = {
         darkYellow: "#c79d2a",
         lightYellow: "#fada82",
         grey1: "#ECEBE9",
+        greybg: "#F0F0EF",
         blue1: "#134074",
         lightRed: "#ff0000",
-        lightWhite:"#EEEADB"
+        lightWhite: "#EEEADB",
       },
       fontSize: {
         "10xl": "10rem",
         "11xl": "14rem",
         "12xl": "44rem",
       },
-      spacing: {
-      },
+      spacing: {},
       translate: {
-        '30': '7.25rem',
+        30: "7.25rem",
       },
+      fontFamily: {
+        workSans: ['"Work Sans"', 'sans-serif']
+    }
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animated")],
+  purge: [
+    "./src/**/*.{js,ts,jsx,tsx,md,mdx,css}", // Replace "content:" with "purge:"
+  ],
 };

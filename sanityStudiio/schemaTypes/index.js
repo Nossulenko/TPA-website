@@ -9,7 +9,9 @@ import services from './services'
 import articles from './articles'
 import AboutPTA from './aboutPTA'
 import navigation from './navigation'
-import blogs from './blogs'
+import blogs from './blog'
+import blockContent from './blockContent'
+import person from './person'
 
 export const schemaTypes = [
   // Document types
@@ -25,4 +27,6 @@ export const schemaTypes = [
   team,
   letsTalk,
   blogs,
+  blockContent,
+  person,
 ]

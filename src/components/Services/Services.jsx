@@ -61,15 +61,16 @@ const Services = ({ servicesData }) => {
           className="sm:w-2/3 ScrollContainer overflow-y-auto h-screen scrollbar scrollbar-thumb-yellow scrollbar-thumb-rounded"
           style={{ scrollbarWidth: "thin", scrollbarColor: "#FECF4F #ffffff" }}
         >
-          {textBlocks && textBlocks.map((block) => (
-            <div className="m-4 sm:m-0 my-10" key={block.id}>
-              <div className="sm:w-10/12 flex justify-start items-center space-x-4 sm:mt-20">
-                <div className="text-3xl sm:text-4xl font-bold">{block.heading}</div>
+          {textBlocks &&
+            textBlocks.map((block) => (
+              <div className="m-4 sm:m-0 my-10" key={block.id}>
+                <div className="sm:w-10/12 flex justify-start items-center space-x-4 sm:mt-20">
+                  <div className="text-3xl sm:text-4xl font-bold">{block.heading}</div>
+                </div>
+                <div className="my-4 sm:my-0 sm:mt-8 mx-1 text-xl">{block.subHeading}</div>
+                <div className="mr-4 sm:mx-32 text-xl">{block.desc}</div>
               </div>
-              <div className="my-4 sm:my-0 sm:mt-8 mx-1 text-xl">{block.subHeading}</div>
-              <div className="mr-4 sm:mx-32 text-xl">{block.desc}</div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </div>
