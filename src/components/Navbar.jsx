@@ -8,6 +8,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import imageUrlBuilder from "@sanity/image-url";
 import sanityClient from "../lib/sanity";
 import getImageUrl from "../lib/sanity";
+import SquareLoader from "react-spinners/SquareLoader";
 
 const navData = [
   { id: 1, name: "Projects", link: "whatWeDo" },
@@ -165,7 +166,14 @@ const WebBurgerMenu = ({ isOpen, onClose, theme, name, email, navData, socialDat
   );
 };
 
-const Navbar = ({ navigationData }) => {
+const Navbar = ({ navigationData, color }) => {
+  if (!navigationData) {
+    return (
+      <div className=" col-span-full flex items-center justify-center">
+        {<SquareLoader className="my-80" color={color} />}
+      </div>
+    );
+  }
   const [isMenuOpen, setMenuOpen] = useState(false);
   const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
   const { name, icon, email, navBarOptions, navData, socialData, bgImage } = navigationData;
@@ -173,25 +181,29 @@ const Navbar = ({ navigationData }) => {
   const handleMenuToggle = () => {
     setMenuOpen(!isMenuOpen);
   };
-  // console.log("navigationData", navigationData);
+  // console.log("color", color);
   return (
     <div className="">
       <div className="">
         <div className="flex items-center justify-between m-6">
           <div className="flex items-center justify-start">
-            <div className="">
+            <Link to="/">
               <Image
                 src={icon && icon.asset && urlFor(icon.asset).url()}
                 alt="Logo"
                 width={40}
                 height={40}
               />
-            </div>
-            <div className="">{name}</div>
+            </Link>
+            <Link to="/" className="" style={{ color: color }}>
+              {name}
+            </Link>
             <div className="text-transparent text-stroke text-black text-2xl">Hollow Text</div>
           </div>
           <div className="flex items-center justify-end relative space-x-4">
-            <div className="hidden sm:block">{navBarOptions && navBarOptions[0].optionName}</div>
+            <div className="hidden sm:block" style={{ color: color }}>
+              {navBarOptions && navBarOptions[0].optionName}
+            </div>
             <div
               className="pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer"
               onClick={handleMenuToggle}
@@ -217,6 +229,7 @@ const Navbar = ({ navigationData }) => {
                 email={email}
                 navData={navData}
                 socialData={socialData}
+                color={color}
               />
             </div>
             <div className="hidden sm:block">
@@ -229,6 +242,7 @@ const Navbar = ({ navigationData }) => {
                 navData={navData}
                 socialData={socialData}
                 bgImage={bgImage}
+                color={color}
               />
             </div>
           </div>

@@ -23,10 +23,10 @@ const SingleBlog = ({ singleBlogData }) => {
   const firstHalf = titleWords.slice(0, 2).join(" ");
   const secondHalf = titleWords.slice(2).join(" ");
   return (
-    <div className="my-12 sm:my-20 mx-4 sm:mx-44 shubham text-left">
+    <div className="my-12 sm:my-20 mx-4 sm:mx-44 blog text-left">
       <h1 className="text font">{blog.title}</h1>
       <Image src={blog.featureImage.asset.url} width={400} height={400} alt={blog.title} />
-      <div className="shubham">
+      <div className="blog">
         <PortableText
           content={blog.mainDescription}
           projectId="xh1730zu"

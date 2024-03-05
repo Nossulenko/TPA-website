@@ -19,7 +19,7 @@ const SingleBlog = ({ singleBlogData }) => {
     <div>
       <h2 className="text-5xl font">{blog.title}</h2>
       <Image src={blog.featureImage.asset.url} width={400} height={400} alt={blog.title} />
-      <div className="shubham">
+      <div className="blog">
         {/* <PortableText value={blog.mainDescription} /> */}
         <PortableText content={blog.mainDescription} projectId="xh1730zu" dataset="production" />
       </div>

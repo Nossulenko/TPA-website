@@ -14,6 +14,7 @@ import client from "../lib/sanity";
 const HomePage = () => {
   const [sectionNo, setSectionNo] = useState(1);
   const [theme, setTheme] = useState({});
+  const [loading, setLoading] = useState(true);
   const [elevatingIdeaData, setElevatingIdeaData] = useState([]);
   const [whatWeDoData, setWhatWeDoData] = useState([]);
   const [howWeOperate, setHowWeOperate] = useState([]);
@@ -27,6 +28,7 @@ const HomePage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
         const [
           themeResult,
@@ -49,7 +51,7 @@ const HomePage = () => {
           client.fetch('*[_type == "team"]'),
           client.fetch('*[_type == "howToOperate"]'),
           client.fetch('*[_type == "services"]'),
-          client.fetch('*[_type == "articles"]'),
+          client.fetch('*[_type == "articles"][0...3]'),
           client.fetch('*[_type == "aboutPTA"]'),
           client.fetch('*[_type == "navigation"]'),
         ]);
@@ -62,21 +64,24 @@ const HomePage = () => {
         setTeamData(team[0]);
         setHowToOperateData(howToOperate[0]);
         setServicesData(services[0]);
-        setArticlesData(articles[0]);
+        setArticlesData(articles);
         setAboutPTAData(aboutPTA[0]);
         setNavigationData(navigation[0]);
       } catch (error) {
         console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchData();
   }, []);
+  // console.log("articlesData", articlesData);
 
   return (
     <div>
       <Link to="elevatingIdea" smooth duration={500}>
-        <ElevatingIdea elevatingIdeaData={elevatingIdeaData} />
+        <ElevatingIdea elevatingIdeaData={elevatingIdeaData} loading={loading}/>
       </Link>
       <Link to="whatWeDo" smooth duration={500}>
         <WhatWeDo whatWeDoData={whatWeDoData} />

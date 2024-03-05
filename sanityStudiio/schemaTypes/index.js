@@ -12,6 +12,7 @@ import navigation from './navigation'
 import blogs from './blog'
 import blockContent from './blockContent'
 import person from './person'
+import cases from './cases'
 
 export const schemaTypes = [
   // Document types
@@ -22,11 +23,12 @@ export const schemaTypes = [
   howWeOperate,
   howToOperate,
   services,
-  articles,
   AboutPTA,
   team,
   letsTalk,
   blogs,
-  blockContent,
-  person,
+  articles,
+  // blockContent,
+  // person,
+  cases,
 ]

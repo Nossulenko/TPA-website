@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
@@ -10,11 +10,10 @@ body {
   font-family: "Space Grotesk", sans-serif;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Micro+5&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Micro+5&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 .second-half {
-  font-family: 'Work Sans', sans-serif !important;
+  font-family: "Work Sans", sans-serif !important;
   /* Add other styles as per requirement */
 }
 
@@ -385,7 +384,8 @@ body {
   text-decoration-line: underline;
 }
 
-.shubham {
+.blog,
+.article {
   h1 {
     font-size: 2.5rem !important;
     color: #134074;
@@ -460,7 +460,34 @@ body {
   a {
     text-decoration: underline;
   }
-  figure{
+  figure {
     width: 400px;
+  }
+}
+
+.article {
+  figure {
+    width: 100%;
+  }
+  h1 {
+    font-size: 2.5rem !important;
+    color: #134074;
+    font-weight: 900 !important;
+    margin: 1.6rem 0;
+    text-align: center;
+  }
+  ol li::marker {
+    background-color: #fecf4f;
+    border-color: #FECF4F;
+    box-shadow: 0px 0px 4px 4px rgba(255, 207, 79, 0.8);
+  }
+
+  /* This will only apply when the device width is more than 640px */
+  @media screen and (min-width: 640px) {
+    h1 {
+      font-size: 1.5rem !important;
+      margin: 0 4rem;
+      text-align: left !important;
+    }
   }
 }

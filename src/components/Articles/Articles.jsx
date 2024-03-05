@@ -1,3 +1,4 @@
+// TPA-Website/src/components/Articles/Articles.jsx
 import React, { useState, useContext } from "react";
 import TextContext from "../../TextContext";
 import Image from "next/image";
@@ -46,7 +47,7 @@ const Articles = ({ articlesData }) => {
     };
   });
 
-  // console.log("rec acrticel", articlesData);
+  // console.log("articlesData", articlesData);
   return (
     <div className="relative w-full my-10">
       <div className="flex items-end justify-between">
@@ -56,33 +57,36 @@ const Articles = ({ articlesData }) => {
         >
           Articles
         </div>
-        <div className="hidden sm:flex mr-32 justify-start items-center space-x-6 -bottom-1">
-          <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
-            <div
-              className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
-              style={{
-                backgroundColor: theme ? theme.textColor : "#FECF4F",
-                borderColor: theme ? theme.textColor : "#FECF4F",
-                boxShadow: `0px 0px 4px 4px ${
-                  theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
-                }`,
-              }}
-            >
-              <EastIcon />
+        <Link href="/articles">
+          {" "}
+          <div className="hidden sm:flex mr-32 justify-start items-center space-x-6 -bottom-1">
+            <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
+              <div
+                className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
+                style={{
+                  backgroundColor: theme ? theme.textColor : "#FECF4F",
+                  borderColor: theme ? theme.textColor : "#FECF4F",
+                  boxShadow: `0px 0px 4px 4px ${
+                    theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
+                  }`,
+                }}
+              >
+                <EastIcon />
+              </div>
+            </div>
+            <div className="text-black text-center font-space-grotesk text-22 font-medium underline">
+              Discover more articles
             </div>
           </div>
-          <div className="text-black text-center font-space-grotesk text-22 font-medium underline">
-            Discover more articles
-          </div>
-        </div>
+        </Link>
       </div>
       <div className="h-fit sm:h-[90vh] sm:flex flex-col space-y-8 sm:space-y-0 mx-4 sm:mx-0 sm:flex-row sm:space-x-10 m-6">
-        {textBlocks.map((block, index) => (
+        {articlesData.map((article, index) => (
           <div key={index} className="mb-8 w-full sm:w-1/3 sm:mx-0">
             <div className="rounded-2xl flex items-center justify-start">
               <Image
                 className="rounded-2xl"
-                src={block.image}
+                src={urlFor(article.featureImage.asset).url()}
                 alt={`Image ${index}`}
                 width={365}
                 height={352}
@@ -103,13 +107,13 @@ const Articles = ({ articlesData }) => {
                   <EastIcon />
                 </div>
               </div>
-              <Link href={block.link}>
+              <Link href={`/articles/${article.slug.current}`}>
                 <div className="text-black font-space-grotesk text-22 font-medium underline">
-                  {block.heading}
+                  {article.heading}
                 </div>
               </Link>
             </div>
-            <div className="w-5/6">{block.desc}</div>
+            <div className="w-5/6">{article.summary}</div>
           </div>
         ))}
       </div>

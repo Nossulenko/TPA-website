@@ -2,14 +2,14 @@ import {defineField, defineType} from 'sanity'
 import {MdSettings as icon} from 'react-icons/md'
 
 export default defineType({
-  name: 'articles',
-  title: 'Articles',
+  name: 'cases',
+  title: 'Cases',
   type: 'document',
   icon,
   fields: [
     {
       name: 'heading',
-      title: 'Article Heading',
+      title: 'Case Heading',
       type: 'string',
     },
     {
@@ -28,15 +28,16 @@ export default defineType({
       ],
     },
     {
-      name: 'time',
-      title: 'Time to Read (In Minutes)',
-      type: 'number',
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [{type: 'string'}],
     },
-    {
-      name: 'summary',
-      title: 'Summary',
-      type: 'string',
-    },
+    // {
+    //   name: 'summary',
+    //   title: 'Summary',
+    //   type: 'string',
+    // },
     {
       name: 'slug',
       title: 'Slug',
@@ -53,13 +54,27 @@ export default defineType({
     },
     {
       name: 'paragraphs',
-      title: 'Paragraphs',
-      type: 'array',
-      of: [{type: 'text'}],
+      title: 'Paragraph',
+      type: 'text',
     },
     {
-      name: 'articleImage',
-      title: 'Article Image',
+      name: 'caseImage',
+      title: 'Case Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'attribution',
+          type: 'string',
+          title: 'Attribution',
+        },
+      ],
+    },
+    {
+      name: 'mainCaseImage',
+      title: 'Case Main Image',
       type: 'image',
       options: {
         hotspot: true,
@@ -93,7 +108,8 @@ export default defineType({
             {
               name: 'bulletDescription',
               title: 'Bullet Description',
-              type: 'text',
+              type: 'array',
+              of: [{type: 'string'}],
             },
             {
               name: 'bulletImage',
@@ -115,8 +131,8 @@ export default defineType({
       ],
     },
     {
-      name: 'nextArticleSlug',
-      title: 'Next Article Slug',
+      name: 'nextCaseSlug',
+      title: 'Next Case Slug',
       type: 'string',
     },
     {

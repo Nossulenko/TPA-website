@@ -5,6 +5,7 @@ import Image from "next/image";
 import EastIcon from "@mui/icons-material/East";
 import imageUrlBuilder from "@sanity/image-url";
 import sanityClient from "../../lib/sanity";
+import SquareLoader from "react-spinners/SquareLoader";
 
 const builder = imageUrlBuilder(sanityClient);
 
@@ -12,8 +13,8 @@ function urlFor(source) {
   return builder.image(source);
 }
 
-const ElevatingIdea = ({ elevatingIdeaData }) => {
-  const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
+const ElevatingIdea = ({ elevatingIdeaData, loading }) => {
+  const { myText, sectionNo, setSectionNo, theme, color } = useContext(TextContext);
   const { image } = elevatingIdeaData;
   // console.log("elevating image.asset._ref", image.asset._ref);
   return (
@@ -88,6 +89,15 @@ const ElevatingIdea = ({ elevatingIdeaData }) => {
       </div>
       {/* <div className="m-6 sm:m-0"> */}{" "}
       <div className="sm:h-[80vh] hidden sm:block absolute bottom-0 right-0 -mb-12 m-6">
+        {/* {loading && (
+          <div className="flex item-center justify-center my-8">
+            <SquareLoader
+              className="flex item-center justify-center my-8"
+              color={theme.textColor}
+              loading={loading}
+            />
+          </div>
+        )} */}
         <img
           src={image && image.asset && urlFor(image.asset._ref)}
           alt="elevating_r3"

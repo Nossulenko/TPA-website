@@ -41,9 +41,7 @@ export default defineType({
     defineField({
       name: 'link',
       title: 'Link',
-      type: 'url',
-      // Add Sample value
-      initialValue: 'https://www.example.com',
+      type: 'string',
     }),
     defineField({
       name: 'linkText',
