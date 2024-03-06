@@ -1,26 +1,4 @@
-// const articleData = [
-//   {
-//     heading: "How Prototyping Helps You Reach Your Goals",
-//     featureImage: "/images/article1image.jpeg",
-//     summary:
-//       "In our previous article, we delved into the essentials of conducting effective user testing, from ensuring a representative sample to avoiding biases. Building on our comprehensive guide, we at The Product Architects BV (TPA) present four additional tips to take your user testing to the next level...",
-//     slug: "",
-//   },
-//   {
-//     heading: "How the Donut Economy drives sustainability",
-//     featureImage: "/images/article1image.jpeg",
-//     summary:
-//       "With current rates of resource depletion and growing stress on our social model, it is impossible to maintain this idea of economics. The Doughnut Economy is an alternative approach, one that strives to spread growth and find balance. What best practices and design questions should we adhere to so that we can drive sustainability forward?...",
-//     slug: "",
-//   },
-//   {
-//     heading: "What is Strategic Product Design",
-//     featureImage: "/images/article1image.jpeg",
-//     summary:
-//       "Innovation and product creation processes (where product relates to actual products, services, digital, physical or phygital experiences) are inherently difficult for a lot of companies. This usually results in products that cannot meet customer needs, long and time-consuming projects, or even budgetary graveyards...",
-//     slug: "",
-//   },
-// ];
+// TPA-Website/src/pages/articles/Articles.jsx
 
 import React, { useState, useEffect, useContext } from "react";
 import EastIcon from "@mui/icons-material/East";

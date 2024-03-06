@@ -63,7 +63,7 @@ const HomePageBlogs = () => {
 
     fetchData();
   }, []);
-  console.log("blogsData", blogsData);
+  // console.log("blogsData", blogsData);
   return (
     <div>
       <div className="px-10 xl:px-0 md:max-w-[1040px] md:mx-auto relative">

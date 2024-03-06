@@ -1,3 +1,4 @@
+// TPA-Website/src/pages/articles/SingleArticle.jsx
 import React, { useState, useContext } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -61,7 +62,7 @@ const SingleArticle = ({ SingleArticleData }) => {
 
   const BackgroundImage = urlFor(article.featureImage.asset).url();
 
-//   console.log("bullet", bullet[0]);
+  //   console.log("bullet", bullet[0]);
 
   const headerStyle = {
     backgroundImage: `url(${urlFor(article.featureImage.asset).url()})`,

@@ -70,7 +70,7 @@ const MobileBurgerMenu = ({ isOpen, onClose, theme, email, navData, socialData }
         <div className="text-center text-2xl">
           <div className="">Mail Us:</div>
           <div className="underline">
-            <Link href={`mailto:${email}`}>{email}</Link>
+            <Link to={`mailto:${email}`}>{email}</Link>
           </div>
         </div>
       </div>
@@ -133,7 +133,7 @@ const WebBurgerMenu = ({ isOpen, onClose, theme, name, email, navData, socialDat
               <div className="flex space-x-4 placeholder:text-center">
                 <div className="">Mail Us:</div>
                 <div className="underline">
-                  <Link href={`mailto:${email}`}>{email}</Link>
+                  <Link to={`mailto:${email}`}>{email}</Link>
                 </div>
               </div>
             </div>

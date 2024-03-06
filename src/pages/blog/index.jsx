@@ -9,6 +9,7 @@ import client from "../../lib/sanity";
 import Loader from "./Loader";
 import FooterBlogs from "./FooterBlogs";
 import LetsTalk from "../../components/LetsTalk/index";
+import SquareLoader from "react-spinners/SquareLoader";
 
 const space_Grotesk = Space_Grotesk({
   weight: ["400", "700"],
@@ -19,11 +20,12 @@ const space_Grotesk = Space_Grotesk({
 
 export default function Home() {
   const myText = "The Product Architects";
-  const [loading, setLoading] = useState(true);
   const [sectionNo, setSectionNo] = useState(1);
   const [theme, setTheme] = useState({});
   const [navigationData, setNavigationData] = useState([]);
   const [letsTalkData, setLetsTalkData] = useState([]);
+  let [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("#FECF4F");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -56,13 +58,23 @@ export default function Home() {
         theme,
       }}
     >
-      <main>
-        <Navbar navigationData={navigationData} />
-        <HomePageBlogs />
-        <Link to="letsTalk" smooth duration={500}>
-          <LetsTalk letsTalkData={letsTalkData} />
-        </Link>
-      </main>
+      {loading ? (
+        <div className="flex item-center justify-center my-8">
+          <SquareLoader
+            className="flex item-center justify-center my-8"
+            color={color}
+            loading={loading}
+          />
+        </div>
+      ) : (
+        <main>
+          <Navbar navigationData={navigationData} />
+          <HomePageBlogs />
+          <Link to="letsTalk" smooth duration={500}>
+            <LetsTalk letsTalkData={letsTalkData} />
+          </Link>
+        </main>
+      )}
     </TextContext.Provider>
   );
 }

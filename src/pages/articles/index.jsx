@@ -6,6 +6,7 @@ import client from "../../lib/sanity";
 import { Link, animateScroll as scroll } from "react-scroll";
 import LetsTalk from "../../components/LetsTalk/index";
 import Articles from "./Articles";
+import SquareLoader from "react-spinners/SquareLoader";
 
 const index = () => {
   const myText = "The Product Architects";
@@ -13,8 +14,11 @@ const index = () => {
   const [theme, setTheme] = useState({});
   const [navigationData, setNavigationData] = useState([]);
   const [letsTalkData, setLetsTalkData] = useState([]);
+  let [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("#FECF4F");
 
   useEffect(() => {
+    setLoading(true);
     const fetchData = async () => {
       try {
         const [postsResult, themeResult, navigation, letsTalk] = await Promise.all([
@@ -28,6 +32,8 @@ const index = () => {
         setLetsTalkData(letsTalk[0]);
       } catch (error) {
         console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -42,10 +48,20 @@ const index = () => {
         theme,
       }}
     >
-      <main>
-        <Navbar navigationData={navigationData} />
-        <Articles />
-      </main>
+      {loading ? (
+        <div className="flex item-center justify-center my-8">
+          <SquareLoader
+            className="flex item-center justify-center my-8"
+            color={color}
+            loading={loading}
+          />
+        </div>
+      ) : (
+        <main>
+          <Navbar navigationData={navigationData} />
+          <Articles />
+        </main>
+      )}
     </TextContext.Provider>
   );
 };

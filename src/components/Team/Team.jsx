@@ -83,8 +83,8 @@ const Team = ({ teamData }) => {
           </div>
           <div className="sm:flex flex-col justify-start sm:flex-row mx-12 sm:mx-24 lg:mx-24 py-20 sm:py-0">
             {textBlocks &&
-              textBlocks.slice(beginningIndex, endIndex).map((item) => (
-                <div key={item.id} className="sm:w-1/3 my-8 sm:my-16 sm:mx-0">
+              textBlocks.slice(beginningIndex, endIndex).map((item, index) => (
+                <div key={index} className="sm:w-1/3 my-8 sm:my-16 sm:mx-0">
                   <Image
                     src={item.image}
                     alt={item.name}
