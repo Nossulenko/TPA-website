@@ -5,7 +5,7 @@ import PortableText from "react-portable-text";
 import Loader from "./Loader";
 import { client } from "../../lib/sanity";
 import styles from "./blog.module.css";
-import richTextSerializers from "./richTextSerializers";
+// import richTextSerializers from "./richTextSerializers";
 
 const SingleBlog = ({ singleBlogData }) => {
   if (!singleBlogData) {
@@ -31,7 +31,7 @@ const SingleBlog = ({ singleBlogData }) => {
           content={blog.mainDescription}
           projectId="xh1730zu"
           dataset="production"
-          serializers={richTextSerializers}
+          // serializers={richTextSerializers}
         />
       </div>
     </div>
