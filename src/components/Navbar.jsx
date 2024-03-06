@@ -154,12 +154,12 @@ const WebBurgerMenu = ({ isOpen, onClose, theme, name, email, navData, socialDat
         </div>
         <div className="w-1/2">
           {/* Second div content (assuming it's an image) */}
-          <Image
+          {/* <Image
             src={bgImage && bgImage.asset && urlFor(bgImage.asset).url()}
             alt="Logo"
             width={800}
             height={800}
-          />
+          /> */}
         </div>
       </div>
     </div>
@@ -181,23 +181,22 @@ const Navbar = ({ navigationData, color }) => {
   const handleMenuToggle = () => {
     setMenuOpen(!isMenuOpen);
   };
-  // console.log("color", color);
   return (
     <div className="">
       <div className="">
         <div className="flex items-center justify-between m-6">
           <div className="flex items-center justify-start">
-            <Link to="/">
+            <div to="/">
               <Image
-                src={icon && icon.asset && urlFor(icon.asset).url()}
+                  src={icon && icon.asset ? urlFor(icon.asset).url() : undefined}
                 alt="Logo"
                 width={40}
                 height={40}
               />
-            </Link>
-            <Link to="/" className="" style={{ color: color }}>
+            </div>
+            <div className="" style={{ color: color }}>
               {name}
-            </Link>
+            </div>
             <div className="text-transparent text-stroke text-black text-2xl">Hollow Text</div>
           </div>
           <div className="flex items-center justify-end relative space-x-4">

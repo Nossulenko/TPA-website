@@ -47,7 +47,6 @@ const Cases = () => {
       setLoading(true);
       try {
         const [cases] = await Promise.all([client.fetch('*[_type == "cases"]')]);
-        console.log("cases", cases);
         setCasesData(cases);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -61,7 +60,7 @@ const Cases = () => {
 
   let [color, setColor] = useState("#FECF4F");
 
-  console.log("Updated casesData:", casesData);
+  // console.log(" myText:", myText);
 
   return (
     <div className="relative overflow-hidden">

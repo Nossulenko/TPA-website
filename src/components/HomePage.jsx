@@ -10,10 +10,12 @@ import Team from "./Team/index";
 import About from "./AboutPTA/index";
 import { Link, animateScroll as scroll } from "react-scroll";
 import client from "../lib/sanity";
+import SquareLoader from "react-spinners/SquareLoader";
 
 const HomePage = () => {
   const [sectionNo, setSectionNo] = useState(1);
   const [theme, setTheme] = useState({});
+  let [color, setColor] = useState("#FECF4F");
   const [loading, setLoading] = useState(true);
   const [elevatingIdeaData, setElevatingIdeaData] = useState([]);
   const [whatWeDoData, setWhatWeDoData] = useState([]);
@@ -77,38 +79,50 @@ const HomePage = () => {
     fetchData();
   }, []);
   // console.log("articlesData", articlesData);
-
-  return (
-    <div>
-      <Link to="elevatingIdea" smooth duration={500}>
-        <ElevatingIdea elevatingIdeaData={elevatingIdeaData} loading={loading}/>
-      </Link>
-      <Link to="whatWeDo" smooth duration={500}>
-        <WhatWeDo whatWeDoData={whatWeDoData} />
-      </Link>
-      <Link to="howWeOperate" smooth duration={500}>
-        <HowWeOperate howWeOperate={howWeOperate} />
-      </Link>
-      <Link to="howToOperate" smooth duration={500}>
-        <HowToOperate howToOperateData={howToOperateData} />
-      </Link>
-      <Link to="services" smooth duration={500}>
-        <Services servicesData={servicesData} />
-      </Link>
-      <Link to="articles" smooth duration={500}>
-        <Articles articlesData={articlesData} />
-      </Link>
-      <Link to="about" smooth duration={500}>
-        <About aboutPTAData={aboutPTAData} />
-      </Link>
-      <Link to="team" smooth duration={500}>
-        <Team teamData={teamData} />
-      </Link>
-      <Link to="letsTalk" smooth duration={500}>
-        <LetsTalk letsTalkData={letsTalkData} />
-      </Link>
-    </div>
-  );
+  if (loading) {
+    // If data is still loading, render the SquareLoader
+    return (
+      <div className="flex item-center justify-center my-8">
+        <SquareLoader
+          className="flex item-center justify-center my-8"
+          color={color}
+          loading={loading}
+        />
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <Link to="elevatingIdea" smooth duration={500}>
+          <ElevatingIdea elevatingIdeaData={elevatingIdeaData} loading={loading} />
+        </Link>
+        <Link to="whatWeDo" smooth duration={500}>
+          <WhatWeDo whatWeDoData={whatWeDoData} />
+        </Link>
+        <Link to="howWeOperate" smooth duration={500}>
+          <HowWeOperate howWeOperate={howWeOperate} />
+        </Link>
+        <Link to="howToOperate" smooth duration={500}>
+          <HowToOperate howToOperateData={howToOperateData} />
+        </Link>
+        <Link to="services" smooth duration={500}>
+          <Services servicesData={servicesData} />
+        </Link>
+        <Link to="articles" smooth duration={500}>
+          <Articles articlesData={articlesData} />
+        </Link>
+        <Link to="about" smooth duration={500}>
+          <About aboutPTAData={aboutPTAData} />
+        </Link>
+        <Link to="team" smooth duration={500}>
+          <Team teamData={teamData} />
+        </Link>
+        <Link to="letsTalk" smooth duration={500}>
+          <LetsTalk letsTalkData={letsTalkData} />
+        </Link>
+      </div>
+    );
+  }
 };
 
 export default HomePage;

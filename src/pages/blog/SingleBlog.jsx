@@ -11,7 +11,7 @@ const SingleBlog = ({ singleBlogData }) => {
   if (!singleBlogData) {
     return (
       <div className=" col-span-full flex items-center justify-center">
-        {loading && <Loader className="my-80" />}
+        {<Loader className="my-80" />}
       </div>
     );
   }
