@@ -13,6 +13,8 @@ import blogs from './blog'
 import blockContent from './blockContent'
 import person from './person'
 import cases from './cases'
+import servicesPage from './servicesPage'
+import aboutus from './aboutus'
 
 export const schemaTypes = [
   // Document types
@@ -31,4 +33,6 @@ export const schemaTypes = [
   // blockContent,
   // person,
   cases,
+  servicesPage,
+  aboutus,
 ]

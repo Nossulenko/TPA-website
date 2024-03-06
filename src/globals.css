@@ -491,3 +491,8 @@ body {
     }
   }
 }
+
+
+.shadow-yellow {
+  box-shadow: 0px 0px 10px 0px #FECF4F; /* Horizontal offset, Vertical offset, Blur radius, Spread radius, Color */
+}
