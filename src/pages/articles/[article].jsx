@@ -13,7 +13,7 @@ import SingleArticle from "./SingleArticle";
 export async function getStaticPaths() {
   const articles = await client.fetch('*[_type == "article"]{ "slug": slug.current }');
   const paths = articles.map((article) => ({ params: { article: article.slug } }));
-  return { paths, fallback: false };
+  return { paths, fallback: true };
 }
 
 // This gets called at build time for each slug returned by getStaticPaths

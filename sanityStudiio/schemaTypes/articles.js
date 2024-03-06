@@ -1,5 +1,5 @@
 import {defineField, defineType} from 'sanity'
-import {MdSettings as icon} from 'react-icons/md'
+import {MdAssignment as icon} from 'react-icons/md'
 
 export default defineType({
   name: 'articles',
