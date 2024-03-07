@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+// TPA-Website/src/components/ElevatingIdea/ElevatingIdea.jsx
+import React, { useContext, useState, useEffect } from "react";
 import Link from "next/link";
 import TextContext from "../../TextContext";
 import Image from "next/image";
@@ -15,27 +16,39 @@ function urlFor(source) {
 
 const ElevatingIdea = ({ elevatingIdeaData, loading }) => {
   const { myText, sectionNo, setSectionNo, theme, color } = useContext(TextContext);
+  const [rightSpace, setRightSpace] = useState(0);
   const { image } = elevatingIdeaData;
+  useEffect(() => {
+    if (elevatingIdeaData?.image?.width < 300) {
+      setRightSpace(70);
+    } else if (elevatingIdeaData?.image?.width < 600) {
+      setRightSpace(20);
+    } else {
+      setRightSpace(0);
+    }
+  }, [elevatingIdeaData]);
   // console.log("elevating image.asset._ref", image.asset._ref);
   return (
     <div className="relative w-full">
       <div className="h-[80vh] sm:h-[80vh] m-6">
-        <div className="sm:w-1/2 font-space-grotesk text-4xl sm:text-8xl font-medium leading-93 uppercase">
+        <div className="sm:w-2/3 text-6xl sm:text-8xl font-medium leading-93 uppercase break-words">
           {elevatingIdeaData.heading}
         </div>
-        <div className="sm:w-1/3 hidden sm:block font-space-grotesk text-4xl font-normal leading-127.5 my-6">
+        <div className="sm:w-1/3 hidden sm:block  text-4xl font-normal leading-127.5 my-6">
           {elevatingIdeaData.subHeading}
         </div>
         <div className="sm:hidden absolute bottom-0 right-0 -mb-12">
-          <img
-            src={image && image.asset && urlFor(image.asset._ref)}
-            alt="elevating_r3small"
-            width={800}
-            height={800}
-            layout="responsive"
-          />
-          <div className="w-2/3 mx-16 text-4xl font-medium">
-            Transcending Boundaries with Tailored Sustainable Innovation
+          <div className="flex items-center justify-center">
+            <img
+              src={image && image.asset && urlFor(image.asset._ref)}
+              alt={elevatingIdeaData.image.alt || "elevating"}
+              width={elevatingIdeaData.image.width / 2 || "300"}
+              height={elevatingIdeaData.image.height / 2 || "300"}
+              layout="responsive"
+            />
+          </div>
+          <div className="sm:w-2/3 mx-8 my-8 sm:my-0 sm:mx-16 text-4xl font-medium">
+            {elevatingIdeaData.subHeading}
           </div>
           <div className="my-16 mx-8 sm:m-16 flex justify-start items-center space-x-6 absolute -bottom-40">
             <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
@@ -87,26 +100,18 @@ const ElevatingIdea = ({ elevatingIdeaData, loading }) => {
           )}
         </div>
       </div>
-      {/* <div className="m-6 sm:m-0"> */}{" "}
-      <div className="sm:h-[80vh] hidden sm:block absolute bottom-0 right-0 -mb-12 m-6">
-        {/* {loading && (
-          <div className="flex item-center justify-center my-8">
-            <SquareLoader
-              className="flex item-center justify-center my-8"
-              color={theme.textColor}
-              loading={loading}
-            />
-          </div>
-        )} */}
+      <div
+        className={`sm:h-[80vh] hidden sm:block absolute bottom-0 right-0 -mb`}
+        style={{ right: `${rightSpace}px` }}
+      >
         <img
           src={image && image.asset && urlFor(image.asset._ref)}
-          alt="elevating_r3"
-          width={800}
-          height={800}
+          alt={elevatingIdeaData.image.alt || "elevating"}
+          width={elevatingIdeaData.image.width || "400"}
+          height={elevatingIdeaData.image.height || "400"}
           layout="responsive"
         />
       </div>
-      {/* </div> */}
     </div>
   );
 };

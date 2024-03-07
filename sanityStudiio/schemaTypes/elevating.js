@@ -42,6 +42,26 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      fields: [
+        {
+          name: 'alt',
+          title: 'Alternative Text',
+          type: 'string',
+          description: 'A short description of the image for accessibility',
+        },
+        {
+          name: 'width',
+          title: 'Width',
+          type: 'number',
+          description: 'Width of the image in pixels',
+        },
+        {
+          name: 'height',
+          title: 'Height',
+          type: 'number',
+          description: 'Height of the image in pixels',
+        },
+      ],
     }),
   ],
   preview: {
