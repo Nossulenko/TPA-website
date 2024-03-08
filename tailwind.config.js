@@ -21,6 +21,7 @@ module.exports = {
         blue1: "#134074",
         lightRed: "#ff0000",
         lightWhite: "#EEEADB",
+        black: "#0C0C0C",
       },
       fontSize: {
         "10xl": "10rem",
@@ -32,8 +33,12 @@ module.exports = {
         30: "7.25rem",
       },
       fontFamily: {
-        workSans: ['"Work Sans"', 'sans-serif']
-    }
+        workSans: ['"Work Sans"', "sans-serif"],
+      },
+      boxShadow: {
+        glow: "0 0 10px 0 #FECF4F",
+        glow1: "0 0 10px 0 #c79d2a",
+      },
     },
   },
   plugins: [require("tailwindcss-animated")],

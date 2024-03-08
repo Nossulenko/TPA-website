@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import TextContext from "../TextContext";
 import Image from "next/image";
-// import Link from "next/link";
-import { Link } from "react-scroll";
+import Link from "next/link";
+import { Link as ScrollLink } from "react-scroll";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import imageUrlBuilder from "@sanity/image-url";
@@ -47,10 +47,13 @@ const MobileBurgerMenu = ({ isOpen, onClose, theme, email, navData, socialData }
         <div className="text-2xl">
           {navData &&
             navData.map((item) => (
-              <div key={item.id} className="my-1 cursor-pointer">
-                <Link to={item.link} smooth duration={500} onClick={onClose}>
+              <div
+                key={item.id}
+                className="my-1 cursor-pointer transition duration-500 ease-in-out transform hover:scale-105 hover:text-darkYellow"
+              >
+                <ScrollLink to={item.link} smooth duration={500} onClick={onClose}>
                   {item.name}
-                </Link>{" "}
+                </ScrollLink>{" "}
               </div>
             ))}
         </div>
@@ -70,7 +73,7 @@ const MobileBurgerMenu = ({ isOpen, onClose, theme, email, navData, socialData }
         <div className="text-center text-2xl">
           <div className="">Mail Us:</div>
           <div className="underline">
-            <Link to={`mailto:${email}`}>{email}</Link>
+            <Link href={`mailto:${email}`}>{email}</Link>
           </div>
         </div>
       </div>
@@ -91,7 +94,7 @@ const WebBurgerMenu = ({ isOpen, onClose, theme, name, email, navData, socialDat
       <div className="flex justify-between">
         <div className="w-1/2 flex flex-col h-screen">
           {/* First div at the top */}
-          <div className="flex items-center justify-start relative space-x-4 m-10">
+          <Link href='/' className="flex items-center justify-start relative space-x-4 m-10">
             <div className="pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
               <div
                 className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
@@ -107,8 +110,10 @@ const WebBurgerMenu = ({ isOpen, onClose, theme, name, email, navData, socialDat
                 <MenuIcon />
               </div>
             </div>
-            <div className="hidden sm:block">{name}</div>
-          </div>
+            <div className="hidden sm:block cursor-pointer transition duration-500 ease-in-out transform hover:scale-105 hover:text-darkYellow">
+              {name}
+            </div>
+          </Link>
 
           {/* Second div in the middle */}
           <div className="flex-1 flex items-center justify-start m-10">
@@ -118,10 +123,13 @@ const WebBurgerMenu = ({ isOpen, onClose, theme, name, email, navData, socialDat
               </div>
               {navData &&
                 navData.map((item) => (
-                  <div key={item.id} className="my-1 cursor-pointer">
-                    <Link to={item.link} smooth duration={500} onClick={onClose}>
+                  <div
+                    key={item.id}
+                    className="my-1 cursor-pointer transition-all duration-500 ease-in-out transform hover:scale-105 hover:text-darkYellow"
+                  >
+                    <ScrollLink to={item.link} smooth duration={500} onClick={onClose}>
                       {item.name}
-                    </Link>
+                    </ScrollLink>
                   </div>
                 ))}
             </div>
@@ -132,15 +140,18 @@ const WebBurgerMenu = ({ isOpen, onClose, theme, name, email, navData, socialDat
             <div className="flex space-x-4 placeholder:text-center">
               <div className="flex space-x-4 placeholder:text-center">
                 <div className="">Mail Us:</div>
-                <div className="underline">
-                  <Link to={`mailto:${email}`}>{email}</Link>
+                <div className="underline transition-all duration-500 ease-in-out transform hover:scale-105 hover:text-darkYellow">
+                  <Link href={`mailto:${email}`}>{email}</Link>
                 </div>
               </div>
             </div>
             <div className="flex items-center justify-center space-x-4">
               {socialData &&
                 socialData.map((item) => (
-                  <div key={item.id}>
+                  <div
+                    key={item.id}
+                    className="cursor-pointer transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-glow1"
+                  >
                     <Image
                       src={urlFor(item.imageSrc.asset).url()}
                       alt={item.alt}
@@ -185,22 +196,24 @@ const Navbar = ({ navigationData, color }) => {
     <div className="">
       <div className="">
         <div className="flex items-center justify-between m-6">
-          <div className="flex items-center justify-start">
-            <div to="/">
+          <Link href="/" className="flex items-center justify-start">
+            <div>
               <Image
-                  src={icon && icon.asset ? urlFor(icon.asset).url() : undefined}
+                src={icon && icon.asset ? urlFor(icon.asset).url() : undefined}
                 alt="Logo"
                 width={40}
                 height={40}
+                // className="transition duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-darkYellow hover:text-darkYellow"
+                className="transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-glow"
               />
             </div>
-            <div className="" style={{ color: color }}>
+            <div className="transition duration-500 ease-in-out transform hover:scale-105 hover:text-yellow">
               {name}
             </div>
-            <div className="text-transparent text-stroke text-black text-2xl">Hollow Text</div>
-          </div>
+            {/* <div className="text-transparent text-stroke text-black text-2xl">Hollow Text</div> */}
+          </Link>
           <div className="flex items-center justify-end relative space-x-4">
-            <div className="hidden sm:block" style={{ color: color }}>
+            <div className="hidden sm:block cursor-pointer transition duration-500 ease-in-out transform hover:scale-105 hover:text-yellow">
               {navBarOptions && navBarOptions[0].optionName}
             </div>
             <div
