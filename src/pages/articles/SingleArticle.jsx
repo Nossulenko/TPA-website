@@ -77,7 +77,7 @@ const SingleArticle = ({ SingleArticleData }) => {
       {" "}
       <div className="h-64" style={headerStyle}>
         <div className="flex justify-center items-center text-white  mx-20 my-auto">
-          <div className="text-5xl sm:text-8xl absolute text-white top-64 sm:bottom-64 left-10 right-10">
+          <div className="text-5xl sm:text-8xl absolute text-white top-52 sm:bottom-64 left-10 right-10">
             {article.heading}
           </div>
         </div>
@@ -123,33 +123,39 @@ const SingleArticle = ({ SingleArticleData }) => {
           /> */}
         </div>
         <div className="">
-          {bullet.map((item, index) => (
-            <div
-              key={item.id}
-              className={`my-16 ${
-                index % 2 !== 0 ? "sm:flex-row-reverse sm:space-x-reverse" : ""
-              } sm:flex items-start justify-center sm:space-x-8`}
-            >
+          {bullet &&
+            bullet.length > 0 &&
+            bullet.map((item, index) => (
               <div
-                className={
-                  item.bulletImage && item.bulletImage.asset ? "left sm:w-1/2" : "left sm:w-full"
-                }
+                key={item.id}
+                className={`my-16 ${
+                  index % 2 !== 0 ? "sm:flex-row-reverse sm:space-x-reverse" : ""
+                } sm:flex items-start justify-center sm:space-x-8`}
               >
-                <div className="text-4xl sm:text-5xl mb-12">{item.bulletHeading}</div>
-                <div className="text-xl my-6 sm:my-0">{item.bulletDescription}</div>
-              </div>
-              {item.bulletImage && item.bulletImage.asset && (
-                <div className="right sm:w-1/2">
-                  <Image
-                    src={urlFor(item.bulletImage.asset).url()}
-                    alt=""
-                    width={783}
-                    height={501}
-                  />
+                <div
+                  className={
+                    item.bulletImage && item.bulletImage.asset ? "left sm:w-1/2" : "left sm:w-full"
+                  }
+                >
+                  {item.bulletHeading && (
+                    <div className="text-4xl sm:text-5xl mb-12">{item.bulletHeading}</div>
+                  )}
+                  {item.bulletDescription && (
+                    <div className="text-xl my-6 sm:my-0">{item.bulletDescription}</div>
+                  )}
                 </div>
-              )}
-            </div>
-          ))}
+                {item.bulletImage && item.bulletImage.asset && (
+                  <div className="right sm:w-1/2">
+                    <Image
+                      src={urlFor(item.bulletImage.asset).url()}
+                      alt=""
+                      width={783}
+                      height={501}
+                    />
+                  </div>
+                )}
+              </div>
+            ))}
         </div>
 
         <div className="sm:flex justify-between items-center my-16">
@@ -177,11 +183,15 @@ const SingleArticle = ({ SingleArticleData }) => {
                   <EastIcon />
                 </div>
               </div>
-              <Link href={`/articles/${article.nextArticleSlug}`}>
-                <div className="text-black font-space-grotesk text-22 font-medium underline">
-                  Read next article
-                </div>
-              </Link>
+              <div>
+                {article.nextArticleSlug && (
+                  <Link href={`/articles/${article.nextArticleSlug}`}>
+                    <div className="text-black font-space-grotesk text-22 font-medium underline">
+                      Read next article
+                    </div>
+                  </Link>
+                )}
+              </div>
             </div>
           </div>
         </div>
