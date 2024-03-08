@@ -1,3 +1,4 @@
+// /Users/shubh/F/FProjects/Bhaiya/TPA-Website/src/components/HowWeOperate/index.jsx
 import React, { useState, useEffect, useContext } from "react";
 import ElevatingIdea from "../ElevatingIdea/ElevatingIdea";
 import HowWeOperate from "./HowWeOperate";

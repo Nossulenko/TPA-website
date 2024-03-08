@@ -1,11 +1,13 @@
 // TPA-Website/src/components/VerticalDotNavigation.jsx
 "use client";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import TextContext from "../TextContext";
 import { Link } from "react-scroll";
 
 const VerticalDotNavigation = ({ sectionNo, setSectionNo }) => {
   const { myText, theme } = useContext(TextContext);
+  const [activeSection, setActiveSection] = useState("");
+
   const sectionList = [
     "elevatingIdea",
     "whatWeDo",
@@ -22,6 +24,23 @@ const VerticalDotNavigation = ({ sectionNo, setSectionNo }) => {
     setSectionNo(index + 1);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const sections = document.querySelectorAll("div[id]");
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.clientHeight;
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          setActiveSection(section.id);
+        }
+      });
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="">
       {sectionList.map((section, index) => {
@@ -33,16 +52,16 @@ const VerticalDotNavigation = ({ sectionNo, setSectionNo }) => {
             key={index}
             onClick={() => handleDotClick(index)}
             className={`block my-1 w-1 h-1 rounded-full cursor-pointer ${
-              index + 1 === sectionNo
+              activeSection === section
                 ? "bg-yellow border border-yellow p-[6px]"
                 : "border border-gray-300 bg-transparent p-[6px]"
             }`}
             style={{
               color: theme ? theme.textColor : "#FECF4F",
               backgroundColor:
-                index + 1 === sectionNo ? (theme ? theme.textColor : "#FECF4F") : "transparent",
+                activeSection === section ? (theme ? theme.textColor : "#FECF4F") : "transparent",
               border:
-                index + 1 === sectionNo
+                activeSection === section
                   ? `1px solid ${theme ? theme.textColor : "#FECF4F"}`
                   : "1px solid #CCCCCC", // Adjust fallback color as needed
             }}

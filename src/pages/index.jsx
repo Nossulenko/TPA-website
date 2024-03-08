@@ -16,7 +16,7 @@ const space_Grotesk = Space_Grotesk({
 
 export default function Home() {
   const myText = "The Product Architects";
-  const [sectionNo, setSectionNo] = useState(1);
+  const [sectionNo, setSectionNo] = useState("elevatingIdea");
   const [theme, setTheme] = useState({});
   const [navigationData, setNavigationData] = useState([]);
   let [loading, setLoading] = useState(true);
