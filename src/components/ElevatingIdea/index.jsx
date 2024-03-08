@@ -43,7 +43,7 @@ const Index = ({ elevatingIdeaData, loading }) => {
         <div className="flex relative z-10 items-center justify-start w-full max-w-full">
           <div className="hidden sm:block space-y-1 m-6">
             <div className="flex items-center space-x-2">
-              <VerticalDotNavigation sectionNo={sectionNo} setSectionNo={setSectionNo} />
+              {/* <VerticalDotNavigation sectionNo={sectionNo} setSectionNo={setSectionNo} /> */}
             </div>
           </div>
           <div className="flex-1 w-full">

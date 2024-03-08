@@ -46,7 +46,7 @@ const HowWeOperate = ({ howWeOperate }) => {
     };
   });
   return (
-    <div className="hidden sm:block relative w-full my-10">
+    <div className="hidden sm:block relative w-full my-10 sm:ml-4">
       <div
         className="text-yellow font-space-grotesk text-8xl sm:text-9xl font-medium  my-12 mx-4 sm:m-0"
         style={{ color: theme ? theme.textColor : "#FECF4F" }}

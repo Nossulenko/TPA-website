@@ -49,7 +49,7 @@ const Articles = ({ articlesData }) => {
 
   // console.log("articlesData", articlesData);
   return (
-    <div className="relative w-full my-10">
+    <div className="relative w-full my-10 sm:ml-4">
       <div className="flex items-end justify-between">
         <div
           className="text-yellow font-space-grotesk text-7xl sm:text-8xl font-medium  my-12 mx-4 sm:m-0"

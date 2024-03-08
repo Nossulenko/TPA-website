@@ -40,7 +40,7 @@ const Index = ({ aboutPTAData }) => {
         <div className="flex relative z-10 items-center justify-start w-full">
           <div className="hidden sm:block space-y-1 m-6">
             <div className="flex items-center space-x-2">
-              <VerticalDotNavigation sectionNo={sectionNo} setSectionNo={setSectionNo} />
+              {/* <VerticalDotNavigation sectionNo={sectionNo} setSectionNo={setSectionNo} /> */}
             </div>
             {/* {randomArray.map((num, index) => (
               <div key={index} className="flex items-center space-x-2">

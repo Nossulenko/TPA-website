@@ -1,3 +1,4 @@
+// TPA-Website/src/components/HomePage.jsx
 import React, { useState, useEffect, useContext } from "react";
 import ElevatingIdea from "./ElevatingIdea/index";
 import WhatWeDo from "./WhatWeDo/index";
@@ -11,9 +12,11 @@ import About from "./AboutPTA/index";
 import { Link, animateScroll as scroll } from "react-scroll";
 import client from "../lib/sanity";
 import SquareLoader from "react-spinners/SquareLoader";
+import VerticalDotNavigation from "./VerticalDotNavigation";
+import TextContext from "../TextContext";
 
 const HomePage = () => {
-  const [sectionNo, setSectionNo] = useState(1);
+  const { myText, sectionNo, setSectionNo } = useContext(TextContext);
   const [theme, setTheme] = useState({});
   let [color, setColor] = useState("#FECF4F");
   const [loading, setLoading] = useState(true);
@@ -92,34 +95,37 @@ const HomePage = () => {
     );
   } else {
     return (
-      <div>
-        <Link to="elevatingIdea" smooth duration={500}>
-          <ElevatingIdea elevatingIdeaData={elevatingIdeaData} loading={loading} />
-        </Link>
-        <Link to="whatWeDo" smooth duration={500}>
-          <WhatWeDo whatWeDoData={whatWeDoData} />
-        </Link>
-        <Link to="howWeOperate" smooth duration={500}>
-          <HowWeOperate howWeOperate={howWeOperate} />
-        </Link>
-        <Link to="howToOperate" smooth duration={500}>
-          <HowToOperate howToOperateData={howToOperateData} />
-        </Link>
-        <Link to="services" smooth duration={500}>
-          <Services servicesData={servicesData} />
-        </Link>
-        <Link to="articles" smooth duration={500}>
-          <Articles articlesData={articlesData} />
-        </Link>
-        <Link to="about" smooth duration={500}>
-          <About aboutPTAData={aboutPTAData} />
-        </Link>
-        <Link to="team" smooth duration={500}>
-          <Team teamData={teamData} />
-        </Link>
-        <Link to="letsTalk" smooth duration={500}>
-          <LetsTalk letsTalkData={letsTalkData} />
-        </Link>
+      <div className="">
+        <VerticalDotNavigation sectionNo={sectionNo} setSectionNo={setSectionNo} />
+        <div className="sm:-mt-36">
+          <Link to="elevatingIdea" smooth duration={500}>
+            <ElevatingIdea elevatingIdeaData={elevatingIdeaData} loading={loading} />
+          </Link>
+          <Link to="whatWeDo" smooth duration={500}>
+            <WhatWeDo whatWeDoData={whatWeDoData} />
+          </Link>
+          <Link to="howWeOperate" smooth duration={500}>
+            <HowWeOperate howWeOperate={howWeOperate} />
+          </Link>
+          <Link to="howToOperate" smooth duration={500}>
+            <HowToOperate howToOperateData={howToOperateData} />
+          </Link>
+          <Link to="services" smooth duration={500}>
+            <Services servicesData={servicesData} />
+          </Link>
+          <Link to="articles" smooth duration={500}>
+            <Articles articlesData={articlesData} />
+          </Link>
+          <Link to="about" smooth duration={500}>
+            <About aboutPTAData={aboutPTAData} />
+          </Link>
+          <Link to="team" smooth duration={500}>
+            <Team teamData={teamData} />
+          </Link>
+          <Link to="letsTalk" smooth duration={500}>
+            <LetsTalk letsTalkData={letsTalkData} />
+          </Link>
+        </div>
       </div>
     );
   }
