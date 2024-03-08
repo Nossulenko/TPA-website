@@ -24,7 +24,7 @@ const Index = ({ teamData }) => {
 
   const ActiveElevatingIdeaComponent = ElevatingIdeaComponents[activeDot];
   return (
-    <div id="team" className="relative sm:overflow-hidden my-10">
+    <div id="team" className="relative sm:overflow-hidden my-16 sm:my-10">
       <div
         className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden w-screen whitespace-nowrap text-transparent text-12xl leading-none bg-clip-text bg-transparent stroke-text border-yellow"
         style={{
@@ -57,7 +57,7 @@ const Index = ({ teamData }) => {
           <div className="flex-1">
             <ActiveElevatingIdeaComponent teamData={teamData} />
           </div>
-          <div className=" sm:hidden flex flex-row sm:flex-col justify-center sm:space-y-1 space-x-2 space-y-1 m-6">
+          {/* <div className=" sm:hidden flex flex-row sm:flex-col justify-center sm:space-y-1 space-x-2 space-y-1 mx-6">
             {randomArray.map((num, index) => (
               <div key={index} className="flex items-center justify-center space-x-2">
                 <span
@@ -70,7 +70,7 @@ const Index = ({ teamData }) => {
                 />
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

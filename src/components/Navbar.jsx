@@ -94,7 +94,7 @@ const WebBurgerMenu = ({ isOpen, onClose, theme, name, email, navData, socialDat
       <div className="flex justify-between">
         <div className="w-1/2 flex flex-col h-screen">
           {/* First div at the top */}
-          <Link href='/' className="flex items-center justify-start relative space-x-4 m-10">
+          <Link href="/" className="flex items-center justify-start relative space-x-4 m-10">
             <div className="pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
               <div
                 className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
@@ -210,6 +210,9 @@ const Navbar = ({ navigationData, color }) => {
             <div className="transition duration-500 ease-in-out transform hover:scale-105 hover:text-yellow">
               {name}
             </div>
+            {/* <div className="text-3xl transition duration-500 ease-in-out transform hover:scale-105 hover:text-yellow">
+              TPA
+            </div> */}
             {/* <div className="text-transparent text-stroke text-black text-2xl">Hollow Text</div> */}
           </Link>
           <div className="flex items-center justify-end relative space-x-4">

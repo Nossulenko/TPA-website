@@ -52,7 +52,7 @@ const Articles = ({ articlesData }) => {
     <div className="relative w-full my-10 sm:ml-4">
       <div className="flex items-end justify-between">
         <div
-          className="text-yellow font-space-grotesk text-7xl sm:text-8xl font-medium  my-12 mx-4 sm:m-0"
+          className="text-yellow font-space-grotesk text-7xl sm:text-8xl font-medium  sm:my-12 mx-4 sm:m-0"
           style={{ color: theme ? theme.textColor : "#FECF4F" }}
         >
           Articles
@@ -92,7 +92,7 @@ const Articles = ({ articlesData }) => {
                 height={352}
               />
             </div>
-            <div className="flex justify-center sm:justify-start items-center space-x-6 my-4 w-[62%]">
+            <div className="flex justify-start items-center space-x-3 sm:space-x-6 mx-1 sm:mx-0 my-4 sm:w-[62%]">
               <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
                 <div
                   className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
@@ -113,7 +113,7 @@ const Articles = ({ articlesData }) => {
                 </div>
               </Link>
             </div>
-            <div className="w-5/6">{article.summary}</div>
+            <div className="ml-12 sm:ml-0 sm:w-5/6">{article.summary}</div>
           </div>
         ))}
       </div>

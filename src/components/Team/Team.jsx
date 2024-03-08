@@ -5,6 +5,7 @@ import EastIcon from "@mui/icons-material/East";
 import imageUrlBuilder from "@sanity/image-url";
 import sanityClient from "../../lib/sanity";
 import getImageUrl from "../../lib/sanity";
+import { useSwipeable } from "react-swipeable";
 
 const textBlocks = [
   {
@@ -70,18 +71,25 @@ const Team = ({ teamData }) => {
       about: block.about,
     };
   });
-  // console.log("teamData rec in team", teamData);
+
+  // Swipe Handlers
+  const handlers = useSwipeable({
+    onSwipedLeft: () => handleNext(),
+    onSwipedRight: () => handlePrev(),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+  });
   return (
     <>
-      <div className="sm:h-screen relative w-full overflow-y-auto">
-        <div className="h-[60vh] sm:h-[60vh] m-6">
+      <div className="sm:h-screen relative w-full overflow-hidden" {...handlers}>
+        <div className=" sm:h-[60vh] m-6">
           <div
             className="font-space-grotesk text-6xl sm:text-9xl font-medium leading-9 sm:leading-93 break-words text-yellow"
             style={{ color: theme ? theme.textColor : "#FECF4F" }}
           >
             Core team
           </div>
-          <div className="sm:flex flex-col justify-start sm:flex-row mx-12 sm:mx-24 lg:mx-24 py-20 sm:py-0">
+          <div className="sm:flex flex-col justify-start sm:flex-row sm:mx-24 lg:mx-24 sm:py-0">
             {textBlocks &&
               textBlocks.slice(beginningIndex, endIndex).map((item, index) => (
                 <div key={index} className="sm:w-1/3 my-8 sm:my-16 sm:mx-0">
@@ -106,10 +114,21 @@ const Team = ({ teamData }) => {
                   </div>
                 </div>
               ))}
-
-            {/* <button onClick={handlePrev}>Previous</button>
-            <button onClick={handleNext}>Next</button> */}
           </div>
+        </div>
+        <div className=" sm:hidden flex flex-row sm:flex-col justify-center sm:space-y-1 space-x-2 space-y-1 mx-6">
+          {textBlocks.map((num, index) => (
+            <div key={index} className="flex items-center justify-center space-x-2">
+              <span
+                className={`block w-2 h-2 rounded-full ${
+                  currentIndex === index
+                    ? "bg-yellow border border-yellow-500 p-2"
+                    : " border border-gray-200 bg-transparent p-2"
+                }`}
+                onClick={() => setCurrentIndex(index)}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </>

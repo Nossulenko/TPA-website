@@ -36,6 +36,7 @@ const LetsTalk = ({ letsTalkData }) => {
   const [email, setEmail] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [message, setMessage] = useState("");
+  const currentYear = new Date().getFullYear();
 
   const handleSubmit = () => {
     const data = {
@@ -71,7 +72,7 @@ const LetsTalk = ({ letsTalkData }) => {
           >
             Let's talk
           </div>
-          <div className="sm:w-1/2 text-4xl my-6">{heading}</div>
+          <div className="sm:w-1/2 text-4xl mb-20 my-6">{heading}</div>
           <div className="sm:w-1/2 text-xl">{subHeading}</div>
           <div className="sm:w-1/2 sm:flex flex-wrap justify-center">
             <div className="sm:w-1/2 py-1">
@@ -184,14 +185,14 @@ const LetsTalk = ({ letsTalkData }) => {
       <div className="sm:mt-20 ml-8 h-44 sm:flex items-center justify-start sm:space-x-16">
         <div className="sm:w-1/3 sm:flex items-center mt-24 sm:mt-0">
           <div className=" ">Mail Us :</div>
-          <div className=" underline">
+          <div className="underline transition-all duration-500 ease-in-out transform hover:scale-105 hover:text-darkYellow">
             <Link href="mailto:hello@productarchitects.eu">hello@productarchitects.eu</Link>
           </div>
         </div>
 
-        <div className="sm:ml-24 flex my-10 sm:my-0">
-          <div className="sm:mx-4">Socials</div>
-          <div className="flex space-x-2 sm:space-x-6">
+        <div className="sm:ml-24 flex my-10 sm:my-0 space-x-8">
+          <div className="sm:mx-4 text-xl">Socials</div>
+          <div className="flex space-x-5 sm:space-x-6">
             <Image
               className="cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-glow"
               src="/images/xicon.png"
@@ -259,7 +260,7 @@ const LetsTalk = ({ letsTalkData }) => {
             Terms and conditions
           </div>
           <div className="text-black text-lg font-normal">
-            Copyright © 2022. The Product Architects
+            Copyright © {currentYear}. The Product Architects
           </div>
         </div>
       </div>

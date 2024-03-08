@@ -44,16 +44,16 @@ const Services = ({ servicesData }) => {
   const imageUrl = image && image.asset ? urlFor(image.asset).url() : fallbackImageUrl;
 
   return (
-    <div className="relative w-full mb-10 m-6 ">
-      <div className="h-screen sm:h-screen sm:flex items-start justify-center sm:space-x-8">
+    <div className="relative w-full mb-10 m-2 sm:m-6 ">
+      <div className="sm:h-screen sm:flex items-start justify-center sm:space-x-8">
         <div className="sm:w-1/2">
           <div
-            className="text-yellow font-space-grotesk text-8xl sm:text-8xl font-medium my-12 mx-4 sm:m-0"
+            className="text-yellow font-space-grotesk text-[80px] sm:text-8xl font-medium my-12 mx-4 sm:m-0"
             style={{ color: theme ? theme.textColor : "#FECF4F" }}
           >
             Services
           </div>
-          <div className="sm:pt-20 pt-0 w-full flex items-center justify-center sm:justify-start pr-12 sm:pr-0">
+          <div className="sm:pt-20 pt-0 w-10/12 sm:w-full flex items-center justify-center sm:justify-start ml-4 sm:ml-0">
             <Image className="" src={imageUrl} alt={`plmbr`} width={400} height={400} />
           </div>
         </div>
@@ -65,7 +65,7 @@ const Services = ({ servicesData }) => {
             textBlocks.map((block) => (
               <div className="m-4 sm:m-0 my-10" key={block.id}>
                 <div className="sm:w-10/12 flex justify-start items-center space-x-4 sm:mt-20">
-                  <div className="text-3xl sm:text-4xl font-bold">{block.heading}</div>
+                  <div className="text-[50px] sm:text-4xl font-bold">{block.heading}</div>
                 </div>
                 <div className="my-4 sm:my-0 sm:mt-8 mx-1 text-xl">{block.subHeading}</div>
                 <div className="mr-4 sm:mx-32 text-xl">{block.desc}</div>

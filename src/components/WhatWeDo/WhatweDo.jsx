@@ -23,7 +23,7 @@ const WhatweDo = ({ whatWeDoData }) => {
       <div className=" sm:h-[90vh] m-6 sm:w-[45%]">
         <div className="">
           <div
-            className="text-yellow font-space-grotesk text-7xl sm:text-8xl font-medium leading-93 my-12 mx-4 sm:m-0"
+            className="text-yellow font-space-grotesk text-6xl sm:text-8xl font-medium leading-93 my-12 sm:mx-4 sm:m-0"
             style={{ color: theme ? theme.textColor : "#FECF4F" }}
           >
             What we do
@@ -31,8 +31,8 @@ const WhatweDo = ({ whatWeDoData }) => {
           <div className="sm:hidden  bottom-0 right-0 mr-4">
             <img src="/images/r3.png" alt="r3" width={800} height={800} />
           </div>
-          <div className="mx-4 sm:m-0 w-10/12 sm:w-10/12">
-            <div className=" font-space-grotesk text-4xl font-normal leading-127.5 my-6">
+          <div className="mx-4 sm:m-0 sm:w-10/12">
+            <div className=" font-space-grotesk text-3xl font-normal leading-127.5 my-6">
               {heading}
             </div>
 
@@ -46,7 +46,7 @@ const WhatweDo = ({ whatWeDoData }) => {
             ))}
           </div>
         </div>
-        <div className="my:20 sm:my-0 ml-10 sm:ml-0 flex justify-start items-center space-x-6 -bottom-1">
+        <div className="my:20 sm:my-0 ml-4 sm:ml-0 flex justify-start items-center space-x-6 -bottom-1">
           <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
             <div
               className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"

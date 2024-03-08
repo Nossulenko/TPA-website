@@ -39,6 +39,7 @@ module.exports = {
         glow: "0 0 10px 0 #FECF4F",
         glow1: "0 0 10px 0 #c79d2a",
       },
+      position: ['responsive', 'sticky'],
     },
   },
   plugins: [require("tailwindcss-animated")],

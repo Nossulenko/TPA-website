@@ -28,11 +28,11 @@ const HowToOperate = ({ howToOperateData }) => {
     window.document.body.style.scrollbarColor = `${themeColor} #ffffff`;
   }
   return (
-    <div className="relative w-full mb-10 sm:mb-0 m-6">
+    <div className="relative w-full mb-10 sm:mb-0 m-2 sm:m-6">
       <div className="h-screen sm:h-screen sm:flex items-start justify-start">
         <div className=" sm:w-[78.666667%] overflow-y-auto h-screen scrollbar scrollbar-thumb-yellow scrollbar-thumb-rounded">
           <div
-            className="text-yellow font-space-grotesk text-8xl sm:text-9xl font-medium my-12 mx-4 sm:m-0"
+            className="text-yellow font-space-grotesk text-8xl sm:text-9xl font-medium my-12"
             style={{ color: theme ? theme.textColor : "#FECF4F" }}
           >
             How to operate
