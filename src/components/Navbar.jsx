@@ -81,7 +81,21 @@ const MobileBurgerMenu = ({ isOpen, onClose, theme, email, navData, socialData }
   );
 };
 
-const WebBurgerMenu = ({ isOpen, onClose, theme, name, email, navData, socialData, bgImage }) => {
+const WebBurgerMenu = ({
+  isOpen,
+  onClose,
+  theme,
+  name,
+  email,
+  navData,
+  socialData,
+  bgImage,
+  handleMouseOver,
+  handleMouseOut,
+  handleMenuToggle,
+  isHovered,
+  hoverStyle,
+}) => {
   return (
     <div
       className={`fixed inset-0 z-50 ${
@@ -95,17 +109,13 @@ const WebBurgerMenu = ({ isOpen, onClose, theme, name, email, navData, socialDat
         <div className="w-1/2 flex flex-col h-screen">
           {/* First div at the top */}
           <Link href="/" className="flex items-center justify-start relative space-x-4 m-10">
-            <div className="pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
+            <div className="pb-2 relative hover:bg-gradient-radial shadow-2xl cursor-pointer">
               <div
-                className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
+                className="shadow-custom  rounded-full p-1  border-solid"
                 onClick={onClose}
-                style={{
-                  backgroundColor: theme ? theme.textColor : "#FECF4F",
-                  borderColor: theme ? theme.textColor : "#FECF4F",
-                  boxShadow: `0px 0px 4px 4px ${
-                    theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
-                  }`,
-                }}
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
+                style={isHovered ? hoverStyle : {}}
               >
                 <MenuIcon />
               </div>
@@ -178,6 +188,18 @@ const WebBurgerMenu = ({ isOpen, onClose, theme, name, email, navData, socialDat
 };
 
 const Navbar = ({ navigationData, color }) => {
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
+  const { name, icon, email, navBarOptions, navData, socialData, bgImage } = navigationData;
+  const [isHovered, setIsHovered] = useState(false);
+  const handleMouseOver = () => setIsHovered(true);
+  const handleMouseOut = () => setIsHovered(false);
+
+  const hoverStyle = {
+    backgroundColor: theme ? theme.textColor : "#FECF4F",
+    borderColor: theme ? theme.textColor : "#FECF4F",
+    boxShadow: `0px 0px 4px 4px ${theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"}`,
+  };
   if (!navigationData) {
     return (
       <div className=" col-span-full flex items-center justify-center">
@@ -185,9 +207,6 @@ const Navbar = ({ navigationData, color }) => {
       </div>
     );
   }
-  const [isMenuOpen, setMenuOpen] = useState(false);
-  const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
-  const { name, icon, email, navBarOptions, navData, socialData, bgImage } = navigationData;
 
   const handleMenuToggle = () => {
     setMenuOpen(!isMenuOpen);
@@ -220,18 +239,22 @@ const Navbar = ({ navigationData, color }) => {
               {navBarOptions && navBarOptions[0].optionName}
             </div>
             <div
-              className="pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer"
+              className="relative hover:bg-gradient-radial shadow-2xl cursor-pointer"
               onClick={handleMenuToggle}
             >
               <div
-                className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
-                style={{
-                  backgroundColor: theme ? theme.textColor : "#FECF4F",
-                  borderColor: theme ? theme.textColor : "#FECF4F",
-                  boxShadow: `0px 0px 4px 4px ${
-                    theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
-                  }`,
-                }}
+                className="hover:shadow-custom  rounded-full p-1 border-solid"
+                onClick={handleMenuToggle}
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
+                style={isHovered ? hoverStyle : {}}
+                // style={{
+                //   backgroundColor: theme ? theme.textColor : "#FECF4F",
+                //   borderColor: theme ? theme.textColor : "#FECF4F",
+                //   boxShadow: `0px 0px 4px 4px ${
+                //     theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
+                //   }`,
+                // }}
               >
                 <MenuIcon />
               </div>
@@ -245,6 +268,11 @@ const Navbar = ({ navigationData, color }) => {
                 navData={navData}
                 socialData={socialData}
                 color={color}
+                handleMouseOver={handleMouseOver}
+                handleMouseOut={handleMouseOut}
+                handleMenuToggle={handleMenuToggle}
+                isHovered={isHovered}
+                hoverStyle={hoverStyle}
               />
             </div>
             <div className="hidden sm:block">
