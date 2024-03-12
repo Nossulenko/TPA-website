@@ -214,7 +214,7 @@ const Navbar = ({ navigationData, color }) => {
   return (
     <div className="">
       <div className="">
-        <div className="flex items-center justify-between m-6 sm:mx-0">
+        <div className="flex items-center justify-between m-4 sm:mx-0">
           <Link href="/" className="flex items-center justify-start">
             <div>
               <Image
