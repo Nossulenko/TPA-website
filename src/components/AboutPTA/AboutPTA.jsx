@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import TextContext from "../../TextContext";
 import Image from "next/image";
+import Link from "next/link";
 import EastIcon from "@mui/icons-material/East";
 import imageUrlBuilder from "@sanity/image-url";
 import sanityClient from "../../lib/sanity";
@@ -29,6 +30,10 @@ function urlFor(source) {
 
 const AboutPTA = ({ aboutPTAData }) => {
   const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
+  const [isHovered, setIsHovered] = useState(false);
+  const hoverStyle = {
+    boxShadow: `0px 0px 4px 4px ${theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"}`,
+  };
   const { image } = aboutPTAData;
   const fallbackImageUrl = "";
   const textBlocks = aboutPTAData.about;
@@ -66,6 +71,26 @@ const AboutPTA = ({ aboutPTAData }) => {
             </div>
           </div>
         </div>
+        <div className="mt-8 sm:mt-0 flex justify-start items-center space-x-6 sm:absolute bottom-4">
+            {" "}
+            <div className="w-fit pb-2 sm:relative  shadow-2xl cursor-pointer">
+              <div
+                className=" rounded-full p-1  border-solid"
+                onMouseOver={() => setIsHovered(true)}
+                onMouseOut={() => setIsHovered(false)}
+                style={{
+                  ...(isHovered ? hoverStyle : {}),
+                  backgroundColor: theme ? theme.textColor : "#FECF4F",
+                  borderColor: theme ? theme.textColor : "#FECF4F",
+                }}
+              >
+                <EastIcon />
+              </div>
+            </div>
+            <Link href="/aboutus">
+            <div className="text-black text-center font-space-grotesk text-22 font-medium underline">About The product architects</div>
+            </Link>
+          </div>
       </div>
 
       <div className="hidden sm:block w-1/3 m-6">

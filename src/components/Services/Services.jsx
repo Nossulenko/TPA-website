@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import TextContext from "../../TextContext";
+import Link from "next/link";
 import Image from "next/image";
 import EastIcon from "@mui/icons-material/East";
 import imageUrlBuilder from "@sanity/image-url";
@@ -38,6 +39,10 @@ const textBlocks = [
 
 const Services = ({ servicesData }) => {
   const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
+  const [isHovered, setIsHovered] = useState(false);
+  const hoverStyle = {
+    boxShadow: `0px 0px 4px 4px ${theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"}`,
+  };
   const { image } = servicesData;
   const fallbackImageUrl = "";
   const textBlocks = servicesData.services;
@@ -56,6 +61,28 @@ const Services = ({ servicesData }) => {
           <div className="sm:pt-20 pt-0 w-10/12 sm:w-full flex items-center justify-center sm:justify-start ml-4 sm:ml-0">
             <Image className="" src={imageUrl} alt={`plmbr`} width={400} height={400} />
           </div>
+          <div className="hidden sm:flex justify-start items-center space-x-6 absolute bottom-8">
+            {" "}
+            <div className="w-fit pb-2 relative  shadow-2xl cursor-pointer">
+              <div
+                className=" rounded-full p-1  border-solid"
+                onMouseOver={() => setIsHovered(true)}
+                onMouseOut={() => setIsHovered(false)}
+                style={{
+                  ...(isHovered ? hoverStyle : {}),
+                  backgroundColor: theme ? theme.textColor : "#FECF4F",
+                  borderColor: theme ? theme.textColor : "#FECF4F",
+                }}
+              >
+                <EastIcon />
+              </div>
+            </div>
+            <Link href="/services">
+              <div className="text-black text-center font-space-grotesk text-22 font-medium underline">
+                Discover our Services
+              </div>
+            </Link>
+          </div>
         </div>
         <div
           className="sm:w-2/3 ScrollContainer overflow-y-auto h-screen scrollbar scrollbar-thumb-yellow scrollbar-thumb-rounded"
@@ -71,6 +98,28 @@ const Services = ({ servicesData }) => {
                 <div className="mr-4 sm:mx-32 text-xl">{block.desc}</div>
               </div>
             ))}
+        </div>
+        <div className="m-4 flex sm:hidden justify-start items-center space-x-6 bottom-8">
+          {" "}
+          <div className="w-fit pb-2 relative  shadow-2xl cursor-pointer">
+            <div
+              className=" rounded-full p-1  border-solid"
+              onMouseOver={() => setIsHovered(true)}
+              onMouseOut={() => setIsHovered(false)}
+              style={{
+                ...(isHovered ? hoverStyle : {}),
+                backgroundColor: theme ? theme.textColor : "#FECF4F",
+                borderColor: theme ? theme.textColor : "#FECF4F",
+              }}
+            >
+              <EastIcon />
+            </div>
+          </div>
+          <Link href="/services">
+            <div className="text-black text-center font-space-grotesk text-22 font-medium underline">
+              Discover our Services
+            </div>
+          </Link>
         </div>
       </div>
     </div>

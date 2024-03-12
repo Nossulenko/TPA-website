@@ -51,10 +51,10 @@ const ElevatingIdea = ({ elevatingIdeaData, loading }) => {
               layout="responsive"
             />
           </div>
-          <div className="sm:w-2/3 mx-8 my-8 sm:my-0 sm:mx-16 text-4xl font-medium">
+          <div className="sm:w-2/3 mx-6 my-8 sm:my-0 sm:mx-16 text-3xl sm:text-4xl font-medium">
             {elevatingIdeaData.subHeading}
           </div>
-          <div className="my-16 mx-8 sm:m-16 flex justify-start items-center space-x-6 absolute -bottom-40">
+          <div className="mx-8 sm:m-16 flex justify-start items-center space-x-6 absolute">
             <div className="w-fit pb-2 relative shadow-2xl cursor-pointer">
               <div
                 className=" rounded-full p-1 border-solid"
@@ -79,7 +79,7 @@ const ElevatingIdea = ({ elevatingIdeaData, loading }) => {
             )}
           </div>
         </div>
-        <div className="hidden sm:flex justify-start items-center space-x-6 absolute bottom-0">
+        <div className="hidden sm:flex justify-start items-center space-x-6 absolute bottom-16">
           {" "}
           <div className="w-fit pb-2 relative  shadow-2xl cursor-pointer">
             <div

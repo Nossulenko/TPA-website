@@ -21,6 +21,7 @@ const VerticalDotNavigation = ({ sectionNo, setSectionNo }) => {
   ];
 
   const handleDotClick = (index) => {
+    console.log("indi");
     setSectionNo(index + 1);
   };
 

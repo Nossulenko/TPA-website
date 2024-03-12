@@ -214,28 +214,37 @@ const Navbar = ({ navigationData, color }) => {
   return (
     <div className="">
       <div className="">
-        <div className="flex items-center justify-between m-4 sm:mx-0">
-          <Link href="/" className="flex items-center justify-start">
+        <div className="flex items-center justify-between m-4">
+          <Link href="/" className="flex items-center sm:items-end justify-start sm:ml-12">
             <div>
               <Image
                 src={icon && icon.asset ? urlFor(icon.asset).url() : undefined}
                 alt="Logo"
-                width={40}
-                height={40}
-                // className="transition duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-darkYellow hover:text-darkYellow"
-                className="transition-all duration-500 ease-in-out transform hover:scale-[1.02]"
+                width={100}
+                height={80}
+                className="hidden sm:block transition-all duration-500 ease-in-out transform hover:scale-[1.02]"
+              />
+              <Image
+                src={icon && icon.asset ? urlFor(icon.asset).url() : undefined}
+                alt="Logo"
+                width={60}
+                height={60}
+                className="sm:hidden transition-all duration-500 ease-in-out transform hover:scale-[1.02]"
               />
             </div>
-            <div className="transition duration-500 ease-in-out transform hover:scale-[1.02]">
+            <div className="sm:text-2xl transition duration-500 ease-in-out transform hover:scale-[1.02]">
               {name}
+              <div className="hidden sm:block text-lg">{navBarOptions && navBarOptions[0].optionName}</div>
             </div>
+
             {/* <div className="text-3xl transition duration-500 ease-in-out transform hover:scale-105 hover:text-yellow">
               TPA
             </div> */}
             {/* <div className="text-transparent text-stroke text-black text-2xl">Hollow Text</div> */}
           </Link>
+
           <div className="flex items-center justify-end relative space-x-2">
-            <div className="hidden sm:block cursor-pointer transition duration-500 ease-in-out transform hover:scale-[1.02] sm:mx-6">
+            <div className="hidden cursor-pointer transition duration-500 ease-in-out transform hover:scale-[1.02] sm:mx-6">
               {navBarOptions && navBarOptions[0].optionName}
             </div>
             <div className="relative shadow-2xl cursor-pointer" onClick={handleMenuToggle}>
