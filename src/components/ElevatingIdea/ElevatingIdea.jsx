@@ -17,6 +17,10 @@ function urlFor(source) {
 const ElevatingIdea = ({ elevatingIdeaData, loading }) => {
   const { myText, sectionNo, setSectionNo, theme, color } = useContext(TextContext);
   const [rightSpace, setRightSpace] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const hoverStyle = {
+    boxShadow: `0px 0px 4px 4px ${theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"}`,
+  };
   const { image } = elevatingIdeaData;
   useEffect(() => {
     if (elevatingIdeaData?.image?.width < 300) {
@@ -51,15 +55,15 @@ const ElevatingIdea = ({ elevatingIdeaData, loading }) => {
             {elevatingIdeaData.subHeading}
           </div>
           <div className="my-16 mx-8 sm:m-16 flex justify-start items-center space-x-6 absolute -bottom-40">
-            <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
+            <div className="w-fit pb-2 relative shadow-2xl cursor-pointer">
               <div
-                className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
+                className=" rounded-full p-1 border-solid"
+                onMouseOver={() => setIsHovered(true)}
+                onMouseOut={() => setIsHovered(false)}
                 style={{
+                  ...(isHovered ? hoverStyle : {}),
                   backgroundColor: theme ? theme.textColor : "#FECF4F",
                   borderColor: theme ? theme.textColor : "#FECF4F",
-                  boxShadow: `0px 0px 4px 4px ${
-                    theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
-                  }`,
                 }}
               >
                 <EastIcon />
@@ -77,15 +81,15 @@ const ElevatingIdea = ({ elevatingIdeaData, loading }) => {
         </div>
         <div className="hidden sm:flex justify-start items-center space-x-6 absolute bottom-0">
           {" "}
-          <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
+          <div className="w-fit pb-2 relative  shadow-2xl cursor-pointer">
             <div
-              className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
+              className=" rounded-full p-1  border-solid"
+              onMouseOver={() => setIsHovered(true)}
+              onMouseOut={() => setIsHovered(false)}
               style={{
+                ...(isHovered ? hoverStyle : {}),
                 backgroundColor: theme ? theme.textColor : "#FECF4F",
                 borderColor: theme ? theme.textColor : "#FECF4F",
-                boxShadow: `0px 0px 4px 4px ${
-                  theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
-                }`,
               }}
             >
               <EastIcon />

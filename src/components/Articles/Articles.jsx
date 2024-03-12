@@ -1,5 +1,5 @@
 // TPA-Website/src/components/Articles/Articles.jsx
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import TextContext from "../../TextContext";
 import Image from "next/image";
 import EastIcon from "@mui/icons-material/East";
@@ -34,7 +34,27 @@ function urlFor(source) {
 
 const Articles = ({ articlesData }) => {
   const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
+  const [hoverStates, setHoverStates] = useState([]);
+  const [isHovered, setIsHovered] = useState(false);
 
+  useEffect(() => {
+    setHoverStates(new Array(articlesData.length).fill(false));
+  }, [articlesData.length]);
+
+  const hoverStyle = {
+    boxShadow: `0px 0px 4px 4px ${theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"}`,
+  };
+  const handleMouseOver = (index) => {
+    const newHoverStates = [...hoverStates];
+    newHoverStates[index] = true;
+    setHoverStates(newHoverStates);
+  };
+
+  const handleMouseOut = (index) => {
+    const newHoverStates = [...hoverStates];
+    newHoverStates[index] = false;
+    setHoverStates(newHoverStates);
+  };
   const textBlocks1 = articlesData && articlesData.articles ? articlesData.articles : [];
 
   const textBlocks = textBlocks1.map((block) => {
@@ -60,15 +80,15 @@ const Articles = ({ articlesData }) => {
         <Link href="/articles">
           {" "}
           <div className="hidden sm:flex mr-32 justify-start items-center space-x-6 -bottom-1">
-            <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
+            <div className="w-fit pb-2 relative shadow-2xl cursor-pointer">
               <div
-                className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
+                className="  rounded-full p-1  border-solid"
+                onMouseOver={() => setIsHovered(true)}
+                onMouseOut={() => setIsHovered(false)}
                 style={{
+                  ...(isHovered ? hoverStyle : {}),
                   backgroundColor: theme ? theme.textColor : "#FECF4F",
                   borderColor: theme ? theme.textColor : "#FECF4F",
-                  boxShadow: `0px 0px 4px 4px ${
-                    theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
-                  }`,
                 }}
               >
                 <EastIcon />
@@ -93,15 +113,15 @@ const Articles = ({ articlesData }) => {
               />
             </div>
             <div className="flex justify-start items-center space-x-3 sm:space-x-6 mx-1 sm:mx-0 my-4 sm:w-[62%]">
-              <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
+              <div className="w-fit pb-2 relative shadow-2xl cursor-pointer">
                 <div
-                  className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
+                  className="rounded-full p-1 order-solid"
+                  onMouseOver={() => handleMouseOver(index)}
+                  onMouseOut={() => handleMouseOut(index)}
                   style={{
+                    ...(hoverStates[index] ? hoverStyle : {}),
                     backgroundColor: theme ? theme.textColor : "#FECF4F",
                     borderColor: theme ? theme.textColor : "#FECF4F",
-                    boxShadow: `0px 0px 4px 4px ${
-                      theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
-                    }`,
                   }}
                 >
                   <EastIcon />

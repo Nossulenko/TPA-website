@@ -37,6 +37,11 @@ const LetsTalk = ({ letsTalkData }) => {
   const [companyName, setCompanyName] = useState("");
   const [message, setMessage] = useState("");
   const currentYear = new Date().getFullYear();
+  const [isHovered, setIsHovered] = useState(false);
+
+  const hoverStyle = {
+    boxShadow: `0px 0px 4px 4px ${theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"}`,
+  };
 
   const handleSubmit = () => {
     const data = {
@@ -117,15 +122,15 @@ const LetsTalk = ({ letsTalkData }) => {
 
           <div className="my:10 sm:my-0 flex justify-start items-center space-x-6  cursor-pointer">
             {" "}
-            <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl">
+            <div className="w-fit pb-2 relative shadow-2xl">
               <div
-                className="shadow-custom rounded-full p-1 border-solid"
+                className="rounded-full p-1 border-solid"
+                onMouseOver={() => setIsHovered(true)}
+                onMouseOut={() => setIsHovered(false)}
                 style={{
+                  ...(isHovered ? hoverStyle : {}),
                   backgroundColor: theme ? theme.textColor : "#FECF4F",
                   borderColor: theme ? theme.textColor : "#FECF4F",
-                  boxShadow: `0px 0px 4px 4px ${
-                    theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
-                  }`,
                 }}
               >
                 <EastIcon />
@@ -185,7 +190,7 @@ const LetsTalk = ({ letsTalkData }) => {
       <div className="sm:mt-20 ml-8 h-44 sm:flex items-center justify-start sm:space-x-16">
         <div className="sm:w-1/3 sm:flex items-center mt-24 sm:mt-0">
           <div className=" ">Mail Us :</div>
-          <div className="underline transition-all duration-500 ease-in-out transform hover:scale-105 hover:text-darkYellow">
+          <div className="underline transition-all duration-500 ease-in-out transform hover:scale-[1.01]">
             <Link href="mailto:hello@productarchitects.eu">hello@productarchitects.eu</Link>
           </div>
         </div>

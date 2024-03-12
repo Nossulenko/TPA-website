@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import TextContext from "../../TextContext";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,6 +15,10 @@ function urlFor(source) {
 
 const WhatweDo = ({ whatWeDoData }) => {
   const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
+  const [isHovered, setIsHovered] = useState(false);
+  const hoverStyle = {
+    boxShadow: `0px 0px 4px 4px ${theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"}`,
+  };
   const { heading, paragraph1, paragraph2, paragraph3, linkText, link, image } = whatWeDoData;
   const paragraphs = [paragraph1, paragraph2, paragraph3];
   // console.log("image", image.asset._ref);
@@ -47,15 +51,15 @@ const WhatweDo = ({ whatWeDoData }) => {
           </div>
         </div>
         <div className="my:20 sm:my-0 ml-4 sm:ml-0 flex justify-start items-center space-x-6 -bottom-1">
-          <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
+          <div className="w-fit pb-2 relative shadow-2xl cursor-pointer">
             <div
-              className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
+              className="rounded-full p-1 border-solid"
+              onMouseOver={() => setIsHovered(true)}
+              onMouseOut={() => setIsHovered(false)}
               style={{
+                ...(isHovered ? hoverStyle : {}),
                 backgroundColor: theme ? theme.textColor : "#FECF4F",
                 borderColor: theme ? theme.textColor : "#FECF4F",
-                boxShadow: `0px 0px 4px 4px ${
-                  theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
-                }`,
               }}
             >
               <EastIcon />
