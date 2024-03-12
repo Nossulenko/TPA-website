@@ -234,8 +234,8 @@ const Navbar = ({ navigationData, color }) => {
             </div> */}
             {/* <div className="text-transparent text-stroke text-black text-2xl">Hollow Text</div> */}
           </Link>
-          <div className="flex items-center justify-end relative space-x-4">
-            <div className="hidden sm:block cursor-pointer transition duration-500 ease-in-out transform hover:scale-[1.02]">
+          <div className="flex items-center justify-end relative space-x-2">
+            <div className="hidden sm:block cursor-pointer transition duration-500 ease-in-out transform hover:scale-[1.02] sm:mx-6">
               {navBarOptions && navBarOptions[0].optionName}
             </div>
             <div className="relative shadow-2xl cursor-pointer" onClick={handleMenuToggle}>

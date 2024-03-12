@@ -8,6 +8,8 @@ html {
 
 body {
   font-family: "Space Grotesk", sans-serif;
+  max-width: 1800px;
+  margin: 0 auto;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Micro+5&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");

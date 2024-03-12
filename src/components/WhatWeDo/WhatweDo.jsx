@@ -27,7 +27,7 @@ const WhatweDo = ({ whatWeDoData }) => {
       <div className=" sm:h-[90vh] m-6 sm:w-[45%]">
         <div className="">
           <div
-            className="text-yellow font-space-grotesk text-6xl sm:text-8xl font-medium leading-93 my-12 sm:mx-4 sm:m-0"
+            className="text-yellow font-space-grotesk text-6xl sm:text-8xl font-medium leading-93 my-12 mx-4 sm:m-0"
             style={{ color: theme ? theme.textColor : "#FECF4F" }}
           >
             What we do

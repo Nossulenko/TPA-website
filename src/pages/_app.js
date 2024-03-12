@@ -1,3 +1,4 @@
+// TPA-Website/src/pages/_app.js
 import "../globals.css";
 import { useEffect, useState } from "react";
 import TextContext from "../TextContext";

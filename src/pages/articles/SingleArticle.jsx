@@ -111,7 +111,7 @@ const SingleArticle = ({ SingleArticleData }) => {
               <Image
                 src={urlFor(article.articleImage.asset).url()}
                 alt=""
-                width={1657}
+                width={800}
                 height={442}
               />
             </div>
