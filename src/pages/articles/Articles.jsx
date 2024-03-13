@@ -19,8 +19,29 @@ function urlFor(source) {
 const Articles = () => {
   const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
   let [loading, setLoading] = useState(true);
-
   const [articlesData, setArticlesData] = useState([]);
+  const [hoverStates, setHoverStates] = useState([]);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    setHoverStates(new Array(articlesData.length).fill(false));
+  }, [articlesData.length]);
+
+  const hoverStyle = {
+    boxShadow: `0px 0px 4px 4px ${theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"}`,
+  };
+  const handleMouseOver = (index) => {
+    const newHoverStates = [...hoverStates];
+    newHoverStates[index] = true;
+    setHoverStates(newHoverStates);
+  };
+
+  const handleMouseOut = (index) => {
+    const newHoverStates = [...hoverStates];
+    newHoverStates[index] = false;
+    setHoverStates(newHoverStates);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -39,7 +60,7 @@ const Articles = () => {
 
   let [color, setColor] = useState("#FECF4F");
 
-//   console.log("myText:", myText);
+  //   console.log("myText:", myText);
 
   return (
     <div className="relative overflow-hidden">
@@ -69,7 +90,7 @@ const Articles = () => {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mx-4 sm:mx-0 m-6">
                 {articlesData.map((article, index) => (
                   <div key={index} className="mb-8">
-                    <div className="min-h-16 uppercase sm:w-10/12 underline text-2xl mt-6">
+                    <div className="min-h-24 uppercase sm:w-10/12 underline text-2xl mt-6">
                       {" "}
                       <Link href={`/articles/${article.slug.current}`}>{article.heading}</Link>
                     </div>
@@ -82,17 +103,19 @@ const Articles = () => {
                         height={352}
                       />
                     </div>
-                    <div className="sm:w-10/12 my-8">{article.summary}</div>
+                    <div className="sm:w-10/12 min-h-52 max-h-56 my-8 overflow-auto">
+                      {article.summary}
+                    </div>
                     <div className="flex justify-start items-center space-x-6 my-4 w-[62%]">
-                      <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
+                      <div className="w-fit pb-2 relative shadow-2xl cursor-pointer">
                         <div
-                          className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
+                          className=" rounded-full p-1 border-solid"
+                          onMouseOver={() => handleMouseOver(index)}
+                          onMouseOut={() => handleMouseOut(index)}
                           style={{
+                            ...(hoverStates[index] ? hoverStyle : {}),
                             backgroundColor: theme ? theme.textColor : "#FECF4F",
                             borderColor: theme ? theme.textColor : "#FECF4F",
-                            boxShadow: `0px 0px 4px 4px ${
-                              theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
-                            }`,
                           }}
                         >
                           <EastIcon />
