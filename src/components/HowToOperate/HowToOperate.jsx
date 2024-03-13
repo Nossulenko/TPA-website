@@ -56,8 +56,10 @@ const HowToOperate = ({ howToOperateData }) => {
               </div>
             ))}
         </div>
-        <div className="sm:h-screen hidden w-full sm:w-1/3 sm:flex sm:items-center justify-end">
-          <Image className="" src={imageUrl} alt={`diego`} width={500} height={480} />
+        <div className="w-1/3 h-screen hidden sm:flex items-center justify-center">
+          <div className="h-full w-full relative">
+            <Image src={imageUrl} alt="diego" layout="fill" objectFit="cover" />
+          </div>
         </div>
       </div>
     </div>
