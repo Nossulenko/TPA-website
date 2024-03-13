@@ -61,7 +61,7 @@ const Services = ({ servicesData }) => {
           <div className="sm:pt-20 pt-0 w-10/12 sm:w-full flex items-center justify-center sm:justify-start ml-4 sm:ml-0">
             <Image className="" src={imageUrl} alt={`plmbr`} width={400} height={400} />
           </div>
-          <div className="hidden sm:flex justify-start items-center space-x-6 absolute bottom-8">
+          <div className="hidden sm:flex justify-start items-center space-x-6 mt-12">
             {" "}
             <div className="w-fit pb-2 relative  shadow-2xl cursor-pointer">
               <div

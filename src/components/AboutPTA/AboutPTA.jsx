@@ -53,7 +53,7 @@ const AboutPTA = ({ aboutPTAData }) => {
         <div className="text-4xl font-medium leading-127.5 my-6">
           {textBlocks && textBlocks?.heading}
         </div>
-        <div className="pl-32 sm:pl-0  sm:h-full custom-scrollbar">
+        <div className="pl-32 sm:pl-0  custom-scrollbar">
           <div className="sm:flex justify-start items-start sm:space-x-4 my-4">
             <div className="w-full sm:w-1/2 text-black text-xl font-normal ">
               {textBlocks && textBlocks?.desc1}
@@ -71,7 +71,7 @@ const AboutPTA = ({ aboutPTAData }) => {
             </div>
           </div>
         </div>
-        <div className="mt-8 sm:mt-0 flex justify-start items-center space-x-6 sm:absolute bottom-4">
+        <div className="mt-8 sm:mt-12 flex justify-start items-center space-x-6">
             {" "}
             <div className="w-fit pb-2 sm:relative  shadow-2xl cursor-pointer">
               <div
