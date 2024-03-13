@@ -50,7 +50,7 @@ const WhatweDo = ({ whatWeDoData }) => {
             ))}
           </div>
         </div>
-        <div className="my:20 sm:my-0 ml-0 sm:ml-0 flex justify-start items-center space-x-6 -bottom-1">
+        <div className="my:20 sm:my-0 ml-0 sm:ml-0 flex justify-start items-center space-x-6 sm:mt-20">
           <div className="w-fit pb-2 relative shadow-2xl cursor-pointer">
             <div
               className="rounded-full p-1 border-solid"

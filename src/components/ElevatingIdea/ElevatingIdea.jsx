@@ -79,7 +79,7 @@ const ElevatingIdea = ({ elevatingIdeaData, loading }) => {
             )}
           </div>
         </div>
-        <div className="hidden sm:flex justify-start items-center space-x-6 absolute bottom-16">
+        <div className="hidden sm:flex justify-start items-center space-x-6 sm:mt-20">
           {" "}
           <div className="w-fit pb-2 relative  shadow-2xl cursor-pointer">
             <div
