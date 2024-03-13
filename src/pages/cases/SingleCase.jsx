@@ -45,7 +45,7 @@ const SingleCase = ({ SingleCaseData }) => {
     backgroundImage: `url(${urlFor(caseData.featureImage.asset).url()})`,
     backgroundSize: "cover",
     backgroundPosition: "center center",
-    marginTop: "-7rem",
+    marginTop: "-8rem",
     height: "516px",
   };
   return (

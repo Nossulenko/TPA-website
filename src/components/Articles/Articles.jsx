@@ -72,7 +72,7 @@ const Articles = ({ articlesData }) => {
     <div className="relative w-full my-10 sm:ml-4">
       <div className="flex items-end justify-between">
         <div
-          className="text-yellow font-space-grotesk text-7xl sm:text-8xl font-medium  sm:my-12 mx-4 sm:m-0"
+          className="text-yellow font-space-grotesk text-7xl sm:text-8xl font-medium  sm:my-12 mx-4 sm:m-0 2xl:ml-16"
           style={{ color: theme ? theme.textColor : "#FECF4F" }}
         >
           Articles
@@ -102,7 +102,7 @@ const Articles = ({ articlesData }) => {
       </div>
       <div className="h-fit sm:h-[90vh] sm:flex flex-col space-y-8 sm:space-y-0 mx-4 sm:mx-0 sm:flex-row sm:space-x-10 m-6">
         {articlesData.map((article, index) => (
-          <div key={index} className="mb-8 w-full sm:w-1/3 sm:mx-0">
+          <div key={index} className="mb-8 w-full sm:w-1/3 sm:mx-0 2xl:ml-16">
             <div className="rounded-2xl flex items-center justify-start">
               <Image
                 className="rounded-2xl"
@@ -112,7 +112,7 @@ const Articles = ({ articlesData }) => {
                 height={352}
               />
             </div>
-            <div className="flex justify-start items-center space-x-3 sm:space-x-6 mx-1 sm:mx-0 my-4 sm:w-[62%]">
+            <div className="flex justify-start items-center space-x-3 sm:space-x-6 mx-1 sm:mx-0 my-4 sm:w-3/4">
               <div className="w-fit pb-2 relative shadow-2xl cursor-pointer">
                 <div
                   className="rounded-full p-1 order-solid"
@@ -129,11 +129,17 @@ const Articles = ({ articlesData }) => {
               </div>
               <Link href={`/articles/${article.slug.current}`}>
                 <div className="text-black font-space-grotesk text-22 font-medium underline">
-                  {article.heading}
+                  {article.heading.length > 50
+                    ? article.heading.slice(0, 50) + "..."
+                    : article.heading}
                 </div>
               </Link>
             </div>
-            <div className="ml-12 sm:ml-0 sm:w-5/6">{article.summary}</div>
+            <div className="ml-12 sm:ml-0 sm:w-[70%]">
+              {article.summary.length > 200
+                ? article.summary.slice(0, 200) + "..."
+                : article.summary}
+            </div>
           </div>
         ))}
       </div>

@@ -78,7 +78,7 @@ const Articles = () => {
         <div className="sm:flex relative z-10 items-center justify-start w-full">
           <div>
             <div className="relative w-full sm:m-10">
-              <div className="flex items-end justify-between">
+              <div className="flex items-end justify-between 2xl:ml-16">
                 <div
                   className="text-yellow font-space-grotesk text-7xl sm:text-8xl font-medium  my-12 mx-4 sm:m-0"
                   style={{ color: theme ? theme.textColor : "#FECF4F" }}
@@ -89,10 +89,15 @@ const Articles = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mx-4 sm:mx-0 m-6">
                 {articlesData.map((article, index) => (
-                  <div key={index} className="mb-8">
-                    <div className="min-h-24 uppercase sm:w-10/12 underline text-2xl mt-6">
+                  <div key={index} className="mb-8 2xl:ml-16">
+                    <div className="min-h-20 uppercase sm:w-10/12 underline text-2xl mt-6">
                       {" "}
-                      <Link href={`/articles/${article.slug.current}`}>{article.heading}</Link>
+                      <Link href={`/articles/${article.slug.current}`}>
+                        {" "}
+                        {article.heading.length > 50
+                          ? article.heading.slice(0, 50) + "..."
+                          : article.heading}
+                      </Link>
                     </div>
                     <div className="rounded-2xl flex items-center justify-start sm:w-full h-[352px] overflow-hidden">
                       <Image
@@ -109,8 +114,10 @@ const Articles = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="sm:w-10/12 min-h-52 max-h-56 my-8 overflow-auto">
-                      {article.summary}
+                    <div className="sm:w-10/12 min-h-44 max-h-48 my-8 overflow-auto">
+                      {article.summary.length > 300
+                        ? article.summary.slice(0, 300) + "..."
+                        : article.summary}
                     </div>
                     <div className="flex justify-start items-center space-x-6 my-4 w-[62%]">
                       <div className="w-fit pb-2 relative shadow-2xl cursor-pointer">

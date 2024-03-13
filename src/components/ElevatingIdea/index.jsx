@@ -38,19 +38,14 @@ const Index = ({ elevatingIdeaData, loading }) => {
       >
         {myText.substring(0, 7)}
       </div>
-      <div className="flex-1">
+      {/* <div className="flex-1"> */}
         {" "}
-        <div className="flex relative z-10 items-center justify-start w-full max-w-full">
-          <div className="hidden sm:block space-y-1 m-6">
-            <div className="flex items-center space-x-2">
-              {/* <VerticalDotNavigation sectionNo={sectionNo} setSectionNo={setSectionNo} /> */}
-            </div>
-          </div>
-          <div className="flex-1 w-full">
+        {/* <div className="flex relative z-10 items-center justify-center w-full max-w-full"> */}
+          <div className="relative z-10 ">
             <ActiveElevatingIdeaComponent elevatingIdeaData={elevatingIdeaData} loading={loading} />
           </div>
-        </div>
-      </div>
+        {/* </div> */}
+      {/* </div> */}
     </div>
   );
 };

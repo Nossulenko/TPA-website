@@ -47,13 +47,13 @@ const AboutPTA = ({ aboutPTAData }) => {
         >
           About TPA
         </div>
-        <div className="sm:hidden -mt-24 ml-16">
+        <div className="sm:hidden">
           <Image src="/images/tpa.png" alt="r3" width={400} height={400} />
         </div>
         <div className="text-4xl font-medium leading-127.5 my-6">
           {textBlocks && textBlocks?.heading}
         </div>
-        <div className="pl-32 sm:pl-0  custom-scrollbar">
+        <div className=" sm:pl-0  custom-scrollbar">
           <div className="sm:flex justify-start items-start sm:space-x-4 my-4">
             <div className="w-full sm:w-1/2 text-black text-xl font-normal ">
               {textBlocks && textBlocks?.desc1}

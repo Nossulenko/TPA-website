@@ -187,7 +187,7 @@ const LetsTalk = ({ letsTalkData }) => {
         </div>
       </div>
 
-      <div className="sm:mt-20 ml-8 h-44 sm:flex items-center justify-start sm:space-x-16">
+      <div className="sm:mt-20 ml-8 h-44 2xl:mt-40 sm:flex items-center justify-start sm:space-x-16 relative 2xl:bottom-0 2k:-bottom-4 4k:-bottom-40">
         <div className="sm:w-1/3 sm:flex items-center mt-24 sm:mt-0">
           <div className=" ">Mail Us :</div>
           <div className="underline transition-all duration-500 ease-in-out transform hover:scale-[1.01]">
@@ -260,7 +260,7 @@ const LetsTalk = ({ letsTalkData }) => {
           </div>
         </div>
 
-        <div className="sm:flex items-center py-12">
+        <div className="sm:flex items-center py-12 sm:py-0">
           <div className="text-black text-lg font-normal underline sm:mx-4">
             Terms and conditions
           </div>

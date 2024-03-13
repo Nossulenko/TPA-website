@@ -85,7 +85,7 @@ const WhatweDo = ({ whatWeDoData }) => {
             height={800}
             // layout="fixed"
           />
-          <div
+          {/* <div
             className="absolute z-0 top-1/2 left-1/2 transform -translate-x-1/4 -translate-y-1/2 w-40 h-40 shadow-custom2 bg-yellow rounded-full p-1 border-yellow border-solid"
             style={{
               backgroundColor: theme ? theme.textColor : "#FECF4F",
@@ -94,7 +94,7 @@ const WhatweDo = ({ whatWeDoData }) => {
                 theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
               }`,
             }}
-          ></div>
+          ></div> */}
         </div>
       </div>
     </div>
