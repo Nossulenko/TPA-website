@@ -59,6 +59,27 @@ const Cases = () => {
   }, []);
 
   let [color, setColor] = useState("#FECF4F");
+  const [hoverStates, setHoverStates] = useState([]);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    setHoverStates(new Array(casesData.length).fill(false));
+  }, [casesData.length]);
+
+  const hoverStyle = {
+    boxShadow: `0px 0px 4px 4px ${theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"}`,
+  };
+  const handleMouseOver = (index) => {
+    const newHoverStates = [...hoverStates];
+    newHoverStates[index] = true;
+    setHoverStates(newHoverStates);
+  };
+
+  const handleMouseOut = (index) => {
+    const newHoverStates = [...hoverStates];
+    newHoverStates[index] = false;
+    setHoverStates(newHoverStates);
+  };
 
   // console.log(" myText:", myText);
 
@@ -94,18 +115,17 @@ const Cases = () => {
                     className="flex items-center justify-start sm:w-full h-[500px] overflow-hidden"
                   >
                     <Image
-                      className=""
+                      className="rounded-2xl"
                       src={urlFor(singleCase.featureImage.asset).url()}
                       alt={`Image ${index}`}
                       width={500}
                       height={500}
                     />
-                    <div className="absolute text-white top-16 left-4 flex flex-wrap space-x-6">
-                      {/* <div className="absolute text-white top-16 left-4 grid grid-flow-row-dense grid-cols-auto gap-4"> */}
+                    <div className="absolute text-white bottom-36 left-4 flex flex-wrap">
                       {singleCase.tags.map((tag, tagIndex) => (
                         <div
                           key={tagIndex}
-                          className="border-2 border-white rounded-full px-3 py-1 my-2 w-fit text-xl"
+                          className="border-2 border-white rounded-full px-3 py-1 my-2 w-fit text-xl mr-6"
                         >
                           {tag}
                         </div>
@@ -116,16 +136,16 @@ const Cases = () => {
                   <div className="flex justify-start items-center space-x-6 my-4 w-[62%]">
                     <Link
                       href={`/cases/${singleCase.slug.current}`}
-                      className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer"
+                      className="w-fit pb-2 relative shadow-2xl cursor-pointer"
                     >
                       <div
-                        className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
+                        className=" rounded-full p-1  border-solid"
+                        onMouseOver={() => handleMouseOver(index)}
+                        onMouseOut={() => handleMouseOut(index)}
                         style={{
+                          ...(hoverStates[index] ? hoverStyle : {}),
                           backgroundColor: theme ? theme.textColor : "#FECF4F",
                           borderColor: theme ? theme.textColor : "#FECF4F",
-                          boxShadow: `0px 0px 4px 4px ${
-                            theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
-                          }`,
                         }}
                       >
                         <EastIcon />
