@@ -60,7 +60,7 @@ const Articles = () => {
 
   let [color, setColor] = useState("#FECF4F");
 
-  //   console.log("myText:", myText);
+  console.log("articlesData:", articlesData);
 
   return (
     <div className="relative overflow-hidden">
@@ -102,6 +102,12 @@ const Articles = () => {
                         width={365}
                         height={352}
                       />
+                      <div className="relative text-white -left-[21.7rem] sm:-left-[22rem] top-36 flex flex-wrap">
+                        <div className="border-2 border-white rounded-full px-3 py-1 my-2 w-32 text-xl mr-6 flex">
+                          <div className="mr-1"> {article.time} </div>
+                          <div className=""> min read</div>
+                        </div>
+                      </div>
                     </div>
                     <div className="sm:w-10/12 min-h-52 max-h-56 my-8 overflow-auto">
                       {article.summary}
