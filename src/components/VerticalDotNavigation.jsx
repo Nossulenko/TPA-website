@@ -11,7 +11,7 @@ const VerticalDotNavigation = ({ sectionNo, setSectionNo }) => {
   const sectionList = [
     "elevatingIdea",
     "whatWeDo",
-    "howWeOperate",
+    // "howWeOperate",
     "howToOperate",
     "services",
     "articles",
