@@ -6,6 +6,7 @@ import { Roboto, Space_Grotesk } from "next/font/google";
 import TextContext from "../TextContext";
 import client from "../lib/sanity";
 import SquareLoader from "react-spinners/SquareLoader";
+import Sidebar from "@/components/Sidebar";
 
 const space_Grotesk = Space_Grotesk({
   weight: ["400", "700"],
@@ -17,6 +18,7 @@ const space_Grotesk = Space_Grotesk({
 export default function Home() {
   const myText = "The Product Architects";
   const [sectionNo, setSectionNo] = useState("elevatingIdea");
+  const [isOpen, setIsOpen] = useState(false);
   const [theme, setTheme] = useState({});
   const [navigationData, setNavigationData] = useState([]);
   let [loading, setLoading] = useState(true);
@@ -62,8 +64,11 @@ export default function Home() {
         </div>
       ) : (
         <main>
-          <Navbar navigationData={navigationData} />
-          <HomePage />
+          <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} navigationData={navigationData} />
+          <div className={` ${isOpen ? "sm:ml-52" : "sm:ml-0"} transition-all duration-200`}>
+            <Navbar navigationData={navigationData} />
+            <HomePage />
+          </div>
         </main>
       )}
     </TextContext.Provider>

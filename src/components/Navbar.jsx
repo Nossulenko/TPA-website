@@ -214,14 +214,32 @@ const Navbar = ({ navigationData, color }) => {
   return (
     <div className="">
       <div className="">
-        <div className="flex items-center justify-between m-4">
-          <Link href="/" className="flex items-center sm:items-end justify-start sm:ml-12">
+        <div className="flex items-center justify-between sm:justify-start m-4">
+          {/* <div className="hidden sm:block relative shadow-2xl cursor-pointer mx-4" onClick={handleMenuToggle}>
+            <div
+              className=" rounded-full p-1 border-solid"
+              onClick={handleMenuToggle}
+              onMouseOver={() => setIsHovered(true)}
+              onMouseOut={() => setIsHovered(false)}
+              style={{
+                ...(isHovered ? hoverStyle : {}),
+                backgroundColor: theme ? theme.textColor : "#FECF4F",
+                borderColor: theme ? theme.textColor : "#FECF4F",
+              }}
+            >
+              <MenuIcon />
+            </div>
+          </div> */}
+          <Link
+            href="/"
+            className="flex items-center sm:items-end justify-start sm:ml-12 space-x-2"
+          >
             <div>
               <Image
                 src={icon && icon.asset ? urlFor(icon.asset).url() : undefined}
                 alt="Logo"
-                width={100}
-                height={80}
+                width={88}
+                height={70}
                 className="hidden sm:block transition-all duration-500 ease-in-out transform hover:scale-[1.02]"
               />
               <Image
@@ -234,7 +252,9 @@ const Navbar = ({ navigationData, color }) => {
             </div>
             <div className="sm:text-2xl transition duration-500 ease-in-out transform hover:scale-[1.02]">
               {name}
-              <div className="hidden sm:block text-lg">{navBarOptions && navBarOptions[0].optionName}</div>
+              <div className="hidden sm:block text-lg">
+                {navBarOptions && navBarOptions[0].optionName}
+              </div>
             </div>
 
             {/* <div className="text-3xl transition duration-500 ease-in-out transform hover:scale-105 hover:text-yellow">
@@ -247,7 +267,10 @@ const Navbar = ({ navigationData, color }) => {
             <div className="hidden cursor-pointer transition duration-500 ease-in-out transform hover:scale-[1.02] sm:mx-6">
               {navBarOptions && navBarOptions[0].optionName}
             </div>
-            <div className="relative shadow-2xl cursor-pointer" onClick={handleMenuToggle}>
+            <div
+              className="sm:hidden relative shadow-2xl cursor-pointer"
+              onClick={handleMenuToggle}
+            >
               <div
                 className=" rounded-full p-1 border-solid"
                 onClick={handleMenuToggle}
