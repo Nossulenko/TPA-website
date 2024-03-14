@@ -27,7 +27,7 @@ const Sidebar = ({ isOpen, setIsOpen, navigationData }) => {
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
-  console.log("socialData", socialData);
+//   console.log("socialData", socialData);
   return (
     <div
       className={`hidden sm:block h-screen -mt-4 fixed bg-yellow ${
