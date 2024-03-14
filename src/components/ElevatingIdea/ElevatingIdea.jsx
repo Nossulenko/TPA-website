@@ -98,7 +98,7 @@ const ElevatingIdea = ({ elevatingIdeaData, loading }) => {
               </div>
             </div>
             {elevatingIdeaData.link && (
-              <Link href={elevatingIdeaData.link}>
+              <Link href={elevatingIdeaData.link.current}>
                 <div className="text-black text-center font-space-grotesk text-22 font-medium underline">
                   {elevatingIdeaData.linkText}
                 </div>

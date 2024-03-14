@@ -23,10 +23,8 @@ export default defineType({
     }),
     defineField({
       name: 'link',
-      title: 'Link',
-      type: 'url',
-      // Add Sample value
-      initialValue: 'https://www.example.com',
+      title: 'Navigate to: ',
+      type: 'slug',
     }),
     defineField({
       name: 'linkText',

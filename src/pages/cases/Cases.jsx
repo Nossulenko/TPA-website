@@ -112,7 +112,7 @@ const Cases = () => {
                 <div key={index} className="mb-8 relative">
                   <Link
                     href={`/cases/${singleCase.slug.current}`}
-                    className="flex items-center justify-start sm:w-full h-[500px] overflow-hidden"
+                    className="flex items-center justify-start sm:w-full h-[420px] overflow-hidden"
                   >
                     <Image
                       className="rounded-2xl"
@@ -132,7 +132,7 @@ const Cases = () => {
                       ))}
                     </div>
                   </Link>
-                  <div className="sm:w-10/12 my-8">{singleCase.summary}</div>
+                  {/* <div className="sm:w-10/12 my-8">{singleCase.summary}</div> */}
                   <div className="flex justify-start items-center space-x-6 my-4 w-[62%]">
                     <Link
                       href={`/cases/${singleCase.slug.current}`}
@@ -153,7 +153,9 @@ const Cases = () => {
                     </Link>
                     <Link href={`/cases/${singleCase.slug.current}`}>
                       <div className="text-black font-space-grotesk text-22 font-medium underline normal">
-                        {singleCase.heading}
+                        {singleCase.heading.length > 50
+                          ? singleCase.heading.slice(0, 50) + "..."
+                          : singleCase.heading}
                       </div>
                     </Link>
                   </div>
