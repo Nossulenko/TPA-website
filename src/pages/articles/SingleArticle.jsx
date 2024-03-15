@@ -107,12 +107,13 @@ const SingleArticle = ({ SingleArticleData }) => {
         </div>
         <div className="sm:my-16">
           <div className="flex items-center justify-center sm:space-x-8 my-8">
-            <div className="">
+            <div className="h-96 w-full overflow-hidden">
               <Image
                 src={urlFor(article.articleImage.asset).url()}
                 alt=""
-                width={800}
-                height={442}
+                width={1000}
+                height={100}
+                className="object-cover w-full"
               />
             </div>
           </div>
