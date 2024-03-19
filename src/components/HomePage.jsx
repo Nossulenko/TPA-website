@@ -107,9 +107,9 @@ const HomePage = () => {
           {/* <Link to="howWeOperate" smooth duration={500}>
             <HowWeOperate howWeOperate={howWeOperate} />
           </Link> */}
-          <Link to="howToOperate" smooth duration={500}>
+          {/* <Link to="howToOperate" smooth duration={500}>
             <HowToOperate howToOperateData={howToOperateData} />
-          </Link>
+          </Link> */}
           <Link to="services" smooth duration={500}>
             <Services servicesData={servicesData} />
           </Link>

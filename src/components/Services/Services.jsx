@@ -53,10 +53,10 @@ const Services = ({ servicesData }) => {
       <div className="sm:h-screen sm:flex items-start justify-center sm:space-x-8">
         <div className="sm:w-1/2">
           <div
-            className="text-yellow font-space-grotesk text-[80px] sm:text-8xl font-medium my-12 mx-4 sm:m-0"
-            style={{ color: theme ? theme.textColor : "#FECF4F" }}
+            className="text-yellow font-space-grotesk text-[60px] sm:text-8xl font-medium my-12 mx-4 sm:m-0"
+            style={{ color: theme ? theme.textColor : "#FECF4F", whiteSpace:'pre' }}
           >
-            Services
+            How we operate
           </div>
           <div className="sm:pt-20 pt-0 w-10/12 sm:w-full flex items-center justify-center sm:justify-start ml-4 sm:ml-0 2xl:py-24">
             <Image className="" src={imageUrl} alt={`plmbr`} width={400} height={400} />
