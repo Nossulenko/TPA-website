@@ -93,7 +93,7 @@ export default defineType({
         },
         {
           id: '04',
-          name: 'Free Tools',
+          name: 'Cases',
           link: 'articles',
         },
         {

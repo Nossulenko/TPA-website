@@ -14,7 +14,7 @@ const navData = [
   { id: 1, name: "Projects", link: "whatWeDo" },
   { id: 2, name: "Services", link: "services" },
   { id: 3, name: "Articles", link: "articles" },
-  { id: 4, name: "Free Tools", link: "articles" },
+  { id: 4, name: "Cases", link: "articles" },
   { id: 5, name: "Let's Talk", link: "letsTalk" },
 ];
 
