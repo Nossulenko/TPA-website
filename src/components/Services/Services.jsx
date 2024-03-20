@@ -91,8 +91,9 @@ const Services = ({ servicesData }) => {
           {textBlocks &&
             textBlocks.map((block) => (
               <div className="m-4 sm:m-0 my-10" key={block.id}>
-                <div className="sm:w-10/12 flex justify-start items-center space-x-4 sm:mt-20">
-                  <div className="text-[50px] sm:text-4xl font-bold">{block.heading}</div>
+                <div className="sm:w-10/12 flex justify-start  space-x-4 sm:mt-20">
+                  <div className="text-[50px] sm:text-4xl" style={{ color: theme ? theme.textColor : "#FECF4F", whiteSpace:'pre' }}>{block.id}</div>
+                 <div className="text-[50px] sm:text-4xl font-bold">{block.heading}</div>
                 </div>
                 <div className="my-4 sm:my-0 sm:mt-8 mx-1 text-xl">{block.subHeading}</div>
                 <div className="mr-4 sm:mx-32 text-xl">{block.desc}</div>
