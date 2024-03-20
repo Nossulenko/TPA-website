@@ -23,11 +23,13 @@ const Sidebar = ({ isOpen, setIsOpen, navigationData }) => {
   const { name, icon, email, navBarOptions, navData, socialData, bgImage } = navigationData;
   const hoverStyle = {
     boxShadow: `0px 0px 4px 4px ${theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"}`,
+    backgroundColor: theme ? theme.textColor : "#FECF4F",
+    borderColor: theme ? theme.textColor : "#FECF4F",
   };
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
-//   console.log("navData", navData);
+  //   console.log("navData", navData);
   return (
     <div
       className={`hidden sm:block h-screen -mt-4 fixed bg-yellow ${
@@ -42,10 +44,10 @@ const Sidebar = ({ isOpen, setIsOpen, navigationData }) => {
           onMouseOut={() => setIsHovered(false)}
           style={{
             ...(isHovered ? hoverStyle : {}),
-            backgroundColor: theme ? theme.textColor : "#FECF4F",
-            borderColor: theme ? theme.textColor : "#FECF4F",
+            // backgroundColor: theme ? theme.textColor : "#FECF4F",
+            // borderColor: theme ? theme.textColor : "#FECF4F",
           }}
-          className={`rounded-full p-1 border-solid mt-8 mx-4 ${isOpen ? 'hidden' : ''}`}
+          className={`rounded-full p-1 border-solid mt-8 mx-4 ${isOpen ? "hidden" : ""}`}
         >
           {isOpen ? "" : <MenuIcon />}
         </button>
@@ -76,7 +78,7 @@ const Sidebar = ({ isOpen, setIsOpen, navigationData }) => {
                 socialData.map((item) => (
                   <div key={item.id} className="">
                     <Image
-                     className="cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-glow"
+                      className="cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-glow"
                       src={urlFor(item.imageSrc.asset).url()}
                       alt={item.alt}
                       width={26}
