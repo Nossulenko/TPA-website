@@ -76,74 +76,72 @@ const Articles = () => {
       <div className="sm:flex-1">
         {" "}
         <div className="sm:flex relative z-10 items-center justify-start w-full">
-          <div>
-            <div className="relative w-full sm:m-10">
-              <div className="flex items-end justify-between 2xl:ml-16">
-                <div
-                  className="text-yellow font-space-grotesk text-7xl sm:text-8xl font-medium  my-12 mx-4 sm:m-0"
-                  style={{ color: theme ? theme.textColor : "#FECF4F" }}
-                >
-                  Articles
-                </div>
+          <div className="relative w-full sm:m-14">
+            <div className="flex items-end justify-between 2xl:ml-16">
+              <div
+                className="text-yellow font-space-grotesk text-7xl sm:text-8xl font-medium  my-12 mx-4 sm:m-0"
+                style={{ color: theme ? theme.textColor : "#FECF4F" }}
+              >
+                Articles
               </div>
+            </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mx-4 sm:mx-0 m-6">
-                {articlesData.map((article, index) => (
-                  <div key={index} className="mb-8 2xl:ml-16">
-                    <div className="min-h-20 uppercase sm:w-10/12 underline text-2xl mt-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 sm:gap-x-28 mx-4 sm:mx-0 m-6">
+              {articlesData.map((article, index) => (
+                <div key={index} className="mb-8 2xl:ml-16">
+                  <div className="min-h-20 uppercase sm:w-12/12 underline text-2xl mt-6">
+                    {" "}
+                    <Link href={`/articles/${article.slug.current}`}>
                       {" "}
-                      <Link href={`/articles/${article.slug.current}`}>
-                        {" "}
-                        {article.heading.length > 50
-                          ? article.heading.slice(0, 50) + "..."
-                          : article.heading}
-                      </Link>
-                    </div>
-                    <div className="rounded-2xl flex items-center justify-start sm:w-full h-[352px] overflow-hidden">
-                      <Image
-                        className="rounded-2xl"
-                        src={urlFor(article.featureImage.asset).url()}
-                        alt={`Image ${index}`}
-                        width={365}
-                        height={352}
-                      />
-                      <div className="relative text-white -left-[21.7rem] sm:-left-[22rem] top-36 flex flex-wrap">
-                        <div className="border-2 border-white rounded-full px-3 py-1 my-2 w-32 text-xl mr-6 flex">
-                          <div className="mr-1"> {article.time} </div>
-                          <div className=""> min read</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="sm:w-10/12 min-h-44 max-h-48 my-8 overflow-auto">
-                      {article.summary.length > 300
-                        ? article.summary.slice(0, 300) + "..."
-                        : article.summary}
-                    </div>
-                    <div className="flex justify-start items-center space-x-6 my-4 w-[62%]">
-                      <div className="w-fit pb-2 relative shadow-2xl cursor-pointer">
-                        <div
-                          className=" rounded-full p-1 border-solid"
-                          onMouseOver={() => handleMouseOver(index)}
-                          onMouseOut={() => handleMouseOut(index)}
-                          style={{
-                            ...(hoverStates[index] ? hoverStyle : {}),
-                            backgroundColor: theme ? theme.textColor : "#FECF4F",
-                            borderColor: theme ? theme.textColor : "#FECF4F",
-                          }}
-                        >
-                          <EastIcon />
-                        </div>
-                      </div>
-                      <Link href={`/articles/${article.slug.current}`}>
-                        <div className="text-black font-space-grotesk text-22 font-medium underline">
-                          READ ARTICLE
-                        </div>
-                      </Link>
-                    </div>
-                    <div className="w-5/6">{article.desc}</div>
+                      {article.heading.length > 40
+                        ? article.heading.slice(0, 40) + "..."
+                        : article.heading}
+                    </Link>
                   </div>
-                ))}
-              </div>
+                  <div className="rounded-2xl flex items-center justify-start sm:w-full h-[352px] overflow-hidden">
+                    <Image
+                      className="rounded-2xl"
+                      src={urlFor(article.featureImage.asset).url()}
+                      alt={`Image ${index}`}
+                      width={365}
+                      height={352}
+                    />
+                    <div className="relative text-white -left-[21.7rem] sm:-left-[22rem] top-36 flex flex-wrap">
+                      <div className="border-2 border-white rounded-full px-3 py-1 my-2 w-32 text-xl mr-6 flex">
+                        <div className="mr-1"> {article.time} </div>
+                        <div className=""> min read</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="sm:w-12/12 min-h-48 max-h-56 my-8 overflow-auto">
+                    {article.summary.length > 250
+                      ? article.summary.slice(0, 250) + "..."
+                      : article.summary}
+                  </div>
+                  <div className="flex justify-start items-center space-x-6 my-4 w-[62%]">
+                    <div className="w-fit pb-2 relative shadow-2xl cursor-pointer">
+                      <div
+                        className=" rounded-full p-1 border-solid"
+                        onMouseOver={() => handleMouseOver(index)}
+                        onMouseOut={() => handleMouseOut(index)}
+                        style={{
+                          ...(hoverStates[index] ? hoverStyle : {}),
+                          backgroundColor: theme ? theme.textColor : "#FECF4F",
+                          borderColor: theme ? theme.textColor : "#FECF4F",
+                        }}
+                      >
+                        <EastIcon />
+                      </div>
+                    </div>
+                    <Link href={`/articles/${article.slug.current}`}>
+                      <div className="text-black font-space-grotesk text-22 font-medium underline">
+                        READ ARTICLE
+                      </div>
+                    </Link>
+                  </div>
+                  <div className="w-5/6">{article.desc}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
