@@ -51,11 +51,16 @@ const MobileBurgerMenu = ({ isOpen, onClose, theme, email, navData, socialData }
                 key={item.id}
                 className="my-1 cursor-pointer transition duration-500 ease-in-out transform hover:scale-[1.02]"
               >
-                <ScrollLink to={item.link} smooth duration={500} onClick={onClose}>
+                <Link href={item.link} smooth duration={500} onClick={onClose}>
                   {item.name}
-                </ScrollLink>{" "}
+                </Link>{" "}
               </div>
             ))}
+          <div className="my-2 cursor-pointer transition duration-500 ease-in-out transform hover:scale-[1.02]">
+            <ScrollLink to="letsTalk" smooth duration={500} onClick={onClose}>
+              Lets Talk
+            </ScrollLink>{" "}
+          </div>
         </div>
         <div className="flex items-center justify-center my-10 space-x-4">
           {socialData &&
