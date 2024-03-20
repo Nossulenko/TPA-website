@@ -64,6 +64,7 @@ const index = () => {
           <div className={` ${isOpen ? "sm:ml-52" : "sm:ml-0"} transition-all duration-200`}>
             <Navbar navigationData={navigationData} />
             <Cases />
+            <LetsTalk letsTalkData={letsTalkData} />
           </div>
         </main>
       )}

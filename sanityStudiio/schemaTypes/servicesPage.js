@@ -13,13 +13,69 @@ export default defineType({
       type: 'string',
     },
     {
-      name: 'subHeading',
-      title: 'Services Sub Heading',
-      type: 'text',
+      name: 'featureImage',
+      title: 'Feature Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'attribution',
+          type: 'string',
+          title: 'Attribution',
+        },
+      ],
     },
     {
-      name: 'cards',
-      title: 'Cards Content',
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [{type: 'string'}],
+    },
+    {
+      name: 'summary',
+      title: 'Summary',
+      type: 'string',
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'heading',
+        maxLength: 96,
+      },
+    },
+    {
+      name: 'subHeading',
+      title: 'Sub Heading',
+      type: 'string',
+    },
+    {
+      name: 'paragraphs',
+      title: 'Paragraphs',
+      type: 'array',
+      of: [{type: 'text'}],
+    },
+    {
+      name: 'serviceImage',
+      title: 'Service Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'attribution',
+          type: 'string',
+          title: 'Attribution',
+        },
+      ],
+    },
+    {
+      name: 'bullet',
+      title: 'Bullet Content',
       type: 'array',
       of: [
         {
@@ -31,35 +87,18 @@ export default defineType({
               type: 'string',
             },
             {
-              name: 'cardHeading',
-              title: 'Card Heading',
+              name: 'bulletHeading',
+              title: 'Bullet Heading',
               type: 'string',
             },
             {
-              name: 'bulletPoints',
-              title: 'Bullet Points',
-              type: 'array',
-              of: [
-                {
-                  type: 'object',
-                  fields: [
-                    {
-                      name: 'bulletHeading',
-                      title: 'Bullet Heading',
-                      type: 'string',
-                    },
-                    {
-                      name: 'bulletDetail',
-                      title: 'Bullet Detail',
-                      type: 'text',
-                    },
-                  ],
-                },
-              ],
+              name: 'bulletDescription',
+              title: 'Bullet Description',
+              type: 'text',
             },
             {
-              name: 'cardImage',
-              title: 'Card Image',
+              name: 'bulletImage',
+              title: 'Bullet Image',
               type: 'image',
               options: {
                 hotspot: true,
@@ -77,6 +116,11 @@ export default defineType({
       ],
     },
     {
+      name: 'nextServiceSlug',
+      title: 'Next Service Slug',
+      type: 'string',
+    },
+    {
       name: 'creattedAt',
       title: 'Created At',
       type: 'datetime',
@@ -85,7 +129,7 @@ export default defineType({
   preview: {
     select: {
       title: 'heading',
-      media: 'cards[3].cardImage',
+      media: 'featureImage',
     },
     prepare(selection) {
       const {title, media} = selection

@@ -46,7 +46,7 @@ const Services = () => {
           client.fetch('*[_type == "articles"]'),
         ]);
         setCasesData(cases);
-        setServices(servicesPage[0]);
+        setServices(servicesPage);
         setArticlesData(articles);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -60,7 +60,7 @@ const Services = () => {
 
   let [color, setColor] = useState("#FECF4F");
 
-  // console.log(" servicesData:", servicesData.cards);
+  console.log(" servicesData:", servicesData);
 
   return (
     <div className="relative overflow-hidden">
@@ -78,7 +78,7 @@ const Services = () => {
           <div className="relative w-full sm:m-10">
             <div className="flex items-end justify-between">
               <div
-                className="text-yellow font-space-grotesk text-6xl sm:text-8xl font-medium my-8 sm:my-12 mx-4 sm:m-0"
+                className="text-yellow font-space-grotesk text-6xl sm:text-8xl font-medium my-8 mx-4 sm:m-0"
                 style={{ color: theme ? theme.textColor : "#FECF4F" }}
               >
                 Services
@@ -86,36 +86,47 @@ const Services = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mx-4 sm:mx-0 m-6">
-              {articlesData.map((article, index) => (
+              {servicesData.map((service, index) => (
                 <div key={index} className="mb-8 2xl:ml-16">
                   <div className="min-h-20 uppercase sm:w-10/12 underline text-2xl mt-6">
                     {" "}
-                    <Link href={`/articles/${article.slug.current}`}>
+                    <Link href={`/`}>
                       {" "}
-                      {article.heading.length > 50
-                        ? article.heading.slice(0, 50) + "..."
-                        : article.heading}
+                      {service.heading.length > 50
+                        ? service.heading.slice(0, 50) + "..."
+                        : service.heading}
                     </Link>
                   </div>
-                  <div className="rounded-2xl flex items-center justify-start sm:w-full h-[352px] overflow-hidden">
+                  <div className="rounded-2xl flex items-center justify-start sm:w-full h-[352px] overflow-hidden relative">
                     <Image
                       className="rounded-2xl"
-                      src={urlFor(article.featureImage.asset).url()}
+                      src={urlFor(service.featureImage.asset).url()}
                       alt={`Image ${index}`}
                       width={365}
                       height={352}
                     />
-                    <div className="relative text-white -left-[21.7rem] sm:-left-[22rem] top-36 flex flex-wrap">
-                      <div className="border-2 border-white rounded-full px-3 py-1 my-2 w-32 text-xl mr-6 flex">
-                        <div className="mr-1"> {article.time} </div>
-                        <div className=""> min read</div>
-                      </div>
+                    <div className="absolute text-white bottom-1 left-4 flex flex-wrap">
+                      {service.tags.map((tag, tagIndex) => (
+                        <div
+                          key={tagIndex}
+                          className="border-2 border-white rounded-full px-3 py-1 my-2 w-fit text-xl mr-6"
+                        >
+                          {tag}
+                        </div>
+                      ))}
                     </div>
                   </div>
-                  <div className="sm:w-10/12 min-h-44 max-h-48 my-8 overflow-auto">
-                    {article.summary.length > 300
-                      ? article.summary.slice(0, 300) + "..."
-                      : article.summary}
+                  <div className="sm:w-10/12 min-h-60 max-h-64 my-8 ml-2">
+                    <li className="my-4">
+                      {service.bullet[0].bulletHeading.length > 170
+                        ? service.bullet[0].bulletHeading.slice(0, 170) + "..."
+                        : service.bullet[0].bulletHeading}
+                    </li>
+                    <li className="my-8">
+                      {service.bullet[0].bulletHeading.length > 170
+                        ? service.bullet[0].bulletHeading.slice(0, 170) + "..."
+                        : service.bullet[0].bulletHeading}
+                    </li>
                   </div>
                   <div className="flex justify-start items-center space-x-6 my-4 w-[62%]">
                     <div className="w-fit pb-2 relative shadow-2xl cursor-pointer">
@@ -132,13 +143,13 @@ const Services = () => {
                         <EastIcon />
                       </div>
                     </div>
-                    <Link href={`/articles/${article.slug.current}`}>
-                      <div className="text-black font-space-grotesk text-22 font-medium underline">
-                        READ ARTICLE
-                      </div>
+                    <Link href={`/`}>
+                    <div className="text-black font-space-grotesk text-22 font-medium underline">
+                      Read a case
+                    </div>
                     </Link>
                   </div>
-                  <div className="w-5/6">{article.desc}</div>
+                  <div className="w-5/6">{service.desc}</div>
                 </div>
               ))}
             </div>
