@@ -77,7 +77,7 @@ const LetsTalk = ({ letsTalkData }) => {
           >
             Let's talk
           </div>
-          <div className="sm:w-1/2 text-4xl mb-20 my-6">{heading}</div>
+          <div className="w-[56%] lg:w-1/2 text-4xl mb-20 my-6">{heading}</div>
           <div className="sm:w-1/2 text-xl">{subHeading}</div>
           <div className="sm:w-1/2 sm:flex flex-wrap justify-center">
             <div className="sm:w-1/2 py-1">
@@ -146,7 +146,7 @@ const LetsTalk = ({ letsTalkData }) => {
         </div>
 
         <div>
-          <div className="hidden sm:block absolute bottom-20 right-0 -mb-24 mr-30">
+          <div className="hidden sm:block absolute bottom-20 -right-20 lg:right-0 -mb-24 mr-30">
             <Image
               src={textBlocks[0] && textBlocks[0].image}
               alt="map1"
@@ -165,7 +165,7 @@ const LetsTalk = ({ letsTalkData }) => {
             </div>
           </div>
 
-          <div className="hidden sm:block absolute bottom-80 right-0 -mb-12 mr-25">
+          <div className="hidden sm:block absolute bottom-80 -right-20 lg:right-0 -mb-12 mr-25">
             <div style={{ marginBottom: "-10rem" }} className="relative z-10">
               <div className="w-96 text-black text-4xl font-bold break-words ">
                 {" "}
@@ -187,15 +187,15 @@ const LetsTalk = ({ letsTalkData }) => {
         </div>
       </div>
 
-      <div className="sm:mt-20 ml-8 h-44 2xl:mt-40 sm:flex items-center justify-start sm:space-x-16 relative 2xl:bottom-0 2k:-bottom-4 4k:-bottom-40">
-        <div className="sm:w-1/3 sm:flex items-center mt-24 sm:mt-0">
+      <div className="sm:mt-20 ml-8 sm:ml-0 lg:ml-8 h-44 2xl:mt-40 sm:flex sm:flex-wrap lg:flex-nowrap items-center justify-start lg:space-x-16 relative 2xl:bottom-0 2k:-bottom-4 4k:-bottom-40">
+        <div className="w-1/2 lg:w-1/3 sm:flex lg:items-center mt-24 sm:mt-0">
           <div className=" ">Mail Us :</div>
           <div className="underline transition-all duration-500 ease-in-out transform hover:scale-[1.01]">
             <Link href="mailto:hello@productarchitects.eu">hello@productarchitects.eu</Link>
           </div>
         </div>
 
-        <div className="sm:ml-24 flex my-10 sm:my-0 space-x-8">
+        <div className="lg:ml-24 flex my-10 sm:my-0 space-x-8">
           <div className="sm:mx-4 text-xl">Socials</div>
           <div className="flex space-x-5 sm:space-x-6">
             <Image
@@ -260,11 +260,11 @@ const LetsTalk = ({ letsTalkData }) => {
           </div>
         </div>
 
-        <div className="sm:flex items-center py-12 sm:py-0">
-          <div className="text-black text-lg font-normal underline sm:mx-4">
+        <div className="sm:flex items-center py-12 sm:py-0 mx-0 sm:space-x-24 lg-space-x-0">
+          <div className="text-black text-lg font-normal underline">
             Terms and conditions
           </div>
-          <div className="text-black text-lg font-normal">
+          <div className="text-black text-lg font-normal ">
             Copyright © {currentYear}. The Product Architects
           </div>
         </div>

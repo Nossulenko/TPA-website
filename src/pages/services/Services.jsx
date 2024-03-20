@@ -85,7 +85,7 @@ const Services = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-x-28 mx-4 sm:mx-0 m-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-x-28 mx-4 sm:mx-0 m-6">
               {servicesData.map((service, index) => (
                 <div key={index} className="mb-8 2xl:ml-16">
                   <div className="min-h-20 uppercase sm:w-11/12 underline text-2xl mt-6">
@@ -105,7 +105,7 @@ const Services = () => {
                       width={365}
                       height={352}
                     />
-                    <div className="absolute text-white bottom-1 left-4 flex flex-wrap">
+                    <div className="absolute text-white xs:bottom-1 md:bottom-14 lg:bottom-1 left-4 flex flex-wrap">
                       {service.tags.map((tag, tagIndex) => (
                         <div
                           key={tagIndex}
@@ -116,15 +116,15 @@ const Services = () => {
                       ))}
                     </div>
                   </div>
-                  <div className="sm:w-11/12 min-h-60 max-h-64 my-8 ml-2">
+                  <div className="sm:w-11/12 min-h-60 max-h-68 my-8 ml-2">
                     <li className="my-4">
-                      {service.bullet[0].bulletHeading.length > 170
-                        ? service.bullet[0].bulletHeading.slice(0, 170) + "..."
+                      {service.bullet[0].bulletHeading.length > 150
+                        ? service.bullet[0].bulletHeading.slice(0, 150) + "..."
                         : service.bullet[0].bulletHeading}
                     </li>
                     <li className="my-8">
-                      {service.bullet[0].bulletHeading.length > 170
-                        ? service.bullet[0].bulletHeading.slice(0, 170) + "..."
+                      {service.bullet[0].bulletHeading.length > 150
+                        ? service.bullet[0].bulletHeading.slice(0, 150) + "..."
                         : service.bullet[0].bulletHeading}
                     </li>
                   </div>
