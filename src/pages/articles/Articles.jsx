@@ -60,7 +60,7 @@ const Articles = () => {
 
   let [color, setColor] = useState("#FECF4F");
 
-  console.log("articlesData:", articlesData);
+  // console.log("articlesData:", articlesData);
 
   return (
     <div className="relative overflow-hidden">
