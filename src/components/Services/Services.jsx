@@ -50,7 +50,7 @@ const Services = ({ servicesData }) => {
 
   return (
     <div className="relative w-full mb-10 m-2 sm:m-6 ">
-      <div className="sm:h-screen sm:flex items-start justify-center sm:space-x-8">
+      <div className="sm:h-auto sm:flex items-start justify-center sm:space-x-8">
         <div className="sm:w-1/2">
           <div
             className="text-yellow font-space-grotesk text-[80px] sm:text-8xl font-medium my-12 mx-4 sm:m-0"
@@ -85,14 +85,22 @@ const Services = ({ servicesData }) => {
           </div>
         </div>
         <div
-          className="sm:w-2/3 ScrollContainer overflow-y-auto h-screen scrollbar scrollbar-thumb-yellow scrollbar-thumb-rounded"
+          className="sm:w-2/3 ScrollContainer overflow-y-auto scrollbar scrollbar-thumb-yellow scrollbar-thumb-rounded"
           style={{ scrollbarWidth: "thin", scrollbarColor: "#FECF4F #ffffff" }}
         >
           {textBlocks &&
             textBlocks.map((block) => (
               <div className="m-4 sm:m-0 my-10" key={block.id}>
                 <div className="sm:w-10/12 flex justify-start items-center space-x-4 sm:mt-20">
-                  <div className="text-[50px] sm:text-4xl font-bold">{block.heading}</div>
+                  <div className="text-[50px] sm:text-4xl font-bold">
+                    <span
+                      className="text-5xl text-yellow mr-4"
+                      style={{ color: theme ? theme.textColor : "#FECF4F" }}
+                    >
+                      {block.id}
+                    </span>
+                    {block.heading}
+                  </div>
                 </div>
                 <div className="my-4 sm:my-0 sm:mt-8 mx-1 text-xl">{block.subHeading}</div>
                 <div className="mr-4 sm:mx-32 text-xl">{block.desc}</div>
