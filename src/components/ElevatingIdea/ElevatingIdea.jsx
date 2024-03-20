@@ -40,7 +40,7 @@ const ElevatingIdea = ({ elevatingIdeaData, loading }) => {
           <div className=" text-6xl sm:text-8xl font-medium leading-93 uppercase break-words">
             {elevatingIdeaData.heading}
           </div>
-          <div className="sm:w-4/5 hidden sm:block  text-4xl font-normal leading-127.5 my-6">
+          <div className="lg:w-4/5 hidden sm:block  text-4xl font-normal leading-127.5 my-6">
             {elevatingIdeaData.subHeading}
           </div>
           <div className="sm:hidden relative bottom-0 right-0 -mb-12">
@@ -81,7 +81,7 @@ const ElevatingIdea = ({ elevatingIdeaData, loading }) => {
               )}
             </div>
           </div>
-          <div className="hidden sm:flex w-1/3 justify-start items-center space-x-6 sm:mt-20">
+          <div className="hidden sm:flex lg:w-1/3 justify-start items-center space-x-6 sm:mt-20">
             {" "}
             <div className="w-fit pb-2 relative  shadow-2xl cursor-pointer">
               <div
