@@ -3,7 +3,7 @@ import {MdSettings as icon} from 'react-icons/md'
 
 export default defineType({
   name: 'howToOperate',
-  title: 'How To Operate',
+  title: 'How We Operate',
   type: 'document',
   icon,
   fields: [
