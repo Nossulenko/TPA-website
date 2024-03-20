@@ -16,19 +16,38 @@ function urlFor(source) {
 const Services = () => {
   const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
   let [loading, setLoading] = useState(true);
+  const [hoverStates, setHoverStates] = useState([]);
 
   const [casesData, setCasesData] = useState([]);
   const [servicesData, setServices] = useState([]);
+  const [articlesData, setArticlesData] = useState([]);
+  const hoverStyle = {
+    boxShadow: `0px 0px 4px 4px ${theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"}`,
+  };
+  const handleMouseOver = (index) => {
+    const newHoverStates = [...hoverStates];
+    newHoverStates[index] = true;
+    setHoverStates(newHoverStates);
+  };
+
+  const handleMouseOut = (index) => {
+    const newHoverStates = [...hoverStates];
+    newHoverStates[index] = false;
+    setHoverStates(newHoverStates);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const [cases, servicesPage] = await Promise.all([
+        const [cases, servicesPage, articles] = await Promise.all([
           client.fetch('*[_type == "cases"]'),
           client.fetch('*[_type == "servicesPage"]'),
+          client.fetch('*[_type == "articles"]'),
         ]);
         setCasesData(cases);
         setServices(servicesPage[0]);
+        setArticlesData(articles);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -62,122 +81,66 @@ const Services = () => {
                 className="text-yellow font-space-grotesk text-6xl sm:text-8xl font-medium my-8 sm:my-12 mx-4 sm:m-0"
                 style={{ color: theme ? theme.textColor : "#FECF4F" }}
               >
-                Explore our services
+                Services
               </div>
             </div>
 
-            <div className="sm:text-5xl m-8 sm:mx-0">{servicesData.heading}</div>
-            <div className="sm:text-4xl m-8 sm:mx-0">{servicesData.subHeading}</div>
-
-            <div className="sm:flex sm:space-x-4 space-y-4 sm:space-y-0 items-stretch justify-center mx-4 sm:mx-0 m-6">
-              {servicesData &&
-                servicesData.cards &&
-                servicesData.cards.slice(0, 3).map((singleCard, index) => (
-                  <div key={index} className="relative sm:w-1/3">
-                    <div className="sm:w-full h-full overflow-auto rounded-xl border border-black p-4 shadow-yellow">
-                      <div className="flex justify-start items-start space-x-6">
-                        <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer my-4">
-                          <div
-                            className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid h-8 w-8"
-                            style={{
-                              backgroundColor: theme ? theme.textColor : "#FECF4F",
-                              borderColor: theme ? theme.textColor : "#FECF4F",
-                              boxShadow: `0px 0px 4px 4px ${
-                                theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
-                              }`,
-                            }}
-                          >
-                            <div className="hidden ">
-                              <EastIcon />
-                            </div>
-                          </div>
-                        </div>
-                        <div>
-                          <div className="text-black font-space-grotesk text-4xl font-medium normal underline">
-                            {singleCard.cardHeading}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="my-6">
-                        {singleCard.bulletPoints &&
-                          singleCard.bulletPoints.map((bullet, bulletIndex) => (
-                            <div key={bullet._key} className="my-2 text-xl overflow-auto">
-                              <span className="font-bold">{bullet.bulletHeading}</span>
-                              <span>{bullet.bulletDetail}</span>
-                            </div>
-                          ))}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mx-4 sm:mx-0 m-6">
+              {articlesData.map((article, index) => (
+                <div key={index} className="mb-8 2xl:ml-16">
+                  <div className="min-h-20 uppercase sm:w-10/12 underline text-2xl mt-6">
+                    {" "}
+                    <Link href={`/articles/${article.slug.current}`}>
+                      {" "}
+                      {article.heading.length > 50
+                        ? article.heading.slice(0, 50) + "..."
+                        : article.heading}
+                    </Link>
+                  </div>
+                  <div className="rounded-2xl flex items-center justify-start sm:w-full h-[352px] overflow-hidden">
+                    <Image
+                      className="rounded-2xl"
+                      src={urlFor(article.featureImage.asset).url()}
+                      alt={`Image ${index}`}
+                      width={365}
+                      height={352}
+                    />
+                    <div className="relative text-white -left-[21.7rem] sm:-left-[22rem] top-36 flex flex-wrap">
+                      <div className="border-2 border-white rounded-full px-3 py-1 my-2 w-32 text-xl mr-6 flex">
+                        <div className="mr-1"> {article.time} </div>
+                        <div className=""> min read</div>
                       </div>
                     </div>
-                    {/* <div className="sm:w-10/12">{singleCard.summary}</div> */}
-
-                    {/* <div className="w-5/6">{singleCard.desc}</div> */}
                   </div>
-                ))}
-            </div>
-            <div className="m-4 sm:m-0">
-              {servicesData &&
-                servicesData.cards &&
-                servicesData.cards.slice(3).map((singleCard, index) => (
-                  <div
-                    key={singleCard.id}
-                    className={`my-8 ${
-                      index % 2 === 0 ? "sm:flex-row-reverse sm:space-x-reverse" : ""
-                    } sm:flex items-stretch justify-center sm:space-x-8 space-y-4 sm:space-y-0`}
-                  >
-                    <div
-                      className={
-                        singleCard.cardImage && singleCard.cardImage.asset
-                          ? "left sm:w-2/3"
-                          : "left sm:w-full"
-                      }
-                    >
-                      <div className="sm:w-full overflow-auto rounded-xl border border-black p-4 shadow-yellow h-full">
-                        <div className="flex justify-start items-start space-x-6">
-                          <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer my-4">
-                            <div
-                              className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid h-8 w-8"
-                              style={{
-                                backgroundColor: theme ? theme.textColor : "#FECF4F",
-                                borderColor: theme ? theme.textColor : "#FECF4F",
-                                boxShadow: `0px 0px 4px 4px ${
-                                  theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
-                                }`,
-                              }}
-                            >
-                              <div className="hidden ">
-                                <EastIcon />
-                              </div>
-                            </div>
-                          </div>
-                          <div>
-                            <div className="text-black font-space-grotesk text-4xl font-medium normal underline">
-                              {singleCard.cardHeading}
-                            </div>
-                          </div>
-                        </div>
-                        <div className="my-6">
-                          {singleCard.bulletPoints &&
-                            singleCard.bulletPoints.map((bullet, bulletIndex) => (
-                              <div key={bullet._key} className="my-2 text-xl overflow-auto">
-                                <span className="font-bold">{bullet.bulletHeading}</span>
-                                <span>{bullet.bulletDetail}</span>
-                              </div>
-                            ))}
-                        </div>
+                  <div className="sm:w-10/12 min-h-44 max-h-48 my-8 overflow-auto">
+                    {article.summary.length > 300
+                      ? article.summary.slice(0, 300) + "..."
+                      : article.summary}
+                  </div>
+                  <div className="flex justify-start items-center space-x-6 my-4 w-[62%]">
+                    <div className="w-fit pb-2 relative shadow-2xl cursor-pointer">
+                      <div
+                        className=" rounded-full p-1 border-solid"
+                        onMouseOver={() => handleMouseOver(index)}
+                        onMouseOut={() => handleMouseOut(index)}
+                        style={{
+                          ...(hoverStates[index] ? hoverStyle : {}),
+                          backgroundColor: theme ? theme.textColor : "#FECF4F",
+                          borderColor: theme ? theme.textColor : "#FECF4F",
+                        }}
+                      >
+                        <EastIcon />
                       </div>
                     </div>
-                    {singleCard.cardImage && singleCard.cardImage.asset && (
-                      <div className="right sm:w-1/3">
-                        <Image
-                          src={urlFor(singleCard.cardImage.asset).url()}
-                          alt=""
-                          width={783}
-                          height={501}
-                        />
+                    <Link href={`/articles/${article.slug.current}`}>
+                      <div className="text-black font-space-grotesk text-22 font-medium underline">
+                        READ ARTICLE
                       </div>
-                    )}
+                    </Link>
                   </div>
-                ))}
+                  <div className="w-5/6">{article.desc}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
