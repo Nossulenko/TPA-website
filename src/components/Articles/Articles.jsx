@@ -70,7 +70,7 @@ const Articles = ({ articlesData }) => {
   // console.log("articlesData", articlesData);
   return (
     <div className="relative w-full my-10 sm:ml-4">
-      <div className="flex items-end justify-between">
+      <div className="lg:flex items-end justify-between">
         <div
           className="text-yellow font-space-grotesk text-7xl sm:text-8xl font-medium  sm:my-12 mx-4 sm:m-0 2xl:ml-16"
           style={{ color: theme ? theme.textColor : "#FECF4F" }}
@@ -100,9 +100,9 @@ const Articles = ({ articlesData }) => {
           </div>
         </Link>
       </div>
-      <div className="h-fit sm:h-[90vh] sm:flex flex-col space-y-8 sm:space-y-0 mx-4 sm:mx-0 sm:flex-row sm:space-x-10 m-6">
+      <div className="h-fit lg:h-[90vh] sm:flex justify-center flex-wrap lg:flex-nowrap flex-col space-y-8 lg:space-y-0 mx-4 sm:mx-0 sm:flex-row space-x-1 lg:space-x-10 m-6">
         {articlesData.map((article, index) => (
-          <div key={index} className="mb-8 w-full sm:w-1/3 sm:mx-0 2xl:ml-16">
+          <div key={index} className="mb-8 sm:w-2/3 lg:w-1/3 sm:mx-0 2xl:ml-16">
             <div className="rounded-2xl flex items-center justify-start">
               <Image
                 className="rounded-2xl"

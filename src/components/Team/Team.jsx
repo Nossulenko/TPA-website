@@ -82,17 +82,17 @@ const Team = ({ teamData }) => {
   return (
     <>
       <div className="sm:h-screen relative w-full overflow-hidden sm:mx-10" {...handlers}>
-        <div className=" sm:h-[80vh] m-6">
+        <div className=" lg:h-[80vh] m-6">
           <div
             className="font-space-grotesk text-6xl sm:text-9xl font-medium leading-none xs:leading-9 sm:leading-93 break-words text-yellow  2xl:ml-16"
             style={{ color: theme ? theme.textColor : "#FECF4F" }}
           >
             Core team
           </div>
-          <div className="sm:h-[70vh] sm:flex sm:justify-center sm:items-center sm:mx-24 lg:mx-24 sm:py-0">
+          <div className="lg:h-[70vh] sm:flex flex-wrap lg:flex-nowrap sm:justify-center sm:items-center sm:mx-24 lg:mx-24 sm:py-0">
             {textBlocks &&
               textBlocks.slice(beginningIndex, endIndex).map((item, index) => (
-                <div key={index} className="sm:w-1/3 my-8 sm:my-16 sm:mx-0 2xl:ml-28">
+                <div key={index} className="lg:w-1/3 my-8 sm:my-16 sm:mx-0 2xl:ml-28">
                   <Image
                     src={item.image}
                     alt={item.name}

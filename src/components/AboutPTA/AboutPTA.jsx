@@ -39,8 +39,8 @@ const AboutPTA = ({ aboutPTAData }) => {
   const textBlocks = aboutPTAData.about;
   const imageUrl = image && image.asset ? urlFor(image.asset).url() : fallbackImageUrl;
   return (
-    <div className=" sm:h-screen relative w-full flex flex-col sm:flex-row my-10 sm:my-0">
-      <div className=" sm:w-2/3 m-4 xs:m-6">
+    <div className=" lg:h-screen relative w-full flex flex-col lg:flex-row my-10 sm:my-0">
+      <div className=" lg:w-2/3 m-4 xs:m-6">
         <div
           className="font-space-grotesk text-8xl sm:text-9xl font-medium leading-93 text-yellow"
           style={{ color: theme ? theme.textColor : "#FECF4F" }}
@@ -93,7 +93,7 @@ const AboutPTA = ({ aboutPTAData }) => {
           </div>
       </div>
 
-      <div className="hidden sm:block w-1/3 m-6">
+      <div className="hidden sm:block lg:w-1/3 m-6">
         <Image src={imageUrl} alt="r3" width={400} height={400} />
       </div>
     </div>

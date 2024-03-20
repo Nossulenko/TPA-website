@@ -50,8 +50,8 @@ const Services = ({ servicesData }) => {
 
   return (
     <div className="relative w-full mb-10 m-2 sm:m-6 ">
-      <div className="sm:h-auto sm:flex items-start justify-center sm:space-x-8">
-        <div className="sm:w-1/2">
+      <div className="sm:h-auto lg:flex items-start justify-center sm:space-x-8">
+        <div className="lg:w-1/2">
           <div
             className="text-yellow font-space-grotesk text-6xl xs:text-[80px] sm:text-8xl font-medium my-12 mx-4 sm:m-0"
             style={{ color: theme ? theme.textColor : "#FECF4F" }}
@@ -85,7 +85,7 @@ const Services = ({ servicesData }) => {
           </div>
         </div>
         <div
-          className="sm:w-2/3 ScrollContainer overflow-y-auto scrollbar scrollbar-thumb-yellow scrollbar-thumb-rounded"
+          className="lg:w-2/3 ScrollContainer overflow-y-auto scrollbar scrollbar-thumb-yellow scrollbar-thumb-rounded"
           style={{ scrollbarWidth: "thin", scrollbarColor: "#FECF4F #ffffff" }}
         >
           {textBlocks &&
