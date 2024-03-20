@@ -69,8 +69,8 @@ const AboutUs = () => {
             <div className="text-2xl sm:text-5xl m-4 sm:mx-0">{aboutUsData.heading}</div>
             <div className="text-xl sm:text-4xl m-4 sm:mx-0 py-8">{aboutUsData.subHeading}</div>
 
-            <div className="mx-4 sm:mx-0 sm:flex items-stretch justify-end sm:space-x-8">
-              <div className="sm:w-1/3 my-8 sm:my-0">
+            <div className="mx-4 sm:mx-0 lg:flex items-stretch justify-end lg:space-x-8">
+              <div className="lg:w-1/3 my-8 sm:my-0">
                 {aboutUsData.firstPart && (
                   <div className="">
                     <div className="my-4 text-3xl">{aboutUsData.firstPart.partheading}</div>
@@ -90,7 +90,7 @@ const AboutUs = () => {
                 )}
               </div>
 
-              <div className="sm:w-1/3 my-8 sm:my-0">
+              <div className="lg:w-1/3 my-8 sm:my-0">
                 {aboutUsData.secondPart && (
                   <div className="">
                     <div className="my-4 text-3xl">{aboutUsData.secondPart.partheading}</div>
@@ -110,7 +110,7 @@ const AboutUs = () => {
                   </div>
                 )}
               </div>
-              <div className="sm:w-1/3">
+              <div className="lg:w-1/3">
                 {aboutUsData.aboutImage && aboutUsData.aboutImage.asset && (
                   <div className="right rounded-2xl">
                     <Image
@@ -125,11 +125,11 @@ const AboutUs = () => {
               </div>
             </div>
 
-            <div className="sm:flex sm:space-x-4 space-y-4 sm:space-y-0 items-stretch justify-center mx-4 sm:mx-0 m-6">
+            <div className="sm:flex sm:flex-wrap lg:flex-nowrap sm:space-x-4 space-y-4 sm:space-y-0 items-stretch justify-center mx-4 sm:mx-0 m-6">
               {aboutUsData &&
                 aboutUsData.cardData &&
                 aboutUsData.cardData.slice(0, 3).map((singleCard, index) => (
-                  <div key={index} className="relative sm:w-1/3">
+                  <div key={index} className="relative lg:w-1/3">
                     <div className="sm:w-full">
                       <div className="my-8">
                         <Image
@@ -167,14 +167,14 @@ const AboutUs = () => {
                   <div
                     key={singleCard.id}
                     className={`my-8 ${
-                      index % 2 === 0 ? "sm:flex-row-reverse sm:space-x-reverse" : ""
+                      index % 2 === 0 ? "sm:flex-row-reverse flex-wrap lg:flex-nowrap sm:space-x-reverse" : ""
                     } sm:flex items-stretch justify-center sm:space-x-8 space-y-4 sm:space-y-0`}
                   >
                     <div
                       className={
                         singleCard.cardImage && singleCard.cardImage.asset
-                          ? "left sm:w-1/3"
-                          : "left sm:w-full"
+                          ? "left lg:w-1/3"
+                          : "left lg:w-full"
                       }
                     >
                       <div className="">
@@ -190,7 +190,7 @@ const AboutUs = () => {
                       </div>
                     </div>
                     {singleCard.cardImage && singleCard.cardImage.asset && (
-                      <div className="right sm:w-2/3 rounded-2xl">
+                      <div className="right lg:w-2/3 rounded-2xl">
                         <Image
                           src={urlFor(singleCard.cardImage.asset).url()}
                           alt=""
