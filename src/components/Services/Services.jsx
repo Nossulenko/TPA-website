@@ -53,7 +53,7 @@ const Services = ({ servicesData }) => {
       <div className="sm:h-auto sm:flex items-start justify-center sm:space-x-8">
         <div className="sm:w-1/2">
           <div
-            className="text-yellow font-space-grotesk text-[80px] sm:text-8xl font-medium my-12 mx-4 sm:m-0"
+            className="text-yellow font-space-grotesk text-6xl xs:text-[80px] sm:text-8xl font-medium my-12 mx-4 sm:m-0"
             style={{ color: theme ? theme.textColor : "#FECF4F" }}
           >
             Services
@@ -92,7 +92,7 @@ const Services = ({ servicesData }) => {
             textBlocks.map((block) => (
               <div className="m-4 my-10" key={block.id}>
                 <div className="sm:w-10/12 flex justify-start items-center space-x-4">
-                  <div className="text-[50px] sm:text-4xl font-bold">
+                  <div className="text-4xl xs:text-[50px] sm:text-4xl font-bold">
                     <span
                       className="text-5xl text-yellow mr-4"
                       style={{ color: theme ? theme.textColor : "#FECF4F" }}

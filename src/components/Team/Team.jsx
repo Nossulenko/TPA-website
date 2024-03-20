@@ -84,7 +84,7 @@ const Team = ({ teamData }) => {
       <div className="sm:h-screen relative w-full overflow-hidden sm:mx-10" {...handlers}>
         <div className=" sm:h-[80vh] m-6">
           <div
-            className="font-space-grotesk text-6xl sm:text-9xl font-medium leading-9 sm:leading-93 break-words text-yellow  2xl:ml-16"
+            className="font-space-grotesk text-6xl sm:text-9xl font-medium leading-none xs:leading-9 sm:leading-93 break-words text-yellow  2xl:ml-16"
             style={{ color: theme ? theme.textColor : "#FECF4F" }}
           >
             Core team

@@ -43,7 +43,7 @@ const ElevatingIdea = ({ elevatingIdeaData, loading }) => {
           <div className="sm:w-4/5 hidden sm:block  text-4xl font-normal leading-127.5 my-6">
             {elevatingIdeaData.subHeading}
           </div>
-          <div className="sm:hidden absolute bottom-0 right-0 -mb-12">
+          <div className="sm:hidden relative bottom-0 right-0 -mb-12">
             <div className="flex items-center justify-center">
               <img
                 src={image && image.asset && urlFor(image.asset._ref)}
@@ -53,10 +53,10 @@ const ElevatingIdea = ({ elevatingIdeaData, loading }) => {
                 layout="responsive"
               />
             </div>
-            <div className=" mx-6 my-8 sm:my-0 sm:mx-16 text-3xl sm:text-4xl font-medium">
+            <div className=" my-8 sm:my-0 sm:mx-16 text-3xl sm:text-4xl font-medium">
               {elevatingIdeaData.subHeading}
             </div>
-            <div className="mx-8 sm:m-16 flex justify-start items-center space-x-6 absolute">
+            <div className=" sm:m-16 flex justify-start items-center space-x-4 xs:space-x-6 absolute">
               <div className="w-fit pb-2 relative shadow-2xl cursor-pointer">
                 <div
                   className=" rounded-full p-1 border-solid"

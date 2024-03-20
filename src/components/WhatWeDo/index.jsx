@@ -25,7 +25,7 @@ const Index = ({ whatWeDoData }) => {
 
   const ActiveWhatweDoComponent = WhatweDoComponents[activeDot];
   return (
-    <div id="whatWeDo" className="relative overflow-hidden">
+    <div id="whatWeDo" className="relative overflow-hidden mt-96 xs:mt-0">
       <div
         className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden w-screen whitespace-nowrap text-transparent text-12xl leading-none bg-clip-text bg-transparent stroke-text border-yellow"
         style={{
