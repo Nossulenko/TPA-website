@@ -107,7 +107,7 @@ const Cases = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-12 mx-4 sm:mx-0 m-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-x-28 sm:gap-12 mx-4 sm:mx-0 m-6">
               {casesData.map((singleCase, index) => (
                 <div key={index} className="mb-8 relative">
                   <Link
@@ -133,7 +133,7 @@ const Cases = () => {
                     </div>
                   </Link>
                   {/* <div className="sm:w-10/12 my-8">{singleCase.summary}</div> */}
-                  <div className="flex justify-start items-center space-x-6 my-4 w-[62%]">
+                  <div className="flex justify-start items-center space-x-6 my-4 w-11/12">
                     <Link
                       href={`/cases/${singleCase.slug.current}`}
                       className="w-fit pb-2 relative shadow-2xl cursor-pointer"
