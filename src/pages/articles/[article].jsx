@@ -8,6 +8,7 @@ import client from "../../lib/sanity";
 import LetsTalk from "../../components/LetsTalk/index";
 import { useRouter } from "next/router";
 import SingleArticle from "./SingleArticle";
+import Sidebar from "@/components/Sidebar";
 
 // This function gets called at build time to determine all article slugs
 export async function getStaticPaths() {
@@ -19,7 +20,7 @@ export async function getStaticPaths() {
 // This gets called at build time for each slug returned by getStaticPaths
 export async function getStaticProps({ params }) {
   const { article } = params;
-  console.log("article", article);
+  // console.log("article", article);
   const query = `*[_type == "articles" && slug.current == "${article}"]`;
   const SingleArticleData = await client.fetch(query);
 
@@ -35,6 +36,7 @@ export default function Home({ SingleArticleData }) {
   const [theme, setTheme] = useState({});
   const [navigationData, setNavigationData] = useState([]);
   const [letsTalkData, setLetsTalkData] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -72,9 +74,17 @@ export default function Home({ SingleArticleData }) {
       className="bg-greybg"
     >
       <main>
-        <Navbar navigationData={navigationData} color="#FFFFFF" />
-        <SingleArticle SingleArticleData={SingleArticleData} navigationData={navigationData} />
-        <LetsTalk letsTalkData={letsTalkData} />
+        <Sidebar
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          navigationData={navigationData}
+          color="yellow"
+        />
+        <div className={` ${isOpen ? "sm:ml-52" : "sm:ml-0"} transition-all duration-200`}>
+          <Navbar navigationData={navigationData} color="white" />
+          <SingleArticle SingleArticleData={SingleArticleData} navigationData={navigationData} />
+          <LetsTalk letsTalkData={letsTalkData} />
+        </div>
       </main>
     </TextContext.Provider>
   );

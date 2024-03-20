@@ -219,7 +219,7 @@ const Navbar = ({ navigationData, color }) => {
   return (
     <div className="">
       <div className="">
-        <div className="flex items-center justify-between sm:justify-start m-4">
+        <div className="flex items-center justify-between sm:justify-start m-4 sm:mt-0">
           {/* <div className="hidden sm:block relative shadow-2xl cursor-pointer mx-4" onClick={handleMenuToggle}>
             <div
               className=" rounded-full p-1 border-solid"
@@ -255,7 +255,11 @@ const Navbar = ({ navigationData, color }) => {
                 className="sm:hidden transition-all duration-500 ease-in-out transform hover:scale-[1.02]"
               />
             </div>
-            <div className="sm:text-2xl transition duration-500 ease-in-out transform hover:scale-[1.02]">
+            <div
+              className={`sm:text-2xl transition duration-500 ease-in-out transform hover:scale-[1.02] ${
+                color ? `text-${color}` : ""
+              }`}
+            >
               {name}
               <div className="hidden sm:block text-lg">
                 {navBarOptions && navBarOptions[0].optionName}

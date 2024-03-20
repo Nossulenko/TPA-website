@@ -65,7 +65,9 @@ const SingleArticle = ({ SingleArticleData }) => {
   //   console.log("bullet", bullet[0]);
 
   const headerStyle = {
-    backgroundImage: `url(${urlFor(article.featureImage.asset).url()})`,
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${urlFor(
+      article.featureImage.asset
+    ).url()})`,
     backgroundSize: "cover",
     backgroundPosition: "center center",
     marginTop: "-7rem",
@@ -76,9 +78,9 @@ const SingleArticle = ({ SingleArticleData }) => {
     <div className="">
       {" "}
       <div className="h-64" style={headerStyle}>
-        <div className="flex justify-center items-center text-white  mx-20 my-auto">
-          <div className="text-5xl sm:text-8xl absolute text-white top-52 sm:bottom-64 left-10 right-10">
-            {article.heading}
+        <div className="flex justify-center items-center text-white mx-8 sm:mx-20 my-auto">
+          <div className="text-5xl sm:text-8xl relative text-white top-40 sm:top-52 sm:bottom-64">
+            {article.heading.length > 75 ? article.heading.slice(0, 75) + "..." : article.heading}
           </div>
         </div>
       </div>
@@ -106,17 +108,20 @@ const SingleArticle = ({ SingleArticleData }) => {
           </div>
         </div>
         <div className="sm:my-16">
-          <div className="flex items-center justify-center sm:space-x-8 my-8">
-            <div className="h-96 w-full overflow-hidden">
-              <Image
-                src={urlFor(article.articleImage.asset).url()}
-                alt=""
-                width={1000}
-                height={100}
-                className="object-cover w-full"
-              />
+          {article.articleImage && article.articleImage.asset && (
+            <div className="flex items-center justify-center sm:space-x-8 my-8">
+              <div className="h-96 w-full overflow-hidden">
+                <Image
+                  src={urlFor(article.articleImage.asset).url()}
+                  alt=""
+                  width={1000}
+                  height={100}
+                  className="object-cover w-full"
+                />
+              </div>
             </div>
-          </div>
+          )}
+
           {/* <PortableText
             content={article.mainDescription}
             projectId="xh1730zu"

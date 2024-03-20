@@ -17,7 +17,7 @@ function urlFor(source) {
   return builder.image(source);
 }
 
-const Sidebar = ({ isOpen, setIsOpen, navigationData }) => {
+const Sidebar = ({ isOpen, setIsOpen, navigationData, color }) => {
   const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
   const [isHovered, setIsHovered] = useState(false);
   const { name, icon, email, navBarOptions, navData, socialData, bgImage } = navigationData;
@@ -43,7 +43,10 @@ const Sidebar = ({ isOpen, setIsOpen, navigationData }) => {
           onMouseOver={() => setIsHovered(true)}
           onMouseOut={() => setIsHovered(false)}
           style={{
+            backgroundColor: color === "yellow" ? (theme ? theme.textColor : "#FECF4F") : "",
+            borderColor: color === "yellow" ? (theme ? theme.textColor : "#FECF4F") : "",
             ...(isHovered ? hoverStyle : {}),
+
             // backgroundColor: theme ? theme.textColor : "#FECF4F",
             // borderColor: theme ? theme.textColor : "#FECF4F",
           }}
