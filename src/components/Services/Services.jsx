@@ -90,8 +90,8 @@ const Services = ({ servicesData }) => {
         >
           {textBlocks &&
             textBlocks.map((block) => (
-              <div className="m-4 sm:m-0 my-10" key={block.id}>
-                <div className="sm:w-10/12 flex justify-start items-center space-x-4 sm:mt-20">
+              <div className="m-4 my-10" key={block.id}>
+                <div className="sm:w-10/12 flex justify-start items-center space-x-4">
                   <div className="text-[50px] sm:text-4xl font-bold">
                     <span
                       className="text-5xl text-yellow mr-4"
