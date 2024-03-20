@@ -45,7 +45,7 @@ const Sidebar = ({ isOpen, setIsOpen, navigationData }) => {
             backgroundColor: theme ? theme.textColor : "#FECF4F",
             borderColor: theme ? theme.textColor : "#FECF4F",
           }}
-          className="rounded-full p-1 border-solid mt-8 mx-4"
+          className={`rounded-full p-1 border-solid mt-8 mx-4 ${isOpen ? 'hidden' : ''}`}
         >
           {isOpen ? "" : <MenuIcon />}
         </button>
