@@ -1,13 +1,12 @@
 import theme from './theme'
 import elevating from './elevating'
 import whatWeDo from './whatWeDo'
-import howWeOperate from './howWeOperate'
 import letsTalk from './letsTalk'
 import team from './team'
-import howToOperate from './howToOperate'
+import howWeOperate from './howWeOperate'
 import services from './services'
 import articles from './articles'
-import AboutPTA from './aboutPTA'
+import AboutPTA from './aboutPta'
 import navigation from './navigation'
 import blogs from './blog'
 import blockContent from './blockContent'
@@ -22,8 +21,8 @@ export const schemaTypes = [
   navigation,
   elevating,
   whatWeDo,
+  // howWeOperate,
   howWeOperate,
-  howToOperate,
   services,
   AboutPTA,
   team,

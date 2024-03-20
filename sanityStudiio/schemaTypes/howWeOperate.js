@@ -16,62 +16,64 @@ export default defineType({
           type: 'object',
           fields: [
             {
-              name: 'desc',
-              title: 'Description',
+              name: 'id',
+              title: 'ID',
               type: 'string',
-            },
-            {
-              name: 'image',
-              title: 'Image',
-              type: 'image',
-              options: {
-                hotspot: true,
-              },
-            },
-            {
-              name: 'link',
-              title: 'Link',
-              type: 'url',
             },
             {
               name: 'heading',
-              title: 'Link Text',
+              title: 'Heading',
               type: 'string',
+            },
+            {
+              name: 'subHeading',
+              title: 'Sub Heading',
+              type: 'string',
+            },
+            {
+              name: 'desc',
+              title: 'Description',
+              type: 'text',
             },
           ],
         },
       ],
       initialValue: [
         {
-            desc:
-            'In our previous article, we delved into the essentials of conducting effective user testing, from ensuring a representative sample to avoiding biases. However, the quest for improving user testing never stops. Building on our comprehensive guide, we at The Product Architects BV (TPA) present four additional tips to take your user testing to the next level...',
-
-          link: 'https://www.example.com',
+          id: '01',
+          heading: 'Embracing Finite Resources with Circularity',
+          subHeading: 'The scarcity of resources is an undeniable reality.',
+          desc: 'We champion sustainable design principles. Our focus is on creating products that not only serve current needs but also contribute to a sustainable future. By integrating circularity, we not only help conserve resources but also create more value and longevity in every product.',
+        },
+        {
+          id: '02',
+          heading: 'Innovation equals Non-Linear Thinking',
+          subHeading: "Innovation doesn't follow a straight path.",
+          desc: 'Our team thrives on complex challenges, employing an iterative and non-linear thinking approach that progressively hones in on solutions and meets the needs of each project. We dive deep into each mission, combining creative exploration with strategic analysis to bring forth breakthrough innovations.',
+        },
+        {
+          id: '03',
           heading: 'Level Up your User Testing Skills',
-        },
-        {
-            desc:
-            'With current rates of resource depletion and growing stress on our social model, it is impossible to maintain this idea of economics. The Doughnut Economy is an alternative approach, one that strives to spread growth and find balance. What best practices and design questions should we adhere to so that we can drive sustainability forward?...',
-
-          link: 'https://www.example.com',
-          heading: 'How the Donut Economy drives sustainability',
-        },
-        {
-            desc:
-            'Innovation and product creation processes (where product relates to actual products, services, digital, physical or phygital experiences) are inherently difficult for a lot of companies. This usually results in products that cannot meet customer needs, long and time-consuming projects, or even budgetary graveyards...',
-
-          link: 'https://www.example.com',
-          heading: 'What is Strategic Product Design',
+          subHeading: 'Level Up your User Testing Skills',
+          desc: 'In our previous article, we delved into the essentials of conducting effective user testing, from ensuring a representative sample to avoiding biases. However, the quest for improving user testing never stops. Building on our comprehensive guide, we at The Product Architects BV (TPA) present four additional tips to take your user testing to the next level...',
         },
       ],
       validation: (Rule) =>
         Rule.required().min(3).max(3).error('You must input exactly 3 operation items.'),
     }),
+    defineField({
+        name: 'image',
+        title: 'Image',
+        type: 'image',
+        options: {
+          hotspot: true,
+        },
+      }),
   ],
   preview: {
     select: {
       title: 'heading',
-      media: 'operations[0].image',
+      media: 'image',
     },
     prepare(selection) {
       const {title, media} = selection
