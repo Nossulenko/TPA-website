@@ -75,7 +75,7 @@ const Services = () => {
       </div>
       <div className="sm:flex-1">
         <div className="sm:flex relative z-10 items-center justify-center w-full">
-          <div className="relative w-full sm:m-10">
+          <div className="relative w-full sm:m-14">
             <div className="flex items-end justify-between">
               <div
                 className="text-yellow font-space-grotesk text-6xl sm:text-8xl font-medium my-8 mx-4 sm:m-0"
@@ -85,15 +85,15 @@ const Services = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mx-4 sm:mx-0 m-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-x-28 mx-4 sm:mx-0 m-6">
               {servicesData.map((service, index) => (
                 <div key={index} className="mb-8 2xl:ml-16">
-                  <div className="min-h-20 uppercase sm:w-10/12 underline text-2xl mt-6">
+                  <div className="min-h-20 uppercase sm:w-11/12 underline text-2xl mt-6">
                     {" "}
                     <Link href={`/`}>
                       {" "}
-                      {service.heading.length > 50
-                        ? service.heading.slice(0, 50) + "..."
+                      {service.heading.length > 45
+                        ? service.heading.slice(0, 45) + "..."
                         : service.heading}
                     </Link>
                   </div>
@@ -116,7 +116,7 @@ const Services = () => {
                       ))}
                     </div>
                   </div>
-                  <div className="sm:w-10/12 min-h-60 max-h-64 my-8 ml-2">
+                  <div className="sm:w-11/12 min-h-60 max-h-64 my-8 ml-2">
                     <li className="my-4">
                       {service.bullet[0].bulletHeading.length > 170
                         ? service.bullet[0].bulletHeading.slice(0, 170) + "..."
@@ -128,7 +128,7 @@ const Services = () => {
                         : service.bullet[0].bulletHeading}
                     </li>
                   </div>
-                  <div className="flex justify-start items-center space-x-6 my-4 w-[62%]">
+                  <div className="flex justify-start items-center space-x-6 my-4 sm:mt-16 w-[62%]">
                     <div className="w-fit pb-2 relative shadow-2xl cursor-pointer">
                       <div
                         className=" rounded-full p-1 border-solid"
