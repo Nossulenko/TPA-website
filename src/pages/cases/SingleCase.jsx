@@ -39,7 +39,7 @@ const SingleCase = ({ SingleCaseData }) => {
 
   const BackgroundImage = urlFor(caseData.featureImage.asset).url();
 
-  console.log("myText", myText);
+  // console.log("myText", myText);
 
   const headerStyle = {
     backgroundImage: `url(${urlFor(caseData.featureImage.asset).url()})`,
