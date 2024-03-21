@@ -48,8 +48,8 @@ const Sidebar = ({ isOpen, setIsOpen, navigationData, color }) => {
             borderColor: color === "yellow" ? (theme ? theme.textColor : "#FECF4F") : "",
             ...(isHovered ? hoverStyle : {}),
 
-            // backgroundColor: theme ? theme.textColor : "#FECF4F",
-            // borderColor: theme ? theme.textColor : "#FECF4F",
+            backgroundColor: theme ? theme.textColor : "#FECF4F",
+            borderColor: theme ? theme.textColor : "#FECF4F",
           }}
           className={`rounded-full p-1 border-solid mt-8 mx-4 ${isOpen ? "hidden" : ""}`}
         >
