@@ -56,7 +56,7 @@ const Services = ({ servicesData }) => {
             className="text-yellow font-space-grotesk text-6xl xs:text-[80px] sm:text-8xl font-medium my-12 mx-4 sm:m-0"
             style={{ color: theme ? theme.textColor : "#FECF4F" }}
           >
-            How We Operate
+            Services
           </div>
           <div className="sm:pt-20 pt-0 w-10/12 sm:w-full flex items-center justify-center sm:justify-start ml-4 sm:ml-0 2xl:py-24">
             <Image className="" src={imageUrl} alt={`plmbr`} width={400} height={400} />
