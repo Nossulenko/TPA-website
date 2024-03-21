@@ -112,7 +112,7 @@ const Cases = () => {
                 <div key={index} className="mb-8 relative">
                   <Link
                     href={`/cases/${singleCase.slug.current}`}
-                    className="flex items-center justify-start sm:w-full h-[420px] overflow-hidden"
+                    className="flex items-center justify-start sm:w-full h-[420px] overflow-hidden rounded-2xl"
                   >
                     {singleCase && singleCase.featureImage && singleCase.featureImage.asset && (
                       <Image
