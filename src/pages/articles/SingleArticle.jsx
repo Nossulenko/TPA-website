@@ -92,14 +92,14 @@ const SingleArticle = ({ SingleArticleData }) => {
           </div>
           <div className="sm:flex items-start justify-center sm:space-x-4">
             <div className="left sm:w-1/2 my-8 sm:my-0">
-              {leftParagraphs.map((paragraph, index) => (
+              {leftParagraphs && leftParagraphs.map((paragraph, index) => (
                 <div className="my-4" key={index}>
                   {paragraph}
                 </div>
               ))}
             </div>
             <div className="right sm:w-1/2 my-8 sm:my-0">
-              {rightParagraphs.map((paragraph, index) => (
+              {rightParagraphs && rightParagraphs.map((paragraph, index) => (
                 <div className="my-4" key={index}>
                   {paragraph}
                 </div>

@@ -87,7 +87,7 @@ const Articles = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 sm:gap-x-28 mx-4 sm:mx-0 m-6">
-              {articlesData.map((article, index) => (
+              {articlesData && articlesData.map((article, index) => (
                 <div key={index} className="mb-8 2xl:ml-16">
                   <div className="min-h-20 uppercase sm:w-12/12 underline text-2xl mt-6">
                     {" "}

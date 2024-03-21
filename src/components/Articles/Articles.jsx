@@ -101,7 +101,7 @@ const Articles = ({ articlesData }) => {
         </Link>
       </div>
       <div className="h-fit lg:h-[90vh] sm:flex justify-center flex-wrap lg:flex-nowrap flex-col space-y-8 lg:space-y-0 mx-4 sm:mx-0 sm:flex-row space-x-1 lg:space-x-10 m-6">
-        {articlesData.map((article, index) => (
+        {articlesData && articlesData.map((article, index) => (
           <div key={index} className="mb-8 sm:w-2/3 lg:w-1/3 sm:mx-0 2xl:ml-16">
             <div className="rounded-2xl flex items-center justify-start">
               <Image

@@ -108,7 +108,7 @@ const Cases = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-x-28 sm:gap-12 mx-4 sm:mx-0 m-6">
-              {casesData.map((singleCase, index) => (
+              {casesData && casesData.map((singleCase, index) => (
                 <div key={index} className="mb-8 relative">
                   <Link
                     href={`/cases/${singleCase.slug.current}`}

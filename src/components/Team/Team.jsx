@@ -117,7 +117,7 @@ const Team = ({ teamData }) => {
           </div>
         </div>
         <div className=" sm:hidden flex flex-row sm:flex-col justify-center sm:space-y-1 space-x-2 space-y-1 mx-6">
-          {textBlocks.map((num, index) => (
+          {textBlocks && textBlocks.map((num, index) => (
             <div key={index} className="flex items-center justify-center space-x-2">
               <span
                 className={`block w-2 h-2 rounded-full ${

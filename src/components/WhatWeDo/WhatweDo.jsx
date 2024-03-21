@@ -40,7 +40,7 @@ const WhatweDo = ({ whatWeDoData }) => {
               {heading}
             </div>
 
-            {paragraphs.map((paragraph, index) => (
+            {paragraphs && paragraphs.map((paragraph, index) => (
               <div
                 key={index}
                 className="font-space-grotesk text-xl font-normal leading-127.5 my-6 min-h-fit"
