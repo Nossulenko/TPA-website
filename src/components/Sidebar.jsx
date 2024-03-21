@@ -28,6 +28,7 @@ const Sidebar = ({ isOpen, setIsOpen, navigationData, color }) => {
   };
   const handleToggle = () => {
     setIsOpen(!isOpen);
+    setIsHovered(false);
   };
   //   console.log("navData", navData);
   return (
