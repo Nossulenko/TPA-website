@@ -74,14 +74,16 @@ const SingleCase = ({ SingleCaseData }) => {
             <div className={`my-16  sm:flex items-start justify-center sm:space-x-8`}>
               <div className="left sm:w-1/2">
                 <div className="tags text-4xl sm:text-5xl mb-12">
-                  {caseData.tags.map((tag, tagIndex) => (
-                    <div
-                      key={tagIndex}
-                      className="border-2 border-black rounded-full px-3 py-1 my-2 w-fit text-xl"
-                    >
-                      {tag}
-                    </div>
-                  ))}
+                  {caseData &&
+                    caseData.tags &&
+                    caseData.tags.map((tag, tagIndex) => (
+                      <div
+                        key={tagIndex}
+                        className="border-2 border-black rounded-full px-3 py-1 my-2 w-fit text-xl"
+                      >
+                        {tag}
+                      </div>
+                    ))}
                 </div>
                 <div className="text-xl my-6 sm:my-0">
                   <div className="flex justify-start items-center">
@@ -136,39 +138,44 @@ const SingleCase = ({ SingleCaseData }) => {
             </div>
           </div>
           <div className="">
-            {bullet.map((item, index) => (
-              <div
-                key={item.id}
-                className={`my-16  sm:flex items-start justify-center sm:space-x-8`}
-              >
+            {bullet &&
+              bullet.map((item, index) => (
                 <div
-                  className={
-                    item.bulletImage && item.bulletImage.asset ? "left sm:w-2/3" : "left sm:w-full"
-                  }
+                  key={item.id}
+                  className={`my-16  sm:flex items-start justify-center sm:space-x-8`}
                 >
-                  <div className="text-4xl sm:text-5xl mb-12">{item.bulletHeading}</div>
+                  <div
+                    className={
+                      item.bulletImage && item.bulletImage.asset
+                        ? "left sm:w-2/3"
+                        : "left sm:w-full"
+                    }
+                  >
+                    <div className="text-4xl sm:text-5xl mb-12">{item.bulletHeading}</div>
 
-                  {item.bulletDescription.map((desc, index) => (
-                    <div
-                      key={index}
-                      className={`text-xl my-6 ${index === 0 ? "sm:ml-0" : "sm:ml-36"}`}
-                    >
-                      {desc}
-                    </div>
-                  ))}
-                </div>
-                {item.bulletImage && item.bulletImage.asset && (
-                  <div className="right sm:w-1/3">
-                    <Image
-                      src={urlFor(item.bulletImage.asset).url()}
-                      alt=""
-                      width={534}
-                      height={493}
-                    />
+                    {item &&
+                      item.bulletDescription &&
+                      item.bulletDescription.map((desc, index) => (
+                        <div
+                          key={index}
+                          className={`text-xl my-6 ${index === 0 ? "sm:ml-0" : "sm:ml-36"}`}
+                        >
+                          {desc}
+                        </div>
+                      ))}
                   </div>
-                )}
-              </div>
-            ))}
+                  {item.bulletImage && item.bulletImage.asset && (
+                    <div className="right sm:w-1/3">
+                      <Image
+                        src={urlFor(item.bulletImage.asset).url()}
+                        alt=""
+                        width={534}
+                        height={493}
+                      />
+                    </div>
+                  )}
+                </div>
+              ))}
           </div>
 
           <div className="sm:flex justify-between items-center my-16">
