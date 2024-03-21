@@ -123,9 +123,9 @@ const Services = () => {
                         : service.bullet[0].bulletHeading}
                     </li>
                     <li className="my-8">
-                      {service.bullet[0].bulletHeading.length > 150
-                        ? service.bullet[0].bulletHeading.slice(0, 150) + "..."
-                        : service.bullet[0].bulletHeading}
+                      {service.bullet[1].bulletHeading.length > 150
+                        ? service.bullet[1].bulletHeading.slice(0, 150) + "..."
+                        : service.bullet[1].bulletHeading}
                     </li>
                   </div>
                   <div className="flex justify-start items-center space-x-6 my-4 sm:mt-16 w-[62%]">
