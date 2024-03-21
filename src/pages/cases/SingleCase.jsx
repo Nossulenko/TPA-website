@@ -42,9 +42,12 @@ const SingleCase = ({ SingleCaseData }) => {
   // console.log("myText", myText);
 
   const headerStyle = {
-    backgroundImage: caseData.featureImage && caseData.featureImage.asset 
-    ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${urlFor(caseData.featureImage.asset).url()})` 
-    : 'none',
+    backgroundImage:
+      caseData.featureImage && caseData.featureImage.asset
+        ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${urlFor(
+            caseData.featureImage.asset
+          ).url()})`
+        : "none",
     backgroundSize: "cover",
     backgroundPosition: "center center",
     marginTop: "-8rem",
@@ -90,27 +93,29 @@ const SingleCase = ({ SingleCaseData }) => {
                 <div className="text-xl my-6 sm:my-0">
                   <div className="flex justify-start items-center">
                     <div className="yellow">
-                      <div className="flex justify-start items-center space-x-6 my-4">
-                        <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
-                          <div
-                            className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
-                            style={{
-                              backgroundColor: theme ? theme.textColor : "#FECF4F",
-                              borderColor: theme ? theme.textColor : "#FECF4F",
-                              boxShadow: `0px 0px 4px 4px ${
-                                theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
-                              }`,
-                            }}
-                          >
-                            <EastIcon className="" />
+                      {caseData.subHeading && (
+                        <div className="flex justify-start items-center space-x-6 my-4">
+                          <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
+                            <div
+                              className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
+                              style={{
+                                backgroundColor: theme ? theme.textColor : "#FECF4F",
+                                borderColor: theme ? theme.textColor : "#FECF4F",
+                                boxShadow: `0px 0px 4px 4px ${
+                                  theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
+                                }`,
+                              }}
+                            >
+                              <EastIcon className="" />
+                            </div>
                           </div>
+                          <Link href="">
+                            <div className="text-black font-space-grotesk text-22 font-medium ">
+                              <div className="righttext text-5xl">{caseData.subHeading}</div>
+                            </div>
+                          </Link>
                         </div>
-                        <Link href="">
-                          <div className="text-black font-space-grotesk text-22 font-medium ">
-                            <div className="righttext text-5xl">{caseData.subHeading}</div>
-                          </div>
-                        </Link>
-                      </div>
+                      )}
                     </div>
                   </div>
                   <div className="text-lg my-4">{caseData.paragraphs}</div>
