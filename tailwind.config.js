@@ -50,6 +50,6 @@ module.exports = {
   },
   plugins: [require("tailwindcss-animated")],
   purge: [
-    "./src/**/*.{js,ts,jsx,tsx,md,mdx,css}", // Replace "content:" with "purge:"
+    "./src/**/*.{js,ts,jsx,tsx,md,mdx,css}", // Replace "content:" with "purge:" 
   ],
 };
