@@ -122,14 +122,15 @@ const Cases = () => {
                       height={500}
                     />
                     <div className="absolute text-white bottom-36 left-4 flex flex-wrap">
-                      {singleCase.tags.map((tag, tagIndex) => (
-                        <div
-                          key={tagIndex}
-                          className="border-2 border-white rounded-full px-3 py-1 my-2 w-fit text-xl mr-6"
-                        >
-                          {tag}
-                        </div>
-                      ))}
+                      {singleCase && singleCase.tags && 
+                        singleCase.tags.map((tag, tagIndex) => (
+                          <div
+                            key={tagIndex}
+                            className="border-2 border-white rounded-full px-3 py-1 my-2 w-fit text-xl mr-6"
+                          >
+                            {tag}
+                          </div>
+                        ))}
                     </div>
                   </Link>
                   {/* <div className="sm:w-10/12 my-8">{singleCase.summary}</div> */}
