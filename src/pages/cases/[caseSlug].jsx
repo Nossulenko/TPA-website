@@ -73,7 +73,7 @@ export default function Home({ SingleCaseData }) {
       className="bg-greybg"
     >
       <main>
-        <Navbar navigationData={navigationData} color="#FFFFFF" />
+        <Navbar navigationData={navigationData} color="white" />
         <SingleCase SingleCaseData={SingleCaseData} navigationData={navigationData} />
         <LetsTalk letsTalkData={letsTalkData} />
       </main>

@@ -31,18 +31,20 @@ const SingleCase = ({ SingleCaseData }) => {
   const caseData = SingleCaseData[0];
   const paragraphs = SingleCaseData[0].paragraphs;
   const bullet = SingleCaseData[0].bullet;
-  const middleIndex = Math.ceil(paragraphs.length / 2);
+  // const middleIndex = Math.ceil(paragraphs.length / 2);
 
   // Split the paragraphs array into two halves
-  const leftParagraphs = paragraphs.slice(0, middleIndex);
-  const rightParagraphs = paragraphs.slice(middleIndex);
+  // const leftParagraphs = paragraphs.slice(0, middleIndex);
+  // const rightParagraphs = paragraphs.slice(middleIndex);
 
-  const BackgroundImage = urlFor(caseData.featureImage.asset).url();
+  // const BackgroundImage = urlFor(caseData.featureImage.asset).url();
 
   // console.log("myText", myText);
 
   const headerStyle = {
-    backgroundImage: `url(${urlFor(caseData.featureImage.asset).url()})`,
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${urlFor(
+      caseData.featureImage.asset
+    ).url()})`,
     backgroundSize: "cover",
     backgroundPosition: "center center",
     marginTop: "-8rem",
@@ -115,26 +117,30 @@ const SingleCase = ({ SingleCaseData }) => {
                 </div>
               </div>
 
-              <div className="right sm:w-1/2">
-                <Image
-                  src={urlFor(caseData.caseImage.asset).url()}
-                  alt=""
-                  width={750}
-                  height={479}
-                />
-              </div>
+              {caseData.caseImage && caseData.caseImage.asset && (
+                <div className="right sm:w-1/2">
+                  <Image
+                    src={urlFor(caseData.caseImage.asset).url()}
+                    alt=""
+                    width={750}
+                    height={479}
+                  />
+                </div>
+              )}
             </div>
           </div>
           <div className="sm:my-16">
             <div className="flex items-center justify-center sm:space-x-8 my-8">
-              <div className="">
-                <Image
-                  src={urlFor(caseData.mainCaseImage.asset).url()}
-                  alt=""
-                  width={1683}
-                  height={767}
-                />
-              </div>
+              {caseData.mainCaseImage && caseData.mainCaseImage.asset && (
+                <div className="">
+                  <Image
+                    src={urlFor(caseData.mainCaseImage.asset).url()}
+                    alt=""
+                    width={1683}
+                    height={767}
+                  />
+                </div>
+              )}
             </div>
           </div>
           <div className="">
