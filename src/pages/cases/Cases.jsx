@@ -114,15 +114,19 @@ const Cases = () => {
                     href={`/cases/${singleCase.slug.current}`}
                     className="flex items-center justify-start sm:w-full h-[420px] overflow-hidden"
                   >
-                    <Image
-                      className="rounded-2xl"
-                      src={urlFor(singleCase.featureImage.asset).url()}
-                      alt={`Image ${index}`}
-                      width={500}
-                      height={500}
-                    />
+                    {singleCase && singleCase.featureImage && singleCase.featureImage.asset && (
+                      <Image
+                        className="rounded-2xl"
+                        src={urlFor(singleCase.featureImage.asset).url()}
+                        alt={`Image`}
+                        width={500}
+                        height={500}
+                      />
+                    )}
+
                     <div className="absolute text-white bottom-36 left-4 flex flex-wrap">
-                      {singleCase && singleCase.tags && 
+                      {singleCase &&
+                        singleCase.tags &&
                         singleCase.tags.map((tag, tagIndex) => (
                           <div
                             key={tagIndex}
