@@ -66,12 +66,14 @@ const MobileBurgerMenu = ({ isOpen, onClose, theme, email, navData, socialData }
           {socialData &&
             socialData.map((item) => (
               <div key={item.id} className="">
-                <Image
-                  src={urlFor(item.imageSrc.asset).url()}
-                  alt={item.alt}
-                  width={50}
-                  height={50}
-                />
+                {item.imageSrc && item.imageSrc.asset && (
+                  <Image
+                    src={urlFor(item.imageSrc.asset).url()}
+                    alt={item.alt}
+                    width={50}
+                    height={50}
+                  />
+                )}
               </div>
             ))}
         </div>
