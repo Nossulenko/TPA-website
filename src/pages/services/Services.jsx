@@ -98,22 +98,27 @@ const Services = () => {
                     </Link>
                   </div>
                   <div className="rounded-2xl flex items-center justify-start sm:w-full h-[352px] overflow-hidden relative">
-                    <Image
-                      className="rounded-2xl"
-                      src={urlFor(service.featureImage.asset).url()}
-                      alt={`Image ${index}`}
-                      width={365}
-                      height={352}
-                    />
+                    {service.featureImage && service.featureImage.asset && (
+                      <Image
+                        className="rounded-2xl"
+                        src={urlFor(service.featureImage.asset).url()}
+                        alt={`Image ${index}`}
+                        width={365}
+                        height={352}
+                      />
+                    )}
+
                     <div className="absolute text-white xs:bottom-1 md:bottom-14 lg:bottom-1 left-4 flex flex-wrap">
-                      {service.tags.map((tag, tagIndex) => (
-                        <div
-                          key={tagIndex}
-                          className="border-2 border-white rounded-full px-3 py-1 my-2 w-fit text-xl mr-6"
-                        >
-                          {tag}
-                        </div>
-                      ))}
+                      {service &&
+                        service.tags &&
+                        service.tags.map((tag, tagIndex) => (
+                          <div
+                            key={tagIndex}
+                            className="border-2 border-white rounded-full px-3 py-1 my-2 w-fit text-xl mr-6"
+                          >
+                            {tag}
+                          </div>
+                        ))}
                     </div>
                   </div>
                   <div className="sm:w-11/12 min-h-60 max-h-68 my-8 ml-2">
@@ -144,9 +149,9 @@ const Services = () => {
                       </div>
                     </div>
                     <Link href={`/`}>
-                    <div className="text-black font-space-grotesk text-22 font-medium underline">
-                      Read a case
-                    </div>
+                      <div className="text-black font-space-grotesk text-22 font-medium underline">
+                        Read a case
+                      </div>
                     </Link>
                   </div>
                   <div className="w-5/6">{service.desc}</div>
