@@ -42,9 +42,9 @@ const SingleCase = ({ SingleCaseData }) => {
   // console.log("myText", myText);
 
   const headerStyle = {
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${urlFor(
-      caseData.featureImage.asset
-    ).url()})`,
+    backgroundImage: caseData.featureImage && caseData.featureImage.asset 
+    ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${urlFor(caseData.featureImage.asset).url()})` 
+    : 'none',
     backgroundSize: "cover",
     backgroundPosition: "center center",
     marginTop: "-8rem",
