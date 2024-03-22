@@ -38,14 +38,9 @@ const Index = ({ elevatingIdeaData, loading }) => {
       >
         {myText.substring(0, 7)}
       </div>
-      {/* <div className="flex-1"> */}
-        {" "}
-        {/* <div className="flex relative z-10 items-center justify-center w-full max-w-full"> */}
-          <div className="relative z-10 ">
-            <ActiveElevatingIdeaComponent elevatingIdeaData={elevatingIdeaData} loading={loading} />
-          </div>
-        {/* </div> */}
-      {/* </div> */}
+      <div className="relative z-10 ">
+        <ActiveElevatingIdeaComponent elevatingIdeaData={elevatingIdeaData} loading={loading} />
+      </div>
     </div>
   );
 };
