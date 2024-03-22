@@ -130,7 +130,7 @@ const Cases = () => {
                         singleCase.tags.map((tag, tagIndex) => (
                           <div
                             key={tagIndex}
-                            className="border-2 border-white rounded-full px-3 py-1 my-2 w-fit text-xl mr-6"
+                            className="border-2 border-yellow text-yellow rounded-full px-3 py-1 my-2 w-fit text-xl mr-6"
                           >
                             {tag}
                           </div>

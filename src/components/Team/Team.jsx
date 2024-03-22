@@ -81,15 +81,15 @@ const Team = ({ teamData }) => {
   });
   return (
     <>
-      <div className="sm:h-screen relative w-full overflow-hidden sm:mx-10" {...handlers}>
-        <div className=" lg:h-[80vh] m-6">
+      <div className="sm:h-auto relative w-full overflow-auto lg:overflow-hidden sm:mx-10" {...handlers}>
+        <div className=" lg:h-auto m-6">
           <div
             className="font-space-grotesk text-6xl sm:text-9xl font-medium leading-none xs:leading-9 sm:leading-93 break-words text-yellow  2xl:ml-16"
             style={{ color: theme ? theme.textColor : "#FECF4F" }}
           >
             Core team
           </div>
-          <div className="lg:h-[70vh] sm:flex flex-wrap lg:flex-nowrap sm:justify-center sm:items-center sm:mx-24 lg:mx-24 sm:py-0">
+          <div className="lg:h-auto sm:flex flex-wrap lg:flex-nowrap sm:justify-center sm:items-center sm:mx-24 lg:mx-24 sm:py-0 sm:overflow-auto lg:overflow-hidden">
             {textBlocks &&
               textBlocks.slice(beginningIndex, endIndex).map((item, index) => (
                 <div key={index} className="lg:w-1/3 my-8 sm:my-16 sm:mx-0 2xl:ml-28">
@@ -101,14 +101,14 @@ const Team = ({ teamData }) => {
                     className={`rounded-full sm:mx-auto sm:ml-4 my-4 p-1`}
                     style={{ backgroundColor: theme ? theme.background : "#ECEBE9" }}
                   />
-                  <div className="text-left my-16 sm:my-0">
-                    <div className=" sm:w-96 text-black text-4xl sm:text-3xl break-words">
+                  <div className="text-left my-16 sm:my-0 lg:mx-8">
+                    <div className="lg:h-8 sm:w-96 text-black text-4xl sm:text-3xl break-words">
                       {item && item.name}
                     </div>
-                    <div className="my-1 sm:my-0 sm:w-64 text-black text-xl break-words">
+                    <div className="lg:h-8 my-1 sm:my-0 sm:w-64 text-black text-xl break-words">
                       {item.designation}
                     </div>
-                    <div className="sm:hidden my-6 sm:my-0 sm:w-66 text-black text-xl break-words">
+                    <div className="lg:h-auto my-6 sm:w-66 text-black text-xl break-words">
                       {item.about}
                     </div>
                   </div>
