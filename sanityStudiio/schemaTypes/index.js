@@ -7,7 +7,7 @@ import team from './team'
 import howToOperate from './howToOperate'
 import services from './services'
 import articles from './articles'
-import AboutPTA from './aboutPTA'
+import aboutPTA from './aboutPTA'
 import navigation from './navigation'
 import blogs from './blog'
 import blockContent from './blockContent'
@@ -25,7 +25,7 @@ export const schemaTypes = [
   // howWeOperate,
   howToOperate,
   services,
-  AboutPTA,
+  aboutPTA,
   team,
   letsTalk,
   // blogs,
