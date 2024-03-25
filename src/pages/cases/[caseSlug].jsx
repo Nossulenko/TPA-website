@@ -10,21 +10,21 @@ import { useRouter } from "next/router";
 import SingleCase from "./SingleCase";
 
 // This function gets called at build time to determine all case slugs
-export async function getStaticPaths() {
-  const cases = await client.fetch('*[_type == "cases"]{ "slug": slug.current }');
-  const paths = cases.map((_case) => ({ params: { caseSlug: _case.slug } }));
-  return { paths, fallback: false };
-}
+// export async function getStaticPaths() {
+//   const cases = await client.fetch('*[_type == "cases"]{ "slug": slug.current }');
+//   const paths = cases.map((_case) => ({ params: { caseSlug: _case.slug } }));
+//   return { paths, fallback: false };
+// }
 
 // This gets called at build time for each slug returned by getStaticPaths
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const { caseSlug } = params;
-  console.log("caseSlug", caseSlug);
+  // console.log("caseSlug", caseSlug);
 
   const query = `*[_type == "cases" && slug.current == "${caseSlug}"]`;
   const SingleCaseData = await client.fetch(query);
 
-  return { props: { SingleCaseData }, revalidate: 10 };
+  return { props: { SingleCaseData } };
 }
 
 export default function Home({ SingleCaseData }) {
