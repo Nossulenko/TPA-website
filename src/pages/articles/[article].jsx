@@ -11,14 +11,14 @@ import SingleArticle from "./SingleArticle";
 import Sidebar from "@/components/Sidebar";
 
 // This function gets called at build time to determine all article slugs
-export async function getStaticPaths() {
-  const articles = await client.fetch('*[_type == "article"]{ "slug": slug.current }');
-  const paths = articles.map((article) => ({ params: { article: article.slug } }));
-  return { paths, fallback: true };
-}
+// export async function getStaticPaths() {
+//   const articles = await client.fetch('*[_type == "article"]{ "slug": slug.current }');
+//   const paths = articles.map((article) => ({ params: { article: article.slug } }));
+//   return { paths, fallback: true };
+// }
 
 // This gets called at build time for each slug returned by getStaticPaths
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const { article } = params;
   // console.log("article", article);
   const query = `*[_type == "articles" && slug.current == "${article}"]`;

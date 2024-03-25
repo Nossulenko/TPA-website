@@ -10,14 +10,14 @@ import { useRouter } from "next/router";
 import SingleBlog from "./SingleBlog";
 
 // This function gets called at build time to determine all blog slugs
-export async function getStaticPaths() {
-  const blogs = await client.fetch('*[_type == "blog"]{ "slug": slug.current }');
-  const paths = blogs.map((blog) => ({ params: { blog: blog.slug } }));
-  return { paths, fallback: false };
-}
+// export async function getStaticPaths() {
+//   const blogs = await client.fetch('*[_type == "blog"]{ "slug": slug.current }');
+//   const paths = blogs.map((blog) => ({ params: { blog: blog.slug } }));
+//   return { paths, fallback: false };
+// }
 
 // This gets called at build time for each slug returned by getStaticPaths
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const { blog } = params;
   const query = `*[_type == "blog" && slug.current == "${blog}"]{ title, summary, slug, featureImage { asset->{ url }, }, mainDescription }[0]`;
   const singleBlogData = await client.fetch(query);
