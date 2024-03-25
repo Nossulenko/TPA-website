@@ -24,7 +24,7 @@ export async function getStaticProps({ params }) {
   const query = `*[_type == "cases" && slug.current == "${caseSlug}"]`;
   const SingleCaseData = await client.fetch(query);
 
-  return { props: { SingleCaseData } };
+  return { props: { SingleCaseData }, revalidate: 10 };
 }
 
 export default function Home({ SingleCaseData }) {
