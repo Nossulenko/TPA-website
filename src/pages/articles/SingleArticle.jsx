@@ -73,72 +73,69 @@ const SingleArticle = ({ SingleArticleData }) => {
     marginTop: "-8rem",
     height: "516px",
   };
-
+  // console.log("SingleArticleData", SingleArticleData);
   return (
     <div className="">
       {" "}
       <div className="h-64" style={headerStyle}>
         <div className="flex justify-center items-center text-white mx-8 sm:mx-20 my-auto">
-          <div className="text-5xl sm:text-8xl relative text-white top-40 sm:top-52 sm:bottom-64">
+          <div className="text-5xl md:text-7xl lg:text-8xl relative text-white top-40 sm:top-52 sm:bottom-64">
             {article.heading.length > 75 ? article.heading.slice(0, 75) + "..." : article.heading}
           </div>
         </div>
       </div>
-      <div className="mx-8 sm:mx-20">
-        <div className="my-8 sm:my-12">
-          {" "}
-          <div className="sm:w-2/3 text-left text-2xl sm:text-4xl my-4 sm:my-8 underline">
-            {article.heading}
-          </div>
-          <div className="sm:flex items-start justify-center sm:space-x-4">
-            <div className="left sm:w-1/2 my-8 sm:my-0">
-              {leftParagraphs && leftParagraphs.map((paragraph, index) => (
-                <div className="my-4" key={index}>
-                  {paragraph}
-                </div>
-              ))}
+      <div className="max-w-[1800px] mx-auto relative">
+        <div className="mx-8 sm:mx-20 ">
+          <div className="my-8 sm:my-12">
+            {" "}
+            <div className="sm:w-2/3 text-left text-2xl sm:text-4xl my-4 sm:my-8 underline">
+              {article.heading}
             </div>
-            <div className="right sm:w-1/2 my-8 sm:my-0">
-              {rightParagraphs && rightParagraphs.map((paragraph, index) => (
-                <div className="my-4" key={index}>
-                  {paragraph}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="sm:my-16">
-          {article.articleImage && article.articleImage.asset && (
-            <div className="flex items-center justify-center sm:space-x-8 my-8">
-              <div className="h-96 w-full overflow-hidden">
-                <Image
-                  src={urlFor(article.articleImage.asset).url()}
-                  alt=""
-                  width={1000}
-                  height={100}
-                  className="object-cover w-full"
-                />
+            <div className="sm:flex items-start justify-center sm:space-x-4">
+              <div className="left sm:w-1/2 my-8 sm:my-0">
+                {leftParagraphs &&
+                  leftParagraphs.map((paragraph, index) => (
+                    <div className="my-4" key={index}>
+                      {paragraph}
+                    </div>
+                  ))}
+              </div>
+              <div className="right sm:w-1/2 my-8 sm:my-0">
+                {rightParagraphs &&
+                  rightParagraphs.map((paragraph, index) => (
+                    <div className="my-4" key={index}>
+                      {paragraph}
+                    </div>
+                  ))}
               </div>
             </div>
-          )}
-
-          {/* <PortableText
-            content={article.mainDescription}
-            projectId="xh1730zu"
-            dataset="production"
-          /> */}
-        </div>
-        <div className="">
-          {bullet &&
-            bullet.length > 0 &&
-            bullet.map((item, index) => (
-              <div
-                key={item.id}
-                className={`my-16 ${
-                  index % 2 !== 0 ? "sm:flex-row-reverse sm:space-x-reverse" : ""
-                } sm:flex items-start justify-center sm:space-x-8`}
-              >
+          </div>
+          <div className="sm:my-16">
+            {article.articleImage && article.articleImage.asset && (
+              <div className="flex items-center justify-center sm:space-x-8 my-8">
+                <div className="h-96 w-full overflow-hidden">
+                  <Image
+                    src={urlFor(article.articleImage.asset).url()}
+                    alt=""
+                    width={1000}
+                    height={100}
+                    className="object-cover w-full"
+                  />
+                </div>
+              </div>
+            )}
+          </div>
+          <div className="">
+            {bullet &&
+              bullet.length > 0 &&
+              bullet.map((item, index) => (
                 <div
+                  key={item.id}
+                  className={`my-1 ${
+                    index % 2 !== 0 ? "sm:flex-row-reverse sm:space-x-reverse" : ""
+                  } sm:flex items-start justify-center sm:space-x-8`}
+                >
+                  {/* <div
                   className={
                     item.bulletImage && item.bulletImage.asset ? "left sm:w-1/2" : "left sm:w-full"
                   }
@@ -146,11 +143,16 @@ const SingleArticle = ({ SingleArticleData }) => {
                   {item.bulletHeading && (
                     <div className="text-4xl sm:text-5xl mb-12">{item.bulletHeading}</div>
                   )}
-                  {item.bulletDescription && (
-                    <div className="text-xl my-6 sm:my-0">{item.bulletDescription}</div>
+                  {item.bulletHeading && item.bulletDescription && (
+                    <div className="text-xl my-6 sm:my-0">
+                      {item.bulletDescription.slice(0, 40)}
+                    </div>
                   )}
-                </div>
-                {item.bulletImage && item.bulletImage.asset && (
+                  {!item.bulletHeading && item.bulletDescription && (
+                    <li className="text-xl my-6 sm:my-0">{item.bulletDescription.slice(0, 40)}</li>
+                  )}
+                </div> */}
+                  {/* {item.bulletImage && item.bulletImage.asset && (
                   <div className="right sm:w-1/2">
                     <Image
                       src={urlFor(item.bulletImage.asset).url()}
@@ -159,44 +161,52 @@ const SingleArticle = ({ SingleArticleData }) => {
                       height={501}
                     />
                   </div>
-                )}
-              </div>
-            ))}
-        </div>
-
-        <div className="sm:flex justify-between items-center my-16">
-          <div className="left flex my-10">
-            <div className="sm:mx-4">Share on socials</div>
-            <div className="flex space-x-2 sm:space-x-6">
-              <Image src="/images/xicon.png" alt="map2" width={31} height={31} />
-              <Image src="/images/linkdin.png" alt="map2" width={31} height={31} />
-              <Image src="/images/insta.png" alt="map2" width={31} height={31} />
-            </div>
-          </div>
-          <div className="right">
-            <div className="flex justify-start items-center space-x-6 my-4">
-              <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
-                <div
-                  className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
-                  style={{
-                    backgroundColor: theme ? theme.textColor : "#FECF4F",
-                    borderColor: theme ? theme.textColor : "#FECF4F",
-                    boxShadow: `0px 0px 4px 4px ${
-                      theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
-                    }`,
-                  }}
-                >
-                  <EastIcon />
+                )} */}
                 </div>
+              ))}
+          </div>
+          <div className="article">
+            <PortableText
+              content={article.content}
+              projectId="xh1730zu"
+              dataset="production"
+              // serializers={richTextSerializers}
+            />
+          </div>
+          <div className="sm:flex justify-between items-center my-16">
+            <div className="left flex my-10">
+              <div className="sm:mx-4">Share on socials</div>
+              <div className="flex space-x-2 sm:space-x-6">
+                <Image src="/images/xicon.png" alt="map2" width={31} height={31} />
+                <Image src="/images/linkdin.png" alt="map2" width={31} height={31} />
+                <Image src="/images/insta.png" alt="map2" width={31} height={31} />
               </div>
-              <div>
-                {article.nextArticleSlug && (
-                  <Link href={`/articles/${article.nextArticleSlug}`}>
-                    <div className="text-black font-space-grotesk text-22 font-medium underline">
-                      Read next article
-                    </div>
-                  </Link>
-                )}
+            </div>
+            <div className="right">
+              <div className="flex justify-start items-center space-x-6 my-4">
+                <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
+                  <div
+                    className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
+                    style={{
+                      backgroundColor: theme ? theme.textColor : "#FECF4F",
+                      borderColor: theme ? theme.textColor : "#FECF4F",
+                      boxShadow: `0px 0px 4px 4px ${
+                        theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
+                      }`,
+                    }}
+                  >
+                    <EastIcon />
+                  </div>
+                </div>
+                <div>
+                  {article.nextArticleSlug && (
+                    <Link href={`/articles/${article.nextArticleSlug}`}>
+                      <div className="text-black font-space-grotesk text-22 font-medium underline">
+                        Read next article
+                      </div>
+                    </Link>
+                  )}
+                </div>
               </div>
             </div>
           </div>

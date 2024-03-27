@@ -56,7 +56,7 @@ const AboutUs = () => {
       </div>
       <div className="sm:flex-1">
         <div className="sm:flex relative z-10 items-center justify-center w-full">
-          <div className="relative w-full sm:m-10">
+          <div className="max-w-[1800px] mx-auto relative w-full sm:m-10">
             <div className="flex items-end justify-between">
               <div
                 className="text-yellow font-space-grotesk text-6xl sm:text-8xl font-medium my-8 sm:my-12 mx-4 sm:m-0"

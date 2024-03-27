@@ -9,6 +9,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import sanityClient from "../lib/sanity";
 import getImageUrl from "../lib/sanity";
 import SquareLoader from "react-spinners/SquareLoader";
+import Sidebar from "./Sidebar";
 
 const navData = [
   { id: 1, name: "Projects", link: "whatWeDo" },
@@ -198,7 +199,7 @@ const WebBurgerMenu = ({
   );
 };
 
-const Navbar = ({ navigationData, color }) => {
+const Navbar = ({ navigationData, color, isOpen, setIsOpen }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const { myText, sectionNo, setSectionNo, theme } = useContext(TextContext);
   const { name, icon, email, navBarOptions, navData, socialData, bgImage } = navigationData;
@@ -221,7 +222,7 @@ const Navbar = ({ navigationData, color }) => {
   return (
     <div className="">
       <div className="">
-        <div className="flex items-center justify-between sm:justify-start m-4">
+        <div className="max-w-[1800px] mx-auto relative flex items-center justify-between sm:justify-start m-4">
           {/* <div className="hidden sm:block relative shadow-2xl cursor-pointer mx-4" onClick={handleMenuToggle}>
             <div
               className=" rounded-full p-1 border-solid"
@@ -237,6 +238,7 @@ const Navbar = ({ navigationData, color }) => {
               <MenuIcon />
             </div>
           </div> */}
+          {/* <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} navigationData={navigationData} /> */}
           <Link
             href="/"
             className="flex items-center sm:items-end justify-start sm:ml-12 space-x-2"

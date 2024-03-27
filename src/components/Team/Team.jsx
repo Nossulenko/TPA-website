@@ -85,54 +85,57 @@ const Team = ({ teamData }) => {
         className="sm:h-auto relative w-full overflow-auto lg:overflow-hidden sm:mx-10"
         {...handlers}
       >
-        <div className=" lg:h-auto m-6">
-          <div
-            className="font-space-grotesk text-6xl sm:text-9xl font-medium leading-none xs:leading-9 sm:leading-93 break-words text-yellow  2xl:ml-16"
-            style={{ color: theme ? theme.textColor : "#FECF4F" }}
-          >
-            Core team
-          </div>
-          <div className="lg:h-auto sm:flex flex-wrap lg:flex-nowrap sm:justify-center sm:items-center sm:mx-24 lg:mx-24 sm:py-0 sm:overflow-auto lg:overflow-hidden">
-            {textBlocks &&
-              textBlocks.slice(beginningIndex, endIndex).map((item, index) => (
-                <div key={index} className="lg:w-1/3 my-8 sm:my-16 sm:mx-0 2xl:ml-8">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    width={200}
-                    height={200}
-                    className={`rounded-full sm:mx-auto sm:ml-4 my-4 p-1`}
-                    style={{ backgroundColor: theme ? theme.background : "#ECEBE9" }}
-                  />
-                  <div className="text-left my-16 sm:my-0 lg:mx-8">
-                    <div className="lg:h-8 sm:w-96 text-black text-4xl sm:text-3xl break-words">
-                      {item && item.name}
-                    </div>
-                    <div className="lg:h-8 my-1 sm:my-0 sm:w-64 text-black text-xl break-words">
-                      {item.designation}
-                    </div>
-                    <div className="lg:h-auto my-6 sm:w-66 k:w-[23rem] text-black text-xl break-words">
-                      {item.about}
+        <div className="max-w-[1800px] mx-auto relative">
+          {" "}
+          <div className=" lg:h-auto m-6">
+            <div
+              className="font-space-grotesk text-6xl sm:text-9xl font-medium leading-none xs:leading-9 sm:leading-93 break-words text-yellow  2xl:ml-16"
+              style={{ color: theme ? theme.textColor : "#FECF4F" }}
+            >
+              Core team
+            </div>
+            <div className="lg:h-auto sm:flex flex-wrap lg:flex-nowrap sm:justify-center sm:items-center sm:mx-24 lg:mx-24 sm:py-0 sm:overflow-auto lg:overflow-hidden">
+              {textBlocks &&
+                textBlocks.slice(beginningIndex, endIndex).map((item, index) => (
+                  <div key={index} className="lg:w-1/3 my-8 sm:my-16 sm:mx-0 2xl:ml-8">
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      width={200}
+                      height={200}
+                      className={`rounded-full sm:mx-auto sm:ml-4 my-4 p-1`}
+                      style={{ backgroundColor: theme ? theme.background : "#ECEBE9" }}
+                    />
+                    <div className="text-left my-16 sm:my-0 lg:mx-8">
+                      <div className="lg:h-8 sm:w-96 text-black text-4xl sm:text-3xl break-words">
+                        {item && item.name}
+                      </div>
+                      <div className="lg:h-8 my-1 sm:my-0 sm:w-64 text-black text-xl break-words">
+                        {item.designation}
+                      </div>
+                      <div className="lg:h-auto my-6 sm:w-66 k:w-[23rem] text-black text-xl break-words">
+                        {item.about}
+                      </div>
                     </div>
                   </div>
+                ))}
+            </div>
+          </div>
+          <div className=" sm:hidden flex flex-row sm:flex-col justify-center sm:space-y-1 space-x-2 space-y-1 mx-6">
+            {textBlocks &&
+              textBlocks.map((num, index) => (
+                <div key={index} className="flex items-center justify-center space-x-2">
+                  <span
+                    className={`block w-2 h-2 rounded-full ${
+                      currentIndex === index
+                        ? "bg-yellow border border-yellow-500 p-2"
+                        : " border border-gray-200 bg-transparent p-2"
+                    }`}
+                    onClick={() => setCurrentIndex(index)}
+                  />
                 </div>
               ))}
           </div>
-        </div>
-        <div className=" sm:hidden flex flex-row sm:flex-col justify-center sm:space-y-1 space-x-2 space-y-1 mx-6">
-          {textBlocks &&
-            textBlocks.map((num, index) => (
-              <div key={index} className="flex items-center justify-center space-x-2">
-                <span
-                  className={`block w-2 h-2 rounded-full ${
-                    currentIndex === index
-                      ? "bg-yellow border border-yellow-500 p-2"
-                      : " border border-gray-200 bg-transparent p-2"
-                  }`}
-                  onClick={() => setCurrentIndex(index)}
-                />
-              </div>
-            ))}
         </div>
       </div>
     </>

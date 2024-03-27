@@ -75,7 +75,7 @@ const Services = () => {
       </div>
       <div className="sm:flex-1">
         <div className="sm:flex relative z-10 items-center justify-center w-full">
-          <div className="relative w-full sm:m-14">
+          <div className="max-w-[1800px] mx-auto relative w-full sm:m-14">
             <div className="flex items-end justify-between">
               <div
                 className="text-yellow font-space-grotesk text-6xl sm:text-8xl font-medium my-8 mx-4 sm:m-0"
@@ -126,7 +126,7 @@ const Services = () => {
                           ))}
                       </div>
                     </div>
-                    <div className="sm:w-11/12 min-h-60 max-h-68 my-8 ml-2">
+                    <div className="sm:w-11/12 min-h-44 max-h-48 my-8 ml-2">
                       <li className="my-4">
                         {service.bullet[0].bulletHeading.length > 150
                           ? service.bullet[0].bulletHeading.slice(0, 150) + "..."

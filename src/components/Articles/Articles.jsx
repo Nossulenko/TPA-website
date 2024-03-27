@@ -70,56 +70,24 @@ const Articles = ({ articlesData }) => {
   // console.log("articlesData", articlesData);
   return (
     <div className="relative w-full my-10 sm:ml-4">
-      <div className="lg:flex items-end justify-between">
-        <div
-          className="text-yellow font-space-grotesk text-7xl sm:text-8xl font-medium  sm:my-12 mx-4 sm:m-0 2xl:ml-16"
-          style={{ color: theme ? theme.textColor : "#FECF4F" }}
-        >
-          Articles
-        </div>
-        <Link href="/articles">
-          {" "}
-          <div className="hidden sm:flex mr-32 justify-start items-center space-x-6 -bottom-1">
-            <div className="w-fit pb-2 relative shadow-2xl cursor-pointer">
-              <div
-                className="  rounded-full p-1  border-solid"
-                onMouseOver={() => setIsHovered(true)}
-                onMouseOut={() => setIsHovered(false)}
-                style={{
-                  ...(isHovered ? hoverStyle : {}),
-                  backgroundColor: theme ? theme.textColor : "#FECF4F",
-                  borderColor: theme ? theme.textColor : "#FECF4F",
-                }}
-              >
-                <EastIcon />
-              </div>
-            </div>
-            <div className="text-black text-center font-space-grotesk text-22 font-medium underline">
-              Discover more articles
-            </div>
+      <div className="max-w-[1800px] mx-auto relative 2k2:mt-96">
+        <div className="lg:flex items-end justify-between">
+          <div
+            className="text-yellow font-space-grotesk text-7xl sm:text-8xl font-medium  sm:my-12 mx-4 sm:m-0 2xl:ml-16"
+            style={{ color: theme ? theme.textColor : "#FECF4F" }}
+          >
+            Articles
           </div>
-        </Link>
-      </div>
-      <div className="h-fit lg:h-[90vh] sm:flex justify-center flex-wrap lg:flex-nowrap flex-col space-y-8 lg:space-y-0 mx-4 sm:mx-0 sm:flex-row space-x-1 lg:space-x-10 m-6">
-        {articlesData && articlesData.map((article, index) => (
-          <div key={index} className="mb-8 sm:w-2/3 lg:w-1/3 sm:mx-0 2xl:ml-16">
-            <div className="rounded-2xl flex items-center justify-start">
-              <Image
-                className="rounded-2xl"
-                src={urlFor(article.featureImage.asset).url()}
-                alt={`Image ${index}`}
-                width={365}
-                height={352}
-              />
-            </div>
-            <div className="flex justify-start items-center space-x-3 sm:space-x-6 mx-1 sm:mx-0 my-4 sm:w-3/4">
+          <Link href="/articles">
+            {" "}
+            <div className="hidden sm:flex ml-32 mr-32 justify-start items-center space-x-6 -bottom-1">
               <div className="w-fit pb-2 relative shadow-2xl cursor-pointer">
                 <div
-                  className="rounded-full p-1 order-solid"
-                  onMouseOver={() => handleMouseOver(index)}
-                  onMouseOut={() => handleMouseOut(index)}
+                  className="  rounded-full p-1  border-solid"
+                  onMouseOver={() => setIsHovered(true)}
+                  onMouseOut={() => setIsHovered(false)}
                   style={{
-                    ...(hoverStates[index] ? hoverStyle : {}),
+                    ...(isHovered ? hoverStyle : {}),
                     backgroundColor: theme ? theme.textColor : "#FECF4F",
                     borderColor: theme ? theme.textColor : "#FECF4F",
                   }}
@@ -127,21 +95,56 @@ const Articles = ({ articlesData }) => {
                   <EastIcon />
                 </div>
               </div>
-              <Link href={`/articles/${article.slug.current}`}>
-                <div className="text-black font-space-grotesk text-22 font-medium underline">
-                  {article.heading.length > 50
-                    ? article.heading.slice(0, 50) + "..."
-                    : article.heading}
+              <div className="text-black text-center font-space-grotesk text-22 font-medium underline">
+                Discover more articles
+              </div>
+            </div>
+          </Link>
+        </div>
+        <div className="h-fit lg:h-[90vh] sm:flex justify-center flex-wrap lg:flex-nowrap flex-col space-y-8 lg:space-y-0 mx-4 sm:mx-0 sm:flex-row space-x-1 lg:space-x-10 m-6">
+          {articlesData &&
+            articlesData.map((article, index) => (
+              <div key={index} className="mb-8 sm:w-2/3 lg:w-1/3 sm:mx-0 2xl:ml-16">
+                <div className="rounded-2xl flex items-center justify-start">
+                  <Image
+                    className="rounded-2xl"
+                    src={urlFor(article.featureImage.asset).url()}
+                    alt={`Image ${index}`}
+                    width={365}
+                    height={352}
+                  />
                 </div>
-              </Link>
-            </div>
-            <div className="ml-12 sm:ml-0 sm:w-[70%]">
-              {article.summary.length > 200
-                ? article.summary.slice(0, 200) + "..."
-                : article.summary}
-            </div>
-          </div>
-        ))}
+                <div className="flex justify-start items-center space-x-3 sm:space-x-6 mx-1 sm:mx-0 my-4 sm:w-3/4">
+                  <div className="w-fit pb-2 relative shadow-2xl cursor-pointer">
+                    <div
+                      className="rounded-full p-1 order-solid"
+                      onMouseOver={() => handleMouseOver(index)}
+                      onMouseOut={() => handleMouseOut(index)}
+                      style={{
+                        ...(hoverStates[index] ? hoverStyle : {}),
+                        backgroundColor: theme ? theme.textColor : "#FECF4F",
+                        borderColor: theme ? theme.textColor : "#FECF4F",
+                      }}
+                    >
+                      <EastIcon />
+                    </div>
+                  </div>
+                  <Link href={`/articles/${article.slug.current}`}>
+                    <div className="text-black font-space-grotesk text-22 font-medium underline">
+                      {article.heading.length > 50
+                        ? article.heading.slice(0, 50) + "..."
+                        : article.heading}
+                    </div>
+                  </Link>
+                </div>
+                <div className="ml-12 sm:ml-0 sm:w-[70%]">
+                  {article.summary.length > 200
+                    ? article.summary.slice(0, 200) + "..."
+                    : article.summary}
+                </div>
+              </div>
+            ))}
+        </div>
       </div>
     </div>
   );

@@ -43,7 +43,7 @@ const VerticalDotNavigation = ({ sectionNo, setSectionNo }) => {
   }, []);
 
   return (
-    <div className="hidden sm:block sticky top-1/2 transform -translate-y-1/2 left-4 z-50 m-1 w-4">
+    <div className="hidden lg:block sticky top-1/2 transform -translate-y-1/2 left-4 z-50 m-1 w-4 2k1:ml-8 2k2:ml-40 2k3:ml-64 2k4:ml-[26rem] 2k5:ml-[37rem] 2k6:ml-[48rem] 2k7:ml-[64rem] 2k8:ml-[80rem] 2k9:ml-[90rem] ">
       {sectionList.map((section, index) => {
         return (
           <Link

@@ -26,22 +26,23 @@ const Index = ({ teamData }) => {
   return (
     <div id="team" className="relative sm:overflow-hidden my-16 sm:my-10">
       <div
-        className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden w-screen whitespace-nowrap text-transparent text-12xl leading-none bg-clip-text bg-transparent stroke-text border-yellow"
+        className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden w-screen whitespace-nowrap text-transparent text-12xl leading-none bg-clip-text bg-transparent stroke-text border-yellow k:mb-64 2k:mb-[25rem] 2k8:mb-[60rem]"
         style={{
           borderColor: theme ? theme.textColor : "#FECF4F",
           WebkitTextStroke: "1px " + (theme ? theme.lightBackground : "#fada82"),
         }}
       >
-        {myText.substring(0, 7)}
+        {myText.substring(0, 20)}
       </div>
-      <div className="">
+      <ActiveElevatingIdeaComponent teamData={teamData} />
+      {/* <div className="">
         {" "}
-        {/* <div className="sm:flex relative z-10 items-center w-full"> */}
+
           <div className="">
             <ActiveElevatingIdeaComponent teamData={teamData} />
           </div>
-        {/* </div> */}
-      </div>
+
+      </div> */}
     </div>
   );
 };

@@ -49,8 +49,8 @@ const Services = ({ servicesData }) => {
   const imageUrl = image && image.asset ? urlFor(image.asset).url() : fallbackImageUrl;
 
   return (
-    <div className="relative w-full mb-10 m-2 sm:m-6 ">
-      <div className="sm:h-auto lg:flex items-start justify-center sm:space-x-8">
+    <div className="relative w-full mb-10 m-2 sm:m-6 lg:pl-12">
+      <div className="max-w-[1800px] mx-auto relative sm:h-auto lg:flex items-start justify-center sm:space-x-8">
         <div className="lg:w-1/2">
           <div
             className="text-yellow font-space-grotesk text-6xl xs:text-[80px] sm:text-8xl font-medium my-12 mx-4 sm:m-0"

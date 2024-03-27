@@ -72,45 +72,57 @@ export default defineType({
         },
       ],
     },
+    // {
+    //   name: 'bullet',
+    //   title: 'Bullet Content',
+    //   type: 'array',
+    //   of: [
+    //     {
+    //       type: 'object',
+    //       fields: [
+    //         {
+    //           name: 'id',
+    //           title: 'ID',
+    //           type: 'string',
+    //         },
+    //         {
+    //           name: 'bulletHeading',
+    //           title: 'Bullet Heading',
+    //           type: 'string',
+    //         },
+    //         {
+    //           name: 'bulletDescription',
+    //           title: 'Bullet Description',
+    //           type: 'text',
+    //         },
+    //         {
+    //           name: 'bulletImage',
+    //           title: 'Bullet Image',
+    //           type: 'image',
+    //           options: {
+    //             hotspot: true,
+    //           },
+    //           fields: [
+    //             {
+    //               name: 'attribution',
+    //               type: 'string',
+    //               title: 'Attribution',
+    //             },
+    //           ],
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
     {
-      name: 'bullet',
-      title: 'Bullet Content',
+      title: 'Content',
+      name: 'content',
       type: 'array',
       of: [
+        {type: 'block'},
         {
-          type: 'object',
-          fields: [
-            {
-              name: 'id',
-              title: 'ID',
-              type: 'string',
-            },
-            {
-              name: 'bulletHeading',
-              title: 'Bullet Heading',
-              type: 'string',
-            },
-            {
-              name: 'bulletDescription',
-              title: 'Bullet Description',
-              type: 'text',
-            },
-            {
-              name: 'bulletImage',
-              title: 'Bullet Image',
-              type: 'image',
-              options: {
-                hotspot: true,
-              },
-              fields: [
-                {
-                  name: 'attribution',
-                  type: 'string',
-                  title: 'Attribution',
-                },
-              ],
-            },
-          ],
+          type: 'image',
+          options: {hotspot: true},
         },
       ],
     },

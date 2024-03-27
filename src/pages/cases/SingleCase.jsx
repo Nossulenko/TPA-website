@@ -69,170 +69,174 @@ const SingleCase = ({ SingleCaseData }) => {
       <div className="">
         <div className="h-64" style={headerStyle}>
           <div className="flex justify-start items-center text-white  mx-20 my-auto">
-            <div className="text-5xl sm:text-8xl absolute text-white top-64 sm:bottom-64 left-10 right-10">
-              {caseData.heading}
+            <div className="text-5xl sm:text-8xl relative text-white top-40 sm:top-52 sm:bottom-64">
+              {caseData.heading.length > 75
+                ? caseData.heading.slice(0, 75) + "..."
+                : caseData.heading}
             </div>
           </div>
         </div>
-        <div className="mx-8 sm:mx-20">
-          <div className="">
-            <div className={`my-16  sm:flex items-start justify-center sm:space-x-8`}>
-              <div className="left sm:w-1/2">
-                <div className="tags text-4xl sm:text-5xl mb-12">
-                  {caseData &&
-                    caseData.tags &&
-                    caseData.tags.map((tag, tagIndex) => (
-                      <div
-                        key={tagIndex}
-                        className="border-2 border-black rounded-full px-3 py-1 my-2 w-fit text-xl"
-                      >
-                        {tag}
-                      </div>
-                    ))}
-                </div>
-                <div className="text-xl my-6 sm:my-0">
-                  <div className="flex justify-start items-center">
-                    <div className="yellow">
-                      {caseData.subHeading && (
-                        <div className="flex justify-start items-center space-x-6 my-4">
-                          <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
-                            <div
-                              className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
-                              style={{
-                                backgroundColor: theme ? theme.textColor : "#FECF4F",
-                                borderColor: theme ? theme.textColor : "#FECF4F",
-                                boxShadow: `0px 0px 4px 4px ${
-                                  theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
-                                }`,
-                              }}
-                            >
-                              <EastIcon className="" />
-                            </div>
-                          </div>
-                          <Link href="">
-                            <div className="text-black font-space-grotesk text-22 font-medium ">
-                              <div className="righttext text-5xl">{caseData.subHeading}</div>
-                            </div>
-                          </Link>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                  <div className="text-lg my-4">{caseData.paragraphs}</div>
-                </div>
-              </div>
-
-              {caseData.caseImage && caseData.caseImage.asset && (
-                <div className="right sm:w-1/2">
-                  <Image
-                    src={urlFor(caseData.caseImage.asset).url()}
-                    alt=""
-                    width={750}
-                    height={479}
-                  />
-                </div>
-              )}
-            </div>
-          </div>
-          <div className="sm:my-16">
-            <div className="flex items-center justify-center sm:space-x-8 my-8">
-              {caseData.mainCaseImage && caseData.mainCaseImage.asset && (
-                <div className="">
-                  <Image
-                    src={urlFor(caseData.mainCaseImage.asset).url()}
-                    alt=""
-                    width={1683}
-                    height={767}
-                  />
-                </div>
-              )}
-            </div>
-          </div>
-          <div className="">
-            {bullet &&
-              bullet.map((item, index) => (
-                <div
-                  key={item.id}
-                  className={`my-16  sm:flex items-start justify-center sm:space-x-8`}
-                >
-                  <div
-                    className={
-                      item.bulletImage && item.bulletImage.asset
-                        ? "left sm:w-2/3"
-                        : "left sm:w-full"
-                    }
-                  >
-                    <div className="text-4xl sm:text-5xl mb-12">{item.bulletHeading}</div>
-
-                    {item &&
-                      item.bulletDescription &&
-                      item.bulletDescription.map((desc, index) => (
+        <div className="max-w-[1800px] mx-auto">
+          <div className="mx-8 sm:mx-20">
+            <div className="">
+              <div className={`my-16  sm:flex items-start justify-center sm:space-x-8`}>
+                <div className="left sm:w-1/2">
+                  <div className="tags text-4xl sm:text-5xl mb-12">
+                    {caseData &&
+                      caseData.tags &&
+                      caseData.tags.map((tag, tagIndex) => (
                         <div
-                          key={index}
-                          className={`text-xl my-6 ${index === 0 ? "sm:ml-0" : "sm:ml-36"}`}
+                          key={tagIndex}
+                          className="border-2 border-black rounded-full px-3 py-1 my-2 w-fit text-xl"
                         >
-                          {desc}
+                          {tag}
                         </div>
                       ))}
                   </div>
-                  {item.bulletImage && item.bulletImage.asset && (
-                    <div className="right sm:w-1/3">
-                      <Image
-                        src={urlFor(item.bulletImage.asset).url()}
-                        alt=""
-                        width={534}
-                        height={493}
-                      />
+                  <div className="text-xl my-6 sm:my-0">
+                    <div className="flex justify-start items-center">
+                      <div className="yellow">
+                        {caseData.subHeading && (
+                          <div className="flex justify-start items-center space-x-6 my-4">
+                            <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
+                              <div
+                                className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
+                                style={{
+                                  backgroundColor: theme ? theme.textColor : "#FECF4F",
+                                  borderColor: theme ? theme.textColor : "#FECF4F",
+                                  boxShadow: `0px 0px 4px 4px ${
+                                    theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
+                                  }`,
+                                }}
+                              >
+                                <EastIcon className="" />
+                              </div>
+                            </div>
+                            <Link href="">
+                              <div className="text-black font-space-grotesk text-22 font-medium ">
+                                <div className="righttext text-5xl">{caseData.subHeading}</div>
+                              </div>
+                            </Link>
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  )}
+                    <div className="text-lg my-4">{caseData.paragraphs}</div>
+                  </div>
                 </div>
-              ))}
-          </div>
 
-          <div className="sm:flex justify-between items-center my-16">
-            <div className="left flex my-10">
-              <div className="sm:mx-4">Share on socials</div>
-              <div className="flex space-x-2 sm:space-x-6">
-                <Link
-                  className="share-link"
-                  href={`https://twitter.com/intent/tweet?text=${baseUrl}/cases/${caseData.nextCaseSlug}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Image src="/images/xicon.png" alt="Twitter" width={31} height={31} />
-                </Link>
-                <Link
-                  className="share-link"
-                  href={`https://www.linkedin.com/shareArticle?mini=true&url=${baseUrl}/cases/${caseData.nextCaseSlug}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Image src="/images/linkdin.png" alt="LinkedIn" width={31} height={31} />
-                </Link>
-                <Image src="/images/insta.png" alt="map2" width={31} height={31} />
+                {caseData.caseImage && caseData.caseImage.asset && (
+                  <div className="right sm:w-1/2">
+                    <Image
+                      src={urlFor(caseData.caseImage.asset).url()}
+                      alt=""
+                      width={750}
+                      height={479}
+                    />
+                  </div>
+                )}
               </div>
             </div>
-            <div className="right">
-              <div className="flex justify-start items-center space-x-6 my-4">
-                <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
+            <div className="sm:my-16">
+              <div className="flex items-center justify-center sm:space-x-8 my-8">
+                {caseData.mainCaseImage && caseData.mainCaseImage.asset && (
+                  <div className="">
+                    <Image
+                      src={urlFor(caseData.mainCaseImage.asset).url()}
+                      alt=""
+                      width={1683}
+                      height={767}
+                    />
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="">
+              {bullet &&
+                bullet.map((item, index) => (
                   <div
-                    className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
-                    style={{
-                      backgroundColor: theme ? theme.textColor : "#FECF4F",
-                      borderColor: theme ? theme.textColor : "#FECF4F",
-                      boxShadow: `0px 0px 4px 4px ${
-                        theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
-                      }`,
-                    }}
+                    key={item.id}
+                    className={`my-16  sm:flex items-start justify-center sm:space-x-8`}
                   >
-                    <EastIcon />
+                    <div
+                      className={
+                        item.bulletImage && item.bulletImage.asset
+                          ? "left sm:w-2/3"
+                          : "left sm:w-full"
+                      }
+                    >
+                      <div className="text-4xl sm:text-5xl mb-12">{item.bulletHeading}</div>
+
+                      {item &&
+                        item.bulletDescription &&
+                        item.bulletDescription.map((desc, index) => (
+                          <div
+                            key={index}
+                            className={`text-xl my-6 ${index === 0 ? "sm:ml-0" : "sm:ml-36"}`}
+                          >
+                            {desc}
+                          </div>
+                        ))}
+                    </div>
+                    {item.bulletImage && item.bulletImage.asset && (
+                      <div className="right sm:w-1/3">
+                        <Image
+                          src={urlFor(item.bulletImage.asset).url()}
+                          alt=""
+                          width={534}
+                          height={493}
+                        />
+                      </div>
+                    )}
                   </div>
+                ))}
+            </div>
+
+            <div className="sm:flex justify-between items-center my-16">
+              <div className="left flex my-10">
+                <div className="sm:mx-4">Share on socials</div>
+                <div className="flex space-x-2 sm:space-x-6">
+                  <Link
+                    className="share-link"
+                    href={`https://twitter.com/intent/tweet?text=${baseUrl}/cases/${caseData.nextCaseSlug}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image src="/images/xicon.png" alt="Twitter" width={31} height={31} />
+                  </Link>
+                  <Link
+                    className="share-link"
+                    href={`https://www.linkedin.com/shareArticle?mini=true&url=${baseUrl}/cases/${caseData.nextCaseSlug}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image src="/images/linkdin.png" alt="LinkedIn" width={31} height={31} />
+                  </Link>
+                  <Image src="/images/insta.png" alt="map2" width={31} height={31} />
                 </div>
-                <Link href={`/cases/${caseData.nextCaseSlug}`}>
-                  <div className="text-black font-space-grotesk text-22 font-medium underline">
-                    Explore next case
+              </div>
+              <div className="right">
+                <div className="flex justify-start items-center space-x-6 my-4">
+                  <div className="w-fit pb-2 relative bg-gradient-radial shadow-2xl cursor-pointer">
+                    <div
+                      className="shadow-custom bg-yellow rounded-full p-1 border-yellow border-solid"
+                      style={{
+                        backgroundColor: theme ? theme.textColor : "#FECF4F",
+                        borderColor: theme ? theme.textColor : "#FECF4F",
+                        boxShadow: `0px 0px 4px 4px ${
+                          theme ? theme.lightBackground : "rgba(255, 207, 79, 0.8)"
+                        }`,
+                      }}
+                    >
+                      <EastIcon />
+                    </div>
                   </div>
-                </Link>
+                  <Link href={`/cases/${caseData.nextCaseSlug}`}>
+                    <div className="text-black font-space-grotesk text-22 font-medium underline">
+                      Explore next case
+                    </div>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

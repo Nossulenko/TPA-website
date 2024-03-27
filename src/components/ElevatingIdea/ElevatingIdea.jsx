@@ -33,9 +33,9 @@ const ElevatingIdea = ({ elevatingIdeaData, loading }) => {
   }, [elevatingIdeaData]);
   // console.log("elevating image.asset._ref", image.asset._ref);
   return (
-    <div className="sm:flex items-center justify-center sm:h-[90vh]">
+    <div className="sm:flex max-w-[1800px] items-center justify-center sm:h-[90vh]">
       {" "}
-      <div className=" w-full sm:flex items-center justify-around">
+      <div className="w-full max-w-[1800px] sm:flex items-center justify-around">
         <div className="h-[80vh] sm:h-[80vh] sm:w-2/3 2xl:h-auto m-6">
           <div className=" text-6xl sm:text-8xl font-medium leading-93 uppercase break-words">
             {elevatingIdeaData.heading}

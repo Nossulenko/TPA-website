@@ -76,8 +76,8 @@ const Articles = () => {
       <div className="sm:flex-1">
         {" "}
         <div className="sm:flex relative z-10 items-center justify-start w-full">
-          <div className="relative w-full sm:m-14">
-            <div className="flex items-end justify-between 2xl:ml-16">
+          <div className="max-w-[1800px]  mx-auto relative w-full ">
+            <div className="flex items-end justify-between sm:m-14 2xl:ml-16">
               <div
                 className="text-yellow font-space-grotesk text-7xl sm:text-8xl font-medium  my-12 mx-4 sm:m-0"
                 style={{ color: theme ? theme.textColor : "#FECF4F" }}
@@ -86,7 +86,7 @@ const Articles = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 sm:gap-x-28 mx-4 sm:mx-0 m-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 sm:gap-x-28 mx-4 m-6">
               {articlesData && articlesData.map((article, index) => (
                 <div key={index} className="mb-8 2xl:ml-16">
                   <div className="min-h-20 uppercase sm:w-12/12 underline text-2xl mt-6">
@@ -106,7 +106,7 @@ const Articles = () => {
                       width={365}
                       height={352}
                     />
-                    <div className="relative text-white -left-[21.7rem] sm:-left-[22rem] top-36 flex flex-wrap">
+                    <div className="relative text-white -left-[17.7rem] top-28 xs:-left-[21rem] xs:top-32 sm:-left-[22rem] md:-left-[18rem] lg:-left-[22rem] md:top-28 lg:top-36 flex flex-wrap">
                       <div className="border-2 border-white rounded-full px-3 py-1 my-2 w-32 text-xl mr-6 flex">
                         <div className="mr-1"> {article.time} </div>
                         <div className=""> min read</div>

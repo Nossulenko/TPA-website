@@ -97,17 +97,17 @@ const Cases = () => {
       <div className="sm:flex-1">
         {" "}
         <div className="sm:flex relative z-10 items-center justify-center w-full">
-          <div className="relative w-full sm:m-10">
+          <div className="max-w-[1800px] mx-auto relative w-full">
             <div className="flex items-end justify-between">
               <div
-                className="text-yellow font-space-grotesk text-7xl sm:text-8xl font-medium  my-12 mx-4 sm:m-0"
+                className="text-yellow font-space-grotesk text-7xl sm:text-8xl font-medium  my-12 mx-4 sm:m-10"
                 style={{ color: theme ? theme.textColor : "#FECF4F" }}
               >
                 Cases
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-x-28 sm:gap-12 mx-4 sm:mx-0 m-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-x-28 sm:gap-12 mx-4 m-6">
               {casesData && casesData.map((singleCase, index) => (
                 <div key={index} className="mb-8 relative">
                   <Link

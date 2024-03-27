@@ -97,7 +97,7 @@ const HomePage = () => {
     return (
       <div className="">
         <VerticalDotNavigation sectionNo={sectionNo} setSectionNo={setSectionNo} />
-        <div className="sm:-mt-36">
+        <div className="lg:-mt-36">
           <Link to="elevatingIdea" smooth duration={500}>
             <ElevatingIdea elevatingIdeaData={elevatingIdeaData} loading={loading} />
           </Link>

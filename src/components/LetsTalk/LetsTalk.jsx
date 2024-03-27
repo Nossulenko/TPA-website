@@ -69,8 +69,8 @@ const LetsTalk = ({ letsTalkData }) => {
   // console.log("letsTalkData rec", letsTalkData);
   return (
     <>
-      <div className="relative w-full flex flex-wrap">
-        <div className="w-full sm:h-[60vh] sm:m-6 mx-6">
+      <div className="max-w-[1800px] mx-auto relative w-full flex flex-wrap 2k7:top-[45rem] 2k4:top-80">
+        <div className="w-full sm:h-[60vh] 2k:h-[50vh] sm:m-6 mx-6">
           <div
             className="text-8xl sm:text-8xl text-yellow"
             style={{ color: theme ? theme.textColor : "#FECF4F" }}
@@ -146,7 +146,7 @@ const LetsTalk = ({ letsTalkData }) => {
         </div>
 
         <div>
-          <div className="hidden sm:block absolute bottom-20 -right-20 lg:right-0 -mb-24 mr-30">
+          <div className="hidden sm:block absolute bottom-20 -right-20 lg:right-0 -mb-24 mr-30 2k:top-96">
             <Image
               src={textBlocks[0] && textBlocks[0].image}
               alt="map1"
@@ -165,7 +165,7 @@ const LetsTalk = ({ letsTalkData }) => {
             </div>
           </div>
 
-          <div className="hidden sm:block absolute bottom-80 -right-20 lg:right-0 -mb-12 mr-25">
+          <div className="hidden sm:block absolute bottom-80 -right-20 lg:right-0 -mb-12 mr-25 2k:top-52">
             <div style={{ marginBottom: "-10rem" }} className="relative z-10">
               <div className="w-96 text-black text-4xl font-bold break-words ">
                 {" "}
@@ -187,7 +187,7 @@ const LetsTalk = ({ letsTalkData }) => {
         </div>
       </div>
 
-      <div className="sm:mt-20 ml-8 sm:ml-0 lg:ml-8 h-44 2xl:mt-40 sm:flex sm:flex-wrap lg:flex-nowrap items-center justify-start lg:space-x-16 relative 2xl:bottom-0 2k:-bottom-4 4k:-bottom-40">
+      <div className="max-w-[1800px] mx-auto sm:mt-20 ml-8 sm:ml-0 h-44 2xl:mt-40 sm:flex sm:flex-wrap lg:flex-nowrap items-center justify-start lg:space-x-16 relative 2xl:bottom-0 2k:-bottom-4 4k:-bottom-40 2k4:-bottom-64 2k6:-bottom-[40rem] lg:mx-auto">
         <div className="w-1/2 lg:w-1/3 sm:flex lg:items-center mt-24 sm:mt-0">
           <div className=" ">Mail Us :</div>
           <div className="underline transition-all duration-500 ease-in-out transform hover:scale-[1.01]">

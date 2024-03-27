@@ -36,9 +36,9 @@ const Index = ({ elevatingIdeaData, loading }) => {
           WebkitTextStroke: "1px " + (theme ? theme.lightBackground : "#fada82"),
         }}
       >
-        {myText.substring(0, 7)}
+        {myText.substring(0, 30)}
       </div>
-      <div className="relative z-10 ">
+      <div className="max-w-[1800px] mx-auto relative  z-10 ">
         <ActiveElevatingIdeaComponent elevatingIdeaData={elevatingIdeaData} loading={loading} />
       </div>
     </div>

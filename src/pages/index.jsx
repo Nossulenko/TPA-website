@@ -65,9 +65,9 @@ export default function Home() {
       ) : (
         <main>
           <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} navigationData={navigationData} />
-          <div className={` ${isOpen ? "sm:ml-52" : "sm:ml-0"} transition-all duration-200`}>
-            <Navbar navigationData={navigationData} />
-            <HomePage />
+          <div className={` ${isOpen ? "sm:ml-52 2k5:ml-44" : "sm:ml-0"} transition-all duration-200`}>
+            <Navbar navigationData={navigationData} isOpen={isOpen} setIsOpen={setIsOpen}/>
+            <HomePage isOpen={isOpen} setIsOpen={setIsOpen} navigationData={navigationData}/>
           </div>
         </main>
       )}

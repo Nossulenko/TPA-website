@@ -40,38 +40,40 @@ const AboutPTA = ({ aboutPTAData }) => {
   const imageUrl = image && image.asset ? urlFor(image.asset).url() : fallbackImageUrl;
   return (
     <div className=" lg:h-screen relative w-full flex flex-col lg:flex-row my-10 sm:my-0">
-      <div className=" lg:w-2/3 m-4 xs:m-6">
-        <div
-          className="font-space-grotesk text-8xl sm:text-9xl font-medium leading-93 text-yellow"
-          style={{ color: theme ? theme.textColor : "#FECF4F" }}
-        >
-          About TPA
-        </div>
-        <div className="sm:hidden">
-          <Image src="/images/tpa.png" alt="r3" width={400} height={400} />
-        </div>
-        <div className="text-4xl font-medium leading-127.5 my-6">
-          {textBlocks && textBlocks?.heading}
-        </div>
-        <div className=" sm:pl-0  custom-scrollbar">
-          <div className="sm:flex justify-start items-start sm:space-x-4 my-4">
-            <div className="w-full sm:w-1/2 text-black text-xl font-normal ">
-              {textBlocks && textBlocks?.desc1}
+      <div className="max-w-[1800px] mx-auto relative w-full flex flex-col lg:flex-row my-10 sm:my-0">
+        {" "}
+        <div className=" lg:w-2/3 m-4 xs:m-6">
+          <div
+            className="font-space-grotesk text-8xl sm:text-9xl font-medium leading-93 text-yellow"
+            style={{ color: theme ? theme.textColor : "#FECF4F" }}
+          >
+            About TPA
+          </div>
+          <div className="sm:hidden">
+            <Image src="/images/tpa.png" alt="r3" width={400} height={400} />
+          </div>
+          <div className="text-4xl font-medium leading-127.5 my-6">
+            {textBlocks && textBlocks?.heading}
+          </div>
+          <div className=" sm:pl-0  custom-scrollbar">
+            <div className="sm:flex justify-start items-start sm:space-x-4 my-4">
+              <div className="w-full sm:w-1/2 text-black text-xl font-normal ">
+                {textBlocks && textBlocks?.desc1}
+              </div>
+              <div className="w-full sm:w-1/2 text-black text-xl font-normal ">
+                {textBlocks && textBlocks?.desc2}
+              </div>
             </div>
-            <div className="w-full sm:w-1/2 text-black text-xl font-normal ">
-              {textBlocks && textBlocks?.desc2}
+            <div className=" sm:flex justify-start items-center sm:space-x-4">
+              <div className="w-full sm:w-1/2 text-black text-xl font-normal ">
+                {textBlocks && textBlocks?.desc3}
+              </div>
+              <div className="w-full sm:w-1/2 text-black text-xl font-normal ">
+                {textBlocks && textBlocks?.desc4}
+              </div>
             </div>
           </div>
-          <div className=" sm:flex justify-start items-center sm:space-x-4">
-            <div className="w-full sm:w-1/2 text-black text-xl font-normal ">
-              {textBlocks && textBlocks?.desc3}
-            </div>
-            <div className="w-full sm:w-1/2 text-black text-xl font-normal ">
-              {textBlocks && textBlocks?.desc4}
-            </div>
-          </div>
-        </div>
-        <div className="mt-8 sm:mt-12 flex justify-start items-center space-x-6">
+          <div className="mt-8 sm:mt-12 flex justify-start items-center space-x-6">
             {" "}
             <div className="w-fit pb-2 sm:relative  shadow-2xl cursor-pointer">
               <div
@@ -88,13 +90,15 @@ const AboutPTA = ({ aboutPTAData }) => {
               </div>
             </div>
             <Link href="/aboutus">
-            <div className="text-black text-center font-space-grotesk text-22 font-medium underline">About The product architects</div>
+              <div className="text-black text-center font-space-grotesk text-22 font-medium underline">
+                About The product architects
+              </div>
             </Link>
           </div>
-      </div>
-
-      <div className="hidden sm:block lg:w-1/3 m-6">
-        <Image src={imageUrl} alt="r3" width={400} height={400} />
+        </div>
+        <div className="hidden sm:block lg:w-1/3 m-6">
+          <Image src={imageUrl} alt="r3" width={400} height={400} />
+        </div>
       </div>
     </div>
   );

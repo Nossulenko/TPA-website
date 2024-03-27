@@ -8,6 +8,7 @@ import client from "../../lib/sanity";
 import LetsTalk from "../../components/LetsTalk/index";
 import { useRouter } from "next/router";
 import SingleCase from "./SingleCase";
+import Sidebar from "@/components/Sidebar";
 
 // This function gets called at build time to determine all case slugs
 // export async function getStaticPaths() {
@@ -36,6 +37,7 @@ export default function Home({ SingleCaseData }) {
   const [theme, setTheme] = useState({});
   const [navigationData, setNavigationData] = useState([]);
   const [letsTalkData, setLetsTalkData] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -73,9 +75,17 @@ export default function Home({ SingleCaseData }) {
       className="bg-greybg"
     >
       <main>
-        <Navbar navigationData={navigationData} color="white" />
-        <SingleCase SingleCaseData={SingleCaseData} navigationData={navigationData} />
-        <LetsTalk letsTalkData={letsTalkData} />
+        <Sidebar
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          navigationData={navigationData}
+          color="yellow"
+        />
+        <div className={` ${isOpen ? "sm:ml-52" : "sm:ml-0"} transition-all duration-200`}>
+          <Navbar navigationData={navigationData} color="white" />
+          <SingleCase SingleCaseData={SingleCaseData} navigationData={navigationData} />
+          <LetsTalk letsTalkData={letsTalkData} />
+        </div>
       </main>
     </TextContext.Provider>
   );
