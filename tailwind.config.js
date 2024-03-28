@@ -42,6 +42,7 @@ module.exports = {
       position: ["responsive", "sticky"],
       screens: {
         "xs":'321px',
+        "lg1":'1025px',
         "k":'1536px',
         "2k": "1921px",
         "2k1": "2000px",

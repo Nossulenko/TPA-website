@@ -27,7 +27,7 @@ const Index = ({ whatWeDoData }) => {
   return (
     <div id="whatWeDo" className="relative overflow-hidden mt-96 xs:mt-0 lg:pl-12">
       <div
-        className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden w-screen whitespace-nowrap text-transparent text-12xl leading-none bg-clip-text bg-transparent stroke-text border-yellow k:mb-64 2k:mb-[25rem] 5k:mb-[60rem]"
+        className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden w-screen whitespace-nowrap text-transparent text-12xl leading-none bg-clip-text bg-transparent stroke-text border-yellow k:mb-64 2k:mb-[25rem] 2k2:mb-[44rem] 5k:mb-[60rem] 2k5:mb-[76rem] 2k7:mb-[100rem]"
         style={{
           borderColor: theme ? theme.textColor : "#FECF4F",
           WebkitTextStroke: "1px " + (theme ? theme.lightBackground : "#fada82"),

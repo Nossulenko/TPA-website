@@ -94,7 +94,7 @@ const Team = ({ teamData }) => {
             >
               Core team
             </div>
-            <div className="lg:h-auto sm:flex flex-wrap lg:flex-nowrap sm:justify-center sm:items-center sm:mx-24 lg:mx-24 sm:py-0 sm:overflow-auto lg:overflow-hidden">
+            <div className="lg:h-auto sm:flex flex-wrap lg:flex-nowrap sm:justify-center sm:items-center lg:items-start lg1:items-center sm:mx-24 lg:ml-0 lg1:mx-24 sm:py-0 sm:overflow-auto lg:overflow-hidden">
               {textBlocks &&
                 textBlocks.slice(beginningIndex, endIndex).map((item, index) => (
                   <div key={index} className="lg:w-1/3 my-8 sm:my-16 sm:mx-0 2xl:ml-8">

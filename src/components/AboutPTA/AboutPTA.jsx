@@ -40,7 +40,7 @@ const AboutPTA = ({ aboutPTAData }) => {
   const imageUrl = image && image.asset ? urlFor(image.asset).url() : fallbackImageUrl;
   return (
     <div className=" lg:h-screen relative w-full flex flex-col lg:flex-row my-10 sm:my-0">
-      <div className="max-w-[1800px] mx-auto relative w-full flex flex-col lg:flex-row my-10 sm:my-0">
+      <div className="max-w-[1800px] mx-auto relative w-full flex flex-col lg:flex-row my-10 sm:my-0 lg:items-center">
         {" "}
         <div className=" lg:w-2/3 m-4 xs:m-6">
           <div

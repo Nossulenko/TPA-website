@@ -23,7 +23,7 @@ const Index = ({ letsTalkData }) => {
 
   const ActiveElevatingIdeaComponent = ElevatingIdeaComponents[activeDot];
   return (
-    <div id="letsTalk" className="lg:pl-12 relative h-screen sm:overflow-hidden">
+    <div id="letsTalk" className="lg:pl-12 relative sm:overflow-hidden">
       <div
         className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden w-screen whitespace-nowrap text-transparent text-12xl leading-none bg-clip-text bg-transparent stroke-text "
         style={{

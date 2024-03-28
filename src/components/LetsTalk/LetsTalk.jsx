@@ -146,7 +146,7 @@ const LetsTalk = ({ letsTalkData }) => {
         </div>
 
         <div>
-          <div className="hidden sm:block absolute bottom-20 -right-20 lg:right-0 -mb-24 mr-30 2k:top-96">
+          <div className="hidden sm:block absolute bottom-20 lg:bottom-40 lg1:bottom-20 -right-20 lg:right-0 -mb-24 mr-30 2k:top-96">
             <Image
               src={textBlocks[0] && textBlocks[0].image}
               alt="map1"
@@ -165,7 +165,7 @@ const LetsTalk = ({ letsTalkData }) => {
             </div>
           </div>
 
-          <div className="hidden sm:block absolute bottom-80 -right-20 lg:right-0 -mb-12 mr-25 2k:top-52">
+          <div className="hidden sm:block absolute bottom-80 lg:bottom-[26rem] lg1:bottom-80 -right-20 lg:right-0 -mb-12 mr-25 2k:top-52">
             <div style={{ marginBottom: "-10rem" }} className="relative z-10">
               <div className="w-96 text-black text-4xl font-bold break-words ">
                 {" "}
@@ -187,8 +187,8 @@ const LetsTalk = ({ letsTalkData }) => {
         </div>
       </div>
 
-      <div className="max-w-[1800px] mx-auto sm:mt-20 ml-8 sm:ml-0 h-44 2xl:mt-40 sm:flex sm:flex-wrap lg:flex-nowrap items-center justify-start lg:space-x-16 relative 2xl:bottom-0 2k:-bottom-4 4k:-bottom-40 2k4:-bottom-64 2k6:-bottom-[40rem] lg:mx-auto">
-        <div className="w-1/2 lg:w-1/3 sm:flex lg:items-center mt-24 sm:mt-0">
+      <div className="max-w-[1800px] mx-auto sm:mt-20 ml-8 sm:ml-0 h-44 2xl:mt-40 sm:flex sm:flex-wrap lg1:flex-nowrap items-center justify-start lg1:space-x-16 relative 2xl:bottom-0 2k:-bottom-4 lg1:mx-auto md:ml-4 ">
+        <div className="w-1/2 lg1:w-1/3 sm:flex lg1:items-center mt-24 sm:mt-0">
           <div className=" ">Mail Us :</div>
           <div className="underline transition-all duration-500 ease-in-out transform hover:scale-[1.01]">
             <Link href="mailto:hello@productarchitects.eu">hello@productarchitects.eu</Link>
@@ -261,9 +261,7 @@ const LetsTalk = ({ letsTalkData }) => {
         </div>
 
         <div className="sm:flex items-center py-12 sm:py-0 mx-0 sm:space-x-24 lg-space-x-0">
-          <div className="text-black text-lg font-normal underline">
-            Terms and conditions
-          </div>
+          <div className="text-black text-lg font-normal underline">Terms and conditions</div>
           <div className="text-black text-lg font-normal ">
             Copyright © {currentYear}. The Product Architects
           </div>

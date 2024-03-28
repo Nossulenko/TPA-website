@@ -23,7 +23,7 @@ const WhatweDo = ({ whatWeDoData }) => {
   const paragraphs = [paragraph1, paragraph2, paragraph3];
   // console.log("image", image.asset._ref);
   return (
-    <div className="relative w-full  lg:flex justify-center">
+    <div className="relative w-full  lg:flex justify-center 2k9:mt-80">
       <div className="max-w-[1800px] mx-auto relative w-full  lg:flex justify-center">
         {" "}
         <div className=" lg:h-[90vh] m-6 lg:w-[45%]">
