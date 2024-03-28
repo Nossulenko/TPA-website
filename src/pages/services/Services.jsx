@@ -109,7 +109,7 @@ const Services = () => {
                         />
                       )}
 
-                      <div className="absolute text-white bottom-1 lg:bottom-1 left-4 flex flex-wrap mr-8">
+                      <div className="absolute text-white bottom-1 lg:bottom-1 left-4 flex flex-wrap w-10/12">
                         {service &&
                           service.tags &&
                           service.tags.map((tag, tagIndex) => (
