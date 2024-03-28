@@ -166,12 +166,14 @@ const SingleArticle = ({ SingleArticleData }) => {
               ))}
           </div>
           <div className="article">
-            <PortableText
-              content={article.content}
-              projectId="xh1730zu"
-              dataset="production"
-              // serializers={richTextSerializers}
-            />
+            {article.content && article.content.length > 0 && (
+              <PortableText
+                content={article.content}
+                projectId="xh1730zu"
+                dataset="production"
+                // serializers={richTextSerializers}
+              />
+            )}
           </div>
           <div className="sm:flex justify-between items-center my-16">
             <div className="left flex my-10">
